@@ -3,13 +3,16 @@ from opensearchpy import OpenSearch, helpers
 import pandas as pd
 from deep_translator import GoogleTranslator
 # Initialize the OpenSearch client
-host = 'localhost'
-port = 9200
-auth = ('admin', 'admin')  # For testing only. Don't store credentials in code.
 
+# Opensearch client
+HOST = 'localhost'
+PORT = 9200
+username = input("Enter your username: ")
+password = input("Enter your password: ")
+auth = (username, password)
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 client = OpenSearch(
-    hosts=[{'host': host, 'port': port}],
+    hosts=[{'host': HOST, 'port': PORT}],
     http_compress=True,  # enables gzip compression for request bodies
     http_auth=auth,
     use_ssl=True,
