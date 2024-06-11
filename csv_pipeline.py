@@ -105,6 +105,8 @@ def flatten_csv(folder_path):
     for file_name in os.listdir(folder_path):
         if file_name.endswith('.csv') and file_name.startswith('export_CAN'):
             file_path = os.path.join(folder_path, file_name)
+            test = pd.read_csv(file_path)
+            print(test.head(1))
             current_df = pd.read_csv(file_path, dtype = dtypes)
             dfs.append(current_df)
     df = pd.concat(dfs, ignore_index=True)
