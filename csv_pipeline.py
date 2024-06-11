@@ -8,7 +8,7 @@ from datetime import datetime
 import wget
 import zipfile
 import shutil
-
+import getpass
 #                          ------------ FUNCTIONS -----------------
 
 # Function to download files from url into file_path
@@ -123,8 +123,8 @@ def format_fields(df_chunk):
 host = 'localhost'
 port = 9200
 index='ted-csv'
-username = input("Enter your username: ")
-password = input("Enter your password: ")
+username = input("Enter ProCureSpot username: ")
+password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)  # For testing only. Don't store credentials in code.
 ca_certs_path = '/full/path/to/root-ca.pem'  # Provide a CA bundle if you use intermediate CAs with your root CA.
 
@@ -139,16 +139,18 @@ client = OpenSearch(
     ssl_show_warn=False,
 )
 
-folder = "C:\\Users\\afont\\OneDrive\\Escritorio\\PROCURE\\Data\\TED\\"  #"/home/procure/data/ted/"
+folder = "./temp/csv/"  #"/home/procure/data/ted/"
 
 
 #                               ------------ CODE -----------------
 
-#download_csv(folder)
+download_csv(folder)
 df = flatten_csv(folder)
 lines = df.shape[0]
 columns = df.columns
 
+
+logs = pd.DataFrame(columns=['_id', '_index', 'status', 'error', 'date'])
 print("Lines to upload " + str(lines))
 iters = math.ceil(lines / 100000)
 for i in range(0, iters):
@@ -172,8 +174,36 @@ for i in range(0, iters):
     # Use the bulk API to index the documents
     try:
         success, failed = helpers.bulk(client, actions, index=index, raise_on_error=True, refresh=True)
-        print(f"Successfully indexed {success} documents.")
-        if failed:
-            print(f"!! Failed to index {failed} documents.")
+        #Logging
+        successful_ids = {action['_id'] for action in actions}
+        failed_ids = {failure['index']['_id'] for failure in failed}
+        successful_ids -= failed_ids
+        current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        for action in actions:
+            if action['_id'] in successful_ids:
+                logs = logs.append({
+                    '_id': action['_id'],
+                    '_index': action['_index'],
+                    'status': 'success',
+                    'error': None,
+                    'date': current_date
+                }, ignore_index=True)
+
+        for failure in failed:
+            action = failure['index'] if 'index' in failure else failure['create']
+            error = failure['index']['error'] if 'index' in failure else failure['create']['error']
+            document_id = action['_id']
+            index = action['_index']
+            reason = error['reason']
+
+            logs = logs.append({
+                '_id': document_id,
+                '_index': index,
+                'status': 'failed',
+                'error': reason,
+                'date': current_date
+            }, ignore_index=True)
     except Exception as e:
         print(f"Error during bulk indexing: {e}")
+
+logs.to_csv("./logs/csv-ingestion.csv", index=False)
