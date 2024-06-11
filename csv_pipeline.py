@@ -145,6 +145,7 @@ folder = "./temp/csv/"  #"/home/procure/data/ted/"
 #                               ------------ CODE -----------------
 
 download_csv(folder)
+os.makedirs(folder)
 df = flatten_csv(folder)
 lines = df.shape[0]
 columns = df.columns
@@ -196,14 +197,15 @@ for i in range(0, iters):
             index = action['_index']
             reason = error['reason']
 
-            logs.append({
+            logs.append(pd.DataFrame({
                 '_id': document_id,
                 '_index': index,
                 'status': 'failed',
                 'error': reason,
                 'date': current_date
-            }, ignore_index=True)
+            }, ignore_index=True))
     except Exception as e:
         print(f"Error during bulk indexing: {e}")
+shutil.rmtree(folder)
 logs_df = pd.concat(logs, ignore_index=True)
 logs_df.to_csv("./logs/csv-ingestion.csv", index=False)
