@@ -22,7 +22,7 @@ client = OpenSearch(
 )
 
 # Define your index and field
-index_name = "ted-xml"
+index_name = "procure"
 # Define the query to retrieve all documents
 query = {
     "query": {
@@ -39,7 +39,7 @@ response = client.search(
 )
 
 scroll_id = response["_scroll_id"]
-
+dfs=[]
 scr = 1
 while True:
     # Continue scrolling
@@ -48,8 +48,6 @@ while True:
 
     # Extract document IDs and corresponding field values from the current batch of results
     for hit in response["hits"]["hits"]:  # Processing and Extracting Info Document-wise
-        if not (isinstance(hit["_source"]["CONTRACT_AWARD_NOTICE"],
-                           list)):  # REMOVE CONDITION there should not be any list in final version
             doc_id = hit["_id"]
             title_translated = hit["_source"]["Title (Translation)"]
             description_translated = hit["_source"]["Description (Translation)"]
@@ -60,4 +58,9 @@ while True:
 
 
     print("Scroll " + str(scr))
-    pd.display(df)
+    scr = scr + 1
+    dfs.append(df)
+    if len(response["hits"]["hits"]) < 10000:
+        break
+final_df = pd.concat(dfs, ignore_index = True)
+final_df.to_csv("temp_translations.csv", index=False)
