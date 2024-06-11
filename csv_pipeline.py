@@ -145,7 +145,7 @@ folder = "./temp/csv/"  #"/home/procure/data/ted/"
 #                               ------------ CODE -----------------
 
 download_csv(folder)
-if not os.path.exists(folder):
+if  not os.path.exists(folder):
     os.makedirs(folder)
 df = flatten_csv(folder)
 lines = df.shape[0]
@@ -183,13 +183,13 @@ for i in range(0, iters):
         current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         for action in actions:
             if action['_id'] in successful_ids:
-                logs.append({
+                logs.append(pd.DataFrame({
                     '_id': action['_id'],
                     '_index': action['_index'],
                     'status': 'success',
                     'error': None,
                     'date': current_date
-                }, ignore_index=True)
+                }, ignore_index=True))
 
         for failure in failed:
             action = failure['index'] if 'index' in failure else failure['create']
