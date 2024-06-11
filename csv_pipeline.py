@@ -145,7 +145,8 @@ folder = "./temp/csv/"  #"/home/procure/data/ted/"
 #                               ------------ CODE -----------------
 
 download_csv(folder)
-os.makedirs(folder)
+if not os.path.exists(folder):
+    os.makedirs(folder)
 df = flatten_csv(folder)
 lines = df.shape[0]
 columns = df.columns
