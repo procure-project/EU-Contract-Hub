@@ -189,7 +189,7 @@ for i in range(0, iters):
                     'status': 'success',
                     'error': None,
                     'date': current_date
-                }, ignore_index=True))
+                }))
 
         for failure in failed:
             action = failure['index'] if 'index' in failure else failure['create']
@@ -204,7 +204,7 @@ for i in range(0, iters):
                 'status': 'failed',
                 'error': reason,
                 'date': current_date
-            }, ignore_index=True))
+            }))
     except Exception as e:
         print(f"Error during bulk indexing: {e}")
 shutil.rmtree(folder)
