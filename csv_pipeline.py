@@ -57,11 +57,55 @@ def download_csv(save_folder):
 
 
 def flatten_csv(folder_path):
+    dtypes = {
+        'ID_NOTICE_CAN': 'str',
+        'TED_NOTICE_URL': 'str',
+        'YEAR': 'int',
+        'ID_TYPE': 'str',
+        'DT_DISPATCH': 'str',  # Dates can be converted later if needed
+        'XSD_VERSION': 'str',
+        'CANCELLED': 'bool',
+        'CORRECTIONS': 'bool',
+        'B_MULTIPLE_CAE': 'bool',
+        'CAE_NAME': 'str',
+        'CAE_NATIONALID': 'str',
+        'CAE_ADDRESS': 'str',
+        'CAE_TOWN': 'str',
+        'CAE_POSTAL_CODE': 'str',
+        'CAE_GPA_ANNEX': 'str',
+        'ISO_COUNTRY_CODE': 'str',
+        'ISO_COUNTRY_CODE_GPA': 'str',
+        'B_MULTIPLE_COUNTRY': 'bool',
+        'ISO_COUNTRY_CODE_ALL': 'str',
+        'CAE_TYPE': 'str',
+        'EU_INST_CODE': 'str',
+        'MAIN_ACTIVITY': 'str',
+        'B_ON_BEHALF': 'bool',
+        'B_INVOLVES_JOINT_PROCUREMENT': 'bool',
+        'B_AWARDED_BY_CENTRAL_BODY': 'bool',
+        'TYPE_OF_CONTRACT': 'str',
+        'B_FRA_AGREEMENT': 'bool',
+        'FRA_ESTIMATED': 'str',
+        'B_DYN_PURCH_SYST': 'bool',
+        'CPV': 'str',
+        'MAIN_CPV_CODE_GPA': 'str',
+        'B_GPA': 'bool',
+        'GPA_COVERAGE': 'str',
+        'LOTS_NUMBER': 'int',
+        'VALUE_EURO': 'float',
+        'VALUE_EURO_FIN_1': 'float',
+        'VALUE_EURO_FIN_2': 'float',
+        'TOP_TYPE': 'str',
+        'B_ACCELERATED': 'bool',
+        'OUT_OF_DIRECTIVES': 'bool',
+        'B_ELECTRONIC_AUCTION': 'bool',
+        'NUMBER_AWARDS': 'int'
+    }
     dfs = []
     for file_name in os.listdir(folder_path):
         if file_name.endswith('.csv') and file_name.startswith('export_CAN'):
             file_path = os.path.join(folder_path, file_name)
-            current_df = pd.read_csv(file_path)
+            current_df = pd.read_csv(file_path, dtypes = dtypes)
             dfs.append(current_df)
     df = pd.concat(dfs, ignore_index=True)
 
@@ -122,7 +166,7 @@ def format_fields(df_chunk):
 
 host = 'localhost'
 port = 9200
-index='ted-csv'
+index = 'ted-csv'
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)  # For testing only. Don't store credentials in code.
@@ -183,13 +227,14 @@ for i in range(0, iters):
         current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         for action in actions:
             if action['_id'] in successful_ids:
-                logs.append(pd.DataFrame({
+                log_entry = pd.DataFrame({
                     '_id': action['_id'],
                     '_index': action['_index'],
                     'status': 'success',
                     'error': None,
                     'date': current_date
-                }))
+                })
+                logs.append(log_entry)
 
         for failure in failed:
             action = failure['index'] if 'index' in failure else failure['create']
@@ -198,13 +243,14 @@ for i in range(0, iters):
             index = action['_index']
             reason = error['reason']
 
-            logs.append(pd.DataFrame({
+            log_entry = pd.DataFrame({
                 '_id': document_id,
                 '_index': index,
                 'status': 'failed',
                 'error': reason,
                 'date': current_date
-            }))
+            })
+            logs.append(log_entry)
     except Exception as e:
         print(f"Error during bulk indexing: {e}")
 shutil.rmtree(folder)
