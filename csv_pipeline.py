@@ -93,28 +93,28 @@ def parse_date(date_str):
 def format_fields(df_chunk):
     float_cols = ["VALUE_EURO", "VALUE_EURO_FIN_1", "VALUE_EURO_FIN_2"]
     for col in float_cols:
-        df_chunk[col] = pd.to_numeric(df[col], errors='coerce')
-        df_chunk[col].fillna(-1, inplace=True)
+        df_chunk.loc[:, col] = pd.to_numeric(df_chunk[col], errors='coerce')
+        df_chunk.loc[:, col].fillna(-1, inplace=True)
 
     # Apply the parse_date function to the 'DT_DISPATCH' column
-    df_chunk['DT_DISPATCH'] = df_chunk['DT_DISPATCH'].apply(parse_date)
+    df_chunk.loc[:, 'DT_DISPATCH'] = df_chunk['DT_DISPATCH'].apply(parse_date)
+
     bool_cols = ["CANCELLED", "B_MULTIPLE_CAE", "B_MULTIPLE_COUNTRY", "B_INVOLVES_JOINT_PROCUREMENT",
                  "B_AWARDED_BY_CENTRAL_BODY", "B_FRA_AGREEMENT", "B_DYN_PURCH_SYST", "B_ELECTRONIC_AUCTION",
                  "B_ON_BEHALF", "B_GPA", "B_ACCELERATED", "OUT_OF_DIRECTIVES"]
     for col in bool_cols:
-        df_chunk[col].replace({0: False, 1: True}, inplace=True)
-        df_chunk[col].replace({'N': False, 'Y': True}, inplace=True)
-        df_chunk[col].fillna(False, inplace=True)
+        df_chunk.loc[:, col].replace({0: False, 1: True, 'N': False, 'Y': True}, inplace=True)
+        df_chunk.loc[:, col].fillna(False, inplace=True)
 
     null_cols = ["ISO_COUNTRY_CODE_ALL", "GPA_COVERAGE", "XSD_VERSION", "TOP_TYPE", "TED_NOTICE_URL", "CAE_GPA_ANNEX",
                  "CAE_POSTAL_CODE", "CAE_NATIONALID", "CAE_ADDRESS", "CAE_TOWN", "MAIN_ACTIVITY", "EU_INST_CODE",
                  "TYPE_OF_CONTRACT", "ISO_COUNTRY_CODE_GPA", "GPA_COVERAGE"]
     for col in null_cols:
-        df_chunk[col].fillna("None", inplace=True)
+        df_chunk.loc[:, col].fillna("None", inplace=True)
 
-    df_chunk['MAIN_CPV_CODE_GPA'].fillna("0", inplace=True)
-    df_chunk["FRA_ESTIMATED"].fillna("No", inplace=True)
-    df_chunk["LOTS_NUMBER"].fillna(0, inplace=True)
+    df_chunk.loc[:, 'MAIN_CPV_CODE_GPA'].fillna("0", inplace=True)
+    df_chunk.loc[:, "FRA_ESTIMATED"].fillna("No", inplace=True)
+    df_chunk.loc[:, "LOTS_NUMBER"].fillna(0, inplace=True)
 
     return df_chunk
 
@@ -150,7 +150,7 @@ lines = df.shape[0]
 columns = df.columns
 
 
-logs = pd.DataFrame(columns=['_id', '_index', 'status', 'error', 'date'])
+logs = []
 print("Lines to upload " + str(lines))
 iters = math.ceil(lines / 100000)
 for i in range(0, iters):
@@ -181,7 +181,7 @@ for i in range(0, iters):
         current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         for action in actions:
             if action['_id'] in successful_ids:
-                logs = logs.append({
+                logs.append({
                     '_id': action['_id'],
                     '_index': action['_index'],
                     'status': 'success',
@@ -196,7 +196,7 @@ for i in range(0, iters):
             index = action['_index']
             reason = error['reason']
 
-            logs = logs.append({
+            logs.append({
                 '_id': document_id,
                 '_index': index,
                 'status': 'failed',
@@ -205,5 +205,5 @@ for i in range(0, iters):
             }, ignore_index=True)
     except Exception as e:
         print(f"Error during bulk indexing: {e}")
-
-logs.to_csv("./logs/csv-ingestion.csv", index=False)
+logs_df = pd.concat(logs, ignore_index=True)
+logs_df.to_csv("./logs/csv-ingestion.csv", index=False)
