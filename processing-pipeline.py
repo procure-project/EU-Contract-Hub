@@ -97,7 +97,7 @@ query = {
 response = client.search(
     index=index_name,
     body=query,
-    size=100,  # Number of documents to retrieve per batch
+    size=10000,  # Number of documents to retrieve per batch
     scroll="10m"  # Keep the scroll window open for 1 minute
 )
 
@@ -190,6 +190,6 @@ while True:
         print(f"Error during bulk indexing: {e}")
     # Check if there are more results to fetch
     scr = scr + 1
-    if len(response["hits"]["hits"]) < 100:
+    if len(response["hits"]["hits"]) < 10000:
         break
 # Create a DataFrame to store the document IDs and field values
