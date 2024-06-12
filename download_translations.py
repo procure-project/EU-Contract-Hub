@@ -1,14 +1,16 @@
 
 from opensearchpy import OpenSearch, helpers
 import pandas as pd
+import getpass
 from deep_translator import GoogleTranslator
 # Initialize the OpenSearch client
 
 # Opensearch client
 HOST = 'localhost'
 PORT = 9200
-username = input("Enter your username: ")
-password = input("Enter your password: ")
+
+username = input("Enter ProCureSpot username: ")
+password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 client = OpenSearch(

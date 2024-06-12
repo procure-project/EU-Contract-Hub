@@ -4,6 +4,7 @@ import concurrent.futures
 from opensearchpy import OpenSearch, helpers
 import pandas as pd
 from deep_translator import GoogleTranslator
+import getpass
 
 
 translator = GoogleTranslator(source='auto', target='english')
@@ -67,8 +68,10 @@ def processing_scroll(df):
 
 # Initialize the OpenSearch client
 host = 'localhost'
-port = 9200
-auth = ('admin', 'admin')  # For testing only. Don't store credentials in code.
+username = input("Enter ProCureSpot username: ")
+password = getpass.getpass(prompt="Enter ProCureSpot password: ")
+
+auth = (username, password)
 
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 client = OpenSearch(
