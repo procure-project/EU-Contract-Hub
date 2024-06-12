@@ -9,6 +9,7 @@ import tarfile
 from urllib.error import HTTPError
 import datetime
 from tqdm import tqdm
+import getpass
 
 # Extracts a .tar.gz compressed file and deletes the compressed file
 def extract_file(file_path):
@@ -163,9 +164,9 @@ BASE_FOLDER = "/home/procure/data/ted/xml/"
 # Opensearch client
 HOST = 'localhost'
 PORT = 9200
-username = input("Enter your username: ")
-password = input("Enter your password: ")
-auth = (username, password)
+username = input("Enter ProCureSpot username: ")
+password = getpass.getpass(prompt="Enter ProCureSpot password: ")
+auth = (username, password) 
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 OS_CLIENT = OpenSearch(
     hosts=[{'host': HOST, 'port': PORT}],
