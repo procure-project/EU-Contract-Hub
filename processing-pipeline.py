@@ -68,9 +68,9 @@ def processing_scroll(df):
 
 # Initialize the OpenSearch client
 host = 'localhost'
+port = 9200
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
-
 auth = (username, password)
 
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
