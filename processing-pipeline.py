@@ -57,10 +57,10 @@ def processing_scroll(df):
     temp_cpv_strings = df['CPV'].astype(str).str.lstrip('0')
     df["Healthcare CPV"] = temp_cpv_strings.str.startswith(tuple(health_prefixes))
 
-    try:
-        batch_translate(df)
-    except Exception as e:
-        print(e)
+    # try:
+    #     batch_translate(df)
+    # except Exception as e:
+    #     print(e)
     return df
 
 
@@ -155,8 +155,8 @@ while True:
                 value = -1
                 proc_route = "Unknown"
 
-            title_translated = title
-            description_translated = description
+            title_translated = "-"
+            description_translated = "-"
 
             id_field_pairs.append((doc_id, title, title_translated, description, description_translated, cpv, cpv_desc,
                                    health_cpv, country, value, proc_route, ca_name, ca_details))
