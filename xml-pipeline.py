@@ -166,7 +166,7 @@ HOST = 'localhost'
 PORT = 9200
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
-auth = (username, password) 
+auth = (username, password)
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 OS_CLIENT = OpenSearch(
     hosts=[{'host': HOST, 'port': PORT}],
