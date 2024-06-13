@@ -117,12 +117,14 @@ while True:
             title = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["TITLE"]["P"]
             description = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["SHORT_DESCR"]["P"]
 
-            cpv = hit["_source"]["CODED_DATA_SECTION"]["NOTICE_DATA"]["ORIGINAL_CPV"][0]["@CODE"] if isinstance(
-                hit["_source"]["CODED_DATA_SECTION"]["NOTICE_DATA"]["ORIGINAL_CPV"], list) else \
-            hit["_source"]["CODED_DATA_SECTION"]["NOTICE_DATA"]["ORIGINAL_CPV"]["@CODE"]
-            cpv_desc = hit["_source"]["CODED_DATA_SECTION"]["NOTICE_DATA"]["ORIGINAL_CPV"][0]["#text"] if isinstance(
-                hit["_source"]["CODED_DATA_SECTION"]["NOTICE_DATA"]["ORIGINAL_CPV"], list) else \
-            hit["_source"]["CODED_DATA_SECTION"]["NOTICE_DATA"]["ORIGINAL_CPV"]["#text"]
+            cpv_data = hit["_source"]["CODED_DATA_SECTION"]["NOTICE_DATA"]["ORIGINAL_CPV"] # may be a list or a dictionary
+            if isinstance(cpv_data, list):
+                cpv = [int(item["@CODE"]) for item in cpv_data]
+                cpv_desc = [str(item["#text"]) for item in cpv_data]
+            else:
+                cpv = int(cpv_data["@CODE"])
+                cpv_desc = str(cpv_data["#text"])
+
             health_cpv = False
 
             country = hit["_source"]["CODED_DATA_SECTION"]["NOTICE_DATA"]["ISO_COUNTRY"]["@VALUE"]
@@ -173,7 +175,7 @@ while True:
     actions = [
         {
             "_op_type": "index",
-            "_index": "procure",
+            "_index": "procure-test",
             "_id": doc['Document ID'],
             **{f"{col_name}": doc[col_name] for col_name in df.columns if col_name != "Document ID"}
 
@@ -181,7 +183,7 @@ while True:
         for _, doc in df.iterrows()
     ]
     try:
-        success, failed = helpers.bulk(client, actions, index="procure", raise_on_error=True, refresh=True)
+        success, failed = helpers.bulk(client, actions, index="procure-test", raise_on_error=True, refresh=True)
         print(f"Successfully indexed {success} documents.")
         print(f"Failed to index {failed} documents.")
     except Exception as e:
