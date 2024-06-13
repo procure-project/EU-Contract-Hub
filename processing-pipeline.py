@@ -43,11 +43,8 @@ def batch_translate(df):
     df['Title (Translation)'] = title_translations
     df['Description (Translation)'] = description_translations
     return df
-def processing_scroll(df):
-    # VALUE FILTERING
-    df['Value'] = df['Value'].where((df['Value'] > 100) & (df['Value'] < 10 ** 10), -1)
 
-    # CPV HEALTHCARE CLASSIFICATION
+def cpv_list_contains_healthcare_cpvs(cpv_list):
     health_cpv_list = [33600000,
                        33110000,
                        33120000, 33130000, 33150000, 33160000, 33170000, 33180000, 33190000,
@@ -55,8 +52,13 @@ def processing_scroll(df):
                        85100000,
                        35113400, 18143000]
     health_prefixes = [str(i).rstrip('0') for i in health_cpv_list]
-    temp_cpv_strings = df['CPV'].astype(str).str.lstrip('0')
-    df["Healthcare CPV"] = temp_cpv_strings.str.startswith(tuple(health_prefixes))
+    return any(any(str(cpv).lstrip('0').startswith(prefix) for prefix in health_prefixes) for cpv in cpv_list)
+def processing_scroll(df):
+    # VALUE FILTERING
+    df['Value'] = df['Value'].where((df['Value'] > 100) & (df['Value'] < 10 ** 10), -1)
+
+    df["Healthcare CPV"] = cpv_list_contains_healthcare_cpvs
+
 
     # try:
     #     batch_translate(df)
@@ -92,12 +94,12 @@ query = {
         "match_all": {}  # Retrieve all documents
     }
 }
-
+scroll_size = 1000
 # Execute the initial search query to get the first batch of results
 response = client.search(
     index=index_name,
     body=query,
-    size=10000,  # Number of documents to retrieve per batch
+    size=scroll_size,  # Number of documents to retrieve per batch
     scroll="10m"  # Keep the scroll window open for 1 minute
 )
 
@@ -190,6 +192,6 @@ while True:
         print(f"Error during bulk indexing: {e}")
     # Check if there are more results to fetch
     scr = scr + 1
-    if len(response["hits"]["hits"]) < 10000:
+    if len(response["hits"]["hits"]) < scroll_size:
         break
 # Create a DataFrame to store the document IDs and field values
