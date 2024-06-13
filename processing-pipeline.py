@@ -129,7 +129,6 @@ while True:
 
             ca_name = hit["_source"]["CONTRACT_AWARD_NOTICE"]["CONTRACTING_BODY"]["ADDRESS_CONTRACTING_BODY"][
                 "OFFICIALNAME"]
-            ca_details = hit["_source"]["CONTRACT_AWARD_NOTICE"]["CONTRACTING_BODY"]
 
             try:
                 inner_hit = client.get(index="ted-csv", id=doc_id)
@@ -162,12 +161,11 @@ while True:
             description_translated = "-"
 
             id_field_pairs.append((doc_id, title, title_translated, description, description_translated, cpv, cpv_desc,
-                                   health_cpv, country, value, proc_route, ca_name, ca_details))
+                                   health_cpv, country, value, proc_route, ca_name))
     # Processing fields Scroll-level
     df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description",
                                                "Description (Translation)", "CPV", "CPV Description", "Healthcare CPV",
-                                               "Country", "Value", "Procurement Route", "Contracting Authority Name",
-                                               "Contracting Authority Details"])
+                                               "Country", "Value", "Procurement Route", "Contracting Authority Name"])
 
     processing_scroll(df)
 
