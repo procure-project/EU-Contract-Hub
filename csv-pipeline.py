@@ -54,63 +54,24 @@ def download_csv(save_folder):
         save_path = f"{save_folder}TED_AWARD_{year}.zip"
         download_file(download_url, save_path)
         extract_file(save_path)
-
+def bool_converter(value):
+    if pd.isnull(value) or value =='' or pd.isna(value):  # Handle NaN or None values
+        return False  # or handle differently based on your case
+    elif value == 'Y':
+        return True
+    elif value == 'N':
+        return False
+    else:
+        raise ValueError(f"Unexpected value '{value}' found in the column.")
+def lots_converter(value):
+    if pd.isnull(value) or value == '' or pd.isna(value):
+        return 0  # Handle NaN, None, or empty string values (assuming 0 is a default value)
+    elif value.isdigit():
+        return int(value)
+    else:
+        raise ValueError(f"Unexpected value '{value}' found in the column.")
 
 def flatten_csv(folder_path):
-    dtypes = {
-        'ID_NOTICE_CAN': 'str',
-        'TED_NOTICE_URL': 'str',
-        'YEAR': 'int',
-        'ID_TYPE': 'str',
-        'DT_DISPATCH': 'str',  # Dates can be converted later if needed
-        'XSD_VERSION': 'str',
-        'CANCELLED': 'bool',
-        'CORRECTIONS': 'bool',
-        'B_MULTIPLE_CAE': 'bool',
-        'CAE_NAME': 'str',
-        'CAE_NATIONALID': 'str',
-        'CAE_ADDRESS': 'str',
-        'CAE_TOWN': 'str',
-        'CAE_POSTAL_CODE': 'str',
-        'CAE_GPA_ANNEX': 'str',
-        'ISO_COUNTRY_CODE': 'str',
-        'ISO_COUNTRY_CODE_GPA': 'str',
-        'B_MULTIPLE_COUNTRY': 'bool',
-        'ISO_COUNTRY_CODE_ALL': 'str',
-        'CAE_TYPE': 'str',
-        'EU_INST_CODE': 'str',
-        'MAIN_ACTIVITY': 'str',
-        'B_ON_BEHALF': 'bool',
-        'B_INVOLVES_JOINT_PROCUREMENT': 'bool',
-        'B_AWARDED_BY_CENTRAL_BODY': 'bool',
-        'TYPE_OF_CONTRACT': 'str',
-        'B_FRA_AGREEMENT': 'bool',
-        'FRA_ESTIMATED': 'str',
-        'B_DYN_PURCH_SYST': 'bool',
-        'CPV': 'str',
-        'MAIN_CPV_CODE_GPA': 'str',
-        'B_GPA': 'bool',
-        'GPA_COVERAGE': 'str',
-        'LOTS_NUMBER': 'int',
-        'VALUE_EURO': 'float',
-        'VALUE_EURO_FIN_1': 'float',
-        'VALUE_EURO_FIN_2': 'float',
-        'TOP_TYPE': 'str',
-        'B_ACCELERATED': 'bool',
-        'OUT_OF_DIRECTIVES': 'bool',
-        'B_ELECTRONIC_AUCTION': 'bool',
-        'NUMBER_AWARDS': 'int'
-    }
-    dfs = []
-    for file_name in os.listdir(folder_path):
-        if file_name.endswith('.csv') and file_name.startswith('export_CAN'):
-            file_path = os.path.join(folder_path, file_name)
-            test = pd.read_csv(file_path)
-            print(test.head(1))
-            current_df = pd.read_csv(file_path, dtype = dtypes)
-            dfs.append(current_df)
-    df = pd.concat(dfs, ignore_index=True)
-
     columns_can_level = ['ID_NOTICE_CAN', 'TED_NOTICE_URL', 'YEAR', 'ID_TYPE', 'DT_DISPATCH', 'XSD_VERSION',
                          'CANCELLED',
                          'CORRECTIONS', 'B_MULTIPLE_CAE', 'CAE_NAME', 'CAE_NATIONALID', 'CAE_ADDRESS', 'CAE_TOWN',
@@ -122,8 +83,52 @@ def flatten_csv(folder_path):
                          'B_GPA', 'GPA_COVERAGE', 'LOTS_NUMBER', 'VALUE_EURO', 'VALUE_EURO_FIN_1', 'VALUE_EURO_FIN_2',
                          'TOP_TYPE',
                          'B_ACCELERATED', 'OUT_OF_DIRECTIVES', 'B_ELECTRONIC_AUCTION', 'NUMBER_AWARDS']
-    df_flat = df[columns_can_level]
-    df_flat = df_flat.groupby('ID_NOTICE_CAN').first()
+    dtypes = {
+        'ID_NOTICE_CAN': 'str',
+        'TED_NOTICE_URL': 'str',
+        'YEAR': 'int',
+        'ID_TYPE': 'str',
+        'DT_DISPATCH': 'str',  # Dates can be converted later if needed
+        'XSD_VERSION': 'str',
+        'CANCELLED': 'bool',
+        'CORRECTIONS': 'int',
+        'CAE_NAME': 'str',
+        'CAE_NATIONALID': 'str',
+        'CAE_ADDRESS': 'str',
+        'CAE_TOWN': 'str',
+        'CAE_POSTAL_CODE': 'str',
+        'CAE_GPA_ANNEX': 'str',
+        'ISO_COUNTRY_CODE': 'str',
+        'ISO_COUNTRY_CODE_GPA': 'str',
+        'ISO_COUNTRY_CODE_ALL': 'str',
+        'CAE_TYPE': 'str',
+        'EU_INST_CODE': 'str',
+        'MAIN_ACTIVITY': 'str',
+        'TYPE_OF_CONTRACT': 'str',
+        'FRA_ESTIMATED': 'str',
+        'CPV': 'str',
+        'MAIN_CPV_CODE_GPA': 'str',
+        'GPA_COVERAGE': 'str',
+        'VALUE_EURO': 'float',
+        'VALUE_EURO_FIN_1': 'float',
+        'VALUE_EURO_FIN_2': 'float',
+        'TOP_TYPE': 'str',
+        'OUT_OF_DIRECTIVES': 'bool'
+    }
+    bool_cols = ['B_MULTIPLE_CAE', 'B_MULTIPLE_COUNTRY', "B_ON_BEHALF", "B_INVOLVES_JOINT_PROCUREMENT",
+                 "B_AWARDED_BY_CENTRAL_BODY", "B_FRA_AGREEMENT", "B_DYN_PURCH_SYST", "B_GPA", "B_ACCELERATED",
+                 "B_ELECTRONIC_AUCTION"]
+    converters = {col: bool_converter for col in bool_cols}
+    converters['LOTS_NUMBER'] = lots_converter
+    dfs = []
+    for file_name in os.listdir(folder_path):
+        if file_name.endswith('.csv') and file_name.startswith('export_CAN'):
+            file_path = os.path.join(folder_path, file_name)
+            current_df = pd.read_csv(file_path, usecols=columns_can_level, dtype=dtypes, converters=converters)
+            dfs.append(current_df)
+    df = pd.concat(dfs, ignore_index=True)
+
+    df_flat = df.groupby('ID_NOTICE_CAN').first()
     df_flat.index = df_flat.index.to_series().apply(transform_id)
     return df_flat
 def parse_date(date_str):
