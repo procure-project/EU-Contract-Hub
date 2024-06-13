@@ -57,7 +57,7 @@ def processing_scroll(df):
     # VALUE FILTERING
     df['Value'] = df['Value'].where((df['Value'] > 100) & (df['Value'] < 10 ** 10), -1)
 
-    df["Healthcare CPV"] = cpv_list_contains_healthcare_cpvs
+    df["Healthcare CPV"] = df["CPV"].apply(cpv_list_contains_healthcare_cpvs)
 
 
     # try:
