@@ -52,6 +52,8 @@ def cpv_list_contains_healthcare_cpvs(cpv_list):
                        85100000,
                        35113400, 18143000]
     health_prefixes = [str(i).rstrip('0') for i in health_cpv_list]
+    if isinstance(cpv_list, int):# If cpv_list is a single integer, convert it to a list
+        cpv_list = [cpv_list]
     return any(any(str(cpv).lstrip('0').startswith(prefix) for prefix in health_prefixes) for cpv in cpv_list)
 def processing_scroll(df):
     # VALUE FILTERING
