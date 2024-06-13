@@ -1,0 +1,56 @@
+PUT ted-csv
+{
+  "mappings": {
+    "properties": {
+      "ID_NOTICE_CAN" : { "type" : "integer" },
+"TED_NOTICE_URL" : { "type" : "keyword", "null_value": "None"},
+      "YEAR" : { "type" : "integer" },
+"ID_TYPE" : { "type" : "integer" },
+"DT_DISPATCH" : { "type" : "date" },
+"XSD_VERSION" : { "type" : "keyword", "null_value": "None"},
+      "CANCELLED" : { "type" : "boolean" },
+"CORRECTIONS" : { "type" : "integer" },
+      "B_MULTIPLE_CAE": { "type" : "boolean" },
+      "CAE_NAME": { "type" : "text" },
+      "CAE_NATIONALID": { "type" : "text" },
+      "CAE_ADDRESS": { "type" : "text"  },
+"CAE_TOWN": { "type" : "text"  },
+"CAE_POSTAL_CODE" : { "type" : "keyword", "null_value": "None"},
+"CAE_GPA_ANNEX" : { "type" : "keyword", "null_value": "None"},
+      "ISO_COUNTRY_CODE": { "type" : "keyword" , "null_value": "None"},
+"ISO_COUNTRY_CODE_GPA" : { "type" : "keyword", "null_value": "None"},
+      "B_MULTIPLE_COUNTRY": { "type" : "boolean" },
+
+      "ISO_COUNTRY_CODE_ALL" : {"type" : "text"  },
+      "CAE_TYPE": { "type" : "keyword" , "null_value": "None"},
+"EU_INST_CODE" : { "type" : "keyword", "null_value": "None"},
+      "MAIN_ACTIVITY" : { 
+        "type" : "keyword" ,
+        "null_value": "None"
+      },
+
+"B_ON_BEHALF": { "type" : "boolean" },
+      "B_INVOLVES_JOINT_PROCUREMENT": { "type" : "boolean" },
+      "B_AWARDED_BY_CENTRAL_BODY": { "type" : "boolean" },
+"TYPE_OF_CONTRACT" : { "type" : "keyword", "null_value": "None"},
+      "B_FRA_AGREEMENT": { "type" : "boolean" },
+      "FRA_ESTIMATED" : { "type" : "keyword" },
+      "B_DYN_PURCH_SYST": { "type" : "boolean" },
+      "CPV" : { "type" : "integer" },
+ "MAIN_CPV_CODE_GPA" : { "type" : "integer" },
+ "B_GPA": { "type" : "boolean" },
+ "GPA_COVERAGE" : { "type" : "keyword" , "null_value": "None"},
+      "LOTS_NUMBER": { "type" : "integer" },
+ "VALUE_EURO" : { "type" : "float" , "null_value": -1 },
+      "AWARD_VALUE_EURO_FIN_1" : { "type" : "float" , "null_value": -1 },
+ "VALUE_EURO_FIN_2" : { "type" : "float" , "null_value": -1 },
+      "TOP_TYPE": { "type" : "keyword" , "null_value": "None"},
+ "B_ACCELERATED": { "type" : "boolean" },
+ "OUT_OF_DIRECTIVES": { "type" : "boolean" },
+      "B_ELECTRONIC_AUCTION": { "type" : "boolean" },
+ "NUMBER_AWARDS": { "type" : "integer" }
+
+
+    }
+  }
+}
