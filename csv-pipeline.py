@@ -155,7 +155,7 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
 
 #                               ------------ CODE -----------------
 
-#download_csv(FOLDER)
+download_csv(FOLDER)
 if not os.path.exists(FOLDER):
     os.makedirs(FOLDER)
 df = read_csvs(FOLDER)
