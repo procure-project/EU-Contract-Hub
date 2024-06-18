@@ -1,5 +1,5 @@
 from opensearchpy import OpenSearch
-
+import pandas as pd
 import shutil
 import xmltodict
 import json
@@ -22,6 +22,7 @@ PORT = 9200
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)
+INDEX = 'ted-xml'
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 OS_CLIENT = OpenSearch(
     hosts=[{'host': HOST, 'port': PORT}],
@@ -104,7 +105,7 @@ def format_dict(xml_dict):
 def index_doc_opensearch(doc_id, doc):
     try:
         response = OS_CLIENT.index(
-            index="ted-xml",
+            index=INDEX,
             body=doc,
             id=doc_id,
             refresh=True
@@ -114,6 +115,7 @@ def index_doc_opensearch(doc_id, doc):
 
 
 def ted_xml_upload(package, package_path):
+    logs = []
     for root, _, files in os.walk(package_path):
         xml_files = [xml_file for xml_file in files if xml_file.endswith(".xml")]
         if xml_files:
@@ -128,18 +130,56 @@ def ted_xml_upload(package, package_path):
                         try:
                             doc_id, xml_processed = format_dict(xml_dict)
                             index_doc_opensearch(doc_id, xml_processed)
+                            log_entry = pd.DataFrame([{
+                                'package': package,
+                                '_id': doc_id,
+                                '_index': INDEX,
+                                'status': 'success',
+                                'error': None,
+                                'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                            }])
+                            logs.append(log_entry)
                             pbar.update(1)
                         except KeyError as keyerror:
                             if keyerror.args[0] != 'F03_2014':
                                 print(f"exception{keyerror}")
+                                log_entry = pd.DataFrame([{
+                                    'package': package,
+                                    '_id': doc_id,
+                                    '_index': INDEX,
+                                    'status': 'failed',
+                                    'error': 'Key Error:' + keyerror,
+                                    'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                                }])
+                                logs.append(log_entry)
                                 break
                             else:
+                                log_entry = pd.DataFrame([{
+                                'package': package,
+                                '_id': doc_id,
+                                '_index': INDEX,
+                                'status': 'discarded',
+                                'error': 'Not CAN',
+                                'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                                }])
+                                logs.append(log_entry)
                                 pbar.update(1)
                                 pass
                         except Exception as e:
+                            log_entry = pd.DataFrame([{
+                                'package': package,
+                                '_id': doc_id,
+                                '_index': INDEX,
+                                'status': 'failed',
+                                'error': 'Error:' + e,
+                                'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                            }])
+                            logs.append(log_entry)
                             print(e)
                             print(json.dumps(xml_processed, indent=4))
                             break
+    logs_df = pd.concat(logs, ignore_index=True)
+    logs_df.to_csv("./logs/xml-ingestion.csv", index=False)
 
 
 def ted_xml_ingestion(year):
