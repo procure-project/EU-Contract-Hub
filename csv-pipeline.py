@@ -136,7 +136,7 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
     dfs = []
 
     csv_files = [csv_file for csv_file in os.listdir(folder_path) if csv_file.startswith("export_CAN")]
-    with tqdm(total=len(csv_files), desc=f"Loading CSVs", colour='white', unit='file',
+    with tqdm(total=len(csv_files), desc=f"Loading CSVs", colour='white', unit='year',
               bar_format="{desc}: |{bar}| {n}/{total}") as pbar:
         for csv_file in csv_files:
             file_path = os.path.join(folder_path, csv_file)
@@ -148,9 +148,9 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
 
     df_flat = df.groupby('ID_NOTICE_CAN').first()
     df_flat.index = df_flat.index.to_series().apply(transform_id)
-    df.fillna({'VALUE_EURO': -1.,
-               'VALUE_EURO_FIN_1': -1.,
-               'VALUE_EURO_FIN_2': -1., }, inplace=True) #JSON Parser does not accept na. We set them at -1.
+    df_flat.fillna({'VALUE_EURO': -1.,
+                   'VALUE_EURO_FIN_1': -1.,
+                   'VALUE_EURO_FIN_2': -1., }, inplace=True) #JSON Parser does not accept na. We set them at -1.
     return df_flat
 
 #                               ------------ CODE -----------------
@@ -166,7 +166,7 @@ columns = df.columns
 logs = []
 print("Lines to upload " + str(lines))
 iters = math.ceil(lines / 100000)
-for i in tqdm(range(iters), desc="Indexing"):
+for i in tqdm(range(iters), desc="Indexing", unit='00000 lines'):
 
     start_line = i * 100000
     end_line = min(((i + 1) * 100000 - 1), lines)
