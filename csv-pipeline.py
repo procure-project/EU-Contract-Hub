@@ -136,7 +136,7 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
     dfs = []
 
     for _, _, files in os.walk(folder_path):
-        csv_files = [csv_file for csv_file in files if csv_file.startswith(".export_CAN")]
+        csv_files = [csv_file for csv_file in files if csv_file.startswith("export_CAN")]
         if csv_files:
             with tqdm(total=len(csv_files), desc=f"Indexing CSVs", colour='white', unit='file',
                       bar_format="{desc}: |{bar}| {n}/{total}") as pbar:
