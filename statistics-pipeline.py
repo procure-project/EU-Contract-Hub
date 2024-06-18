@@ -87,7 +87,7 @@ for csv_file in stat_files:
     df.replace(legend, inplace=True)
     df['File'] = csv_file[:-4]
     df = pd.merge(df, metadata, on='File', how='left')
-    df.fillna(None)
+    df = df.where(pd.notna(df), None)
     actions = [
         {
             "_op_type": "index",
