@@ -166,7 +166,7 @@ columns = df.columns
 logs = []
 print("Lines to upload " + str(lines))
 iters = math.ceil(lines / 100000)
-for i in range(0, iters):
+for i in tqdm(range(iters), desc="Indexing"):
 
     start_line = i * 100000
     end_line = min(((i + 1) * 100000 - 1), lines)
