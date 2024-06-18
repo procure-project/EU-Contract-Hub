@@ -166,12 +166,11 @@ columns = df.columns
 logs = []
 print("Lines to upload " + str(lines))
 iters = math.ceil(lines / 100000)
-for i in tqdm(range(iters), desc="Indexing", unit='00000 lines'):
+for i in tqdm(range(iters), desc="Indexing", unit='100000 lines'):
 
     start_line = i * 100000
     end_line = min(((i + 1) * 100000 - 1), lines)
 
-    print('Uploading lines ' + str(start_line) + ' to ' + str(end_line))
     df_chunk = df.iloc[start_line:end_line + 1]
     # Prepare a list of actions for the bulk API
     actions = [
@@ -192,6 +191,7 @@ for i in tqdm(range(iters), desc="Indexing", unit='00000 lines'):
         successful_ids -= failed_ids
         current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         for action in actions:
+            print(action)
             if action['_id'] in successful_ids:
                 log_entry = pd.DataFrame({
                     '_id': action['_id'],
