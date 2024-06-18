@@ -1,0 +1,1230 @@
+ID;DATAFLOW;COUNTRY;Reference area;FINANCING_SCHEME;Financing scheme;TIME_PERIOD;OBS_VALUE
+CZ_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2012;10,634
+CZ_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2013;11,201
+CZ_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2014;11,138
+CZ_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2015;11,186
+CZ_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2016;11,198
+CZ_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2017;12,081
+CZ_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2018;12,686
+CZ_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2019;12,907
+CZ_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2020;17,477
+CZ_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF11;Government schemes;2021;15,445
+BG_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2012;10,99
+BG_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2013;10,321
+BG_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2014;9,77
+BG_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2015;10,169
+BG_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2016;10,245
+BG_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2017;9,894
+BG_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2018;10,403
+BG_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2019;10,433
+BG_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2020;17,51
+BG_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF11;Government schemes;2021;15,209
+CH_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2012;25,824
+CH_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2013;24,246
+CH_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2014;24,414
+CH_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2015;24,043
+CH_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2016;24,078
+CH_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2017;24,186
+CH_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2018;24,099
+CH_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2019;23,51
+CH_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2020;25,477
+CH_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF11;Government schemes;2021;26,035
+IE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2012;71,674
+IE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2013;70,494
+IE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2014;70,917
+IE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2015;71,482
+IE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2016;72,152
+IE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2017;72,631
+IE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2018;73,425
+IE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2019;73,645
+IE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2020;77,503
+IE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF11;Government schemes;2021;76,83
+EE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2012;12,651
+EE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2013;12,632
+EE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2014;11,888
+EE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2015;12,298
+EE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2016;11,775
+EE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2017;11,409
+EE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2018;9,124
+EE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2019;8,09
+EE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2020;9,08
+EE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2021;12,584
+EE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF11;Government schemes;2022;10,107
+NL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2012;5,06
+NL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2013;4,977
+NL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2014;5,024
+NL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2015;6,229
+NL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2016;6,307
+NL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2017;6,165
+NL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2018;6,374
+NL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2019;6,541
+NL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2020;10,9
+NL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2021;13,114
+NL_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF11;Government schemes;2022;9,365
+MT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF11;Government schemes;2012;62,755
+MT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF11;Government schemes;2013;62,571
+MT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF11;Government schemes;2014;61,321
+MT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF11;Government schemes;2015;60,569
+MT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF11;Government schemes;2016;63,028
+MT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF11;Government schemes;2017;62,897
+MT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF11;Government schemes;2018;63,478
+MT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF11;Government schemes;2019;62,51
+MT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF11;Government schemes;2020;66,623
+LV_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2012;60,348
+LV_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2013;60,014
+LV_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2014;59,672
+LV_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2015;58,653
+LV_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2016;55,867
+LV_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2017;57,329
+LV_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2018;59,881
+LV_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2019;60,123
+LV_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2020;63,608
+LV_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF11;Government schemes;2021;69,465
+SK_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2012;6,791
+SK_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2013;6,655
+SK_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2014;4
+SK_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2015;4,335
+SK_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2016;2,678
+SK_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2017;2,418
+SK_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2018;2,301
+SK_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2019;2,426
+SK_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2020;4,534
+SK_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF11;Government schemes;2021;9,446
+PT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2012;59,198
+PT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2013;60,17
+PT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2014;59,483
+PT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2015;59,411
+PT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2016;59,304
+PT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2017;58,837
+PT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2018;58,847
+PT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2019;58,485
+PT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2020;61,909
+PT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2021;60,961
+PT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF11;Government schemes;2022;61,152
+BE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2012;10,75
+BE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2013;10,823
+BE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2014;10,829
+BE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2015;20,47
+BE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2016;22,843
+BE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2017;23
+BE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2018;23,244
+BE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2019;21,268
+BE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2020;24,249
+BE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF11;Government schemes;2021;22,76
+DK_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2012;84,343
+DK_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2013;84,433
+DK_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2014;84,418
+DK_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2015;84,231
+DK_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2016;84,159
+DK_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2017;83,957
+DK_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2018;83,75
+DK_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2019;83,709
+DK_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2020;84,756
+DK_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2021;85,206
+DK_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF11;Government schemes;2022;84,781
+LU_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2012;3,823
+LU_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2013;3,831
+LU_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2014;4,417
+LU_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2015;4,538
+LU_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2016;4,719
+LU_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2017;4,744
+LU_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2018;4,359
+LU_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2019;4,672
+LU_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2020;7,524
+LU_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2021;9,012
+LU_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF11;Government schemes;2022;6,306
+DE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2012;6,825
+DE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2013;6,843
+DE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2014;6,885
+DE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2015;6,906
+DE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2016;7,081
+DE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2017;6,675
+DE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2018;6,562
+DE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2019;6,569
+DE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2020;9,048
+DE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF11;Government schemes;2021;10,679
+GR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2012;30,23
+GR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2013;30,56
+GR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2014;30,104
+GR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2015;28,195
+GR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2016;30,652
+GR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2017;27,69
+GR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2018;26,858
+GR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2019;27,333
+GR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2020;28,17
+GR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF11;Government schemes;2021;30,359
+SE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2012;84,217
+SE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2013;84,02
+SE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2014;84,028
+SE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2015;83,961
+SE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2016;84,262
+SE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2017;84,707
+SE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2018;84,785
+SE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2019;85,124
+SE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2020;86,18
+SE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2021;85,923
+SE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF11;Government schemes;2022;85,821
+SI_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2012;3,721
+SI_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2013;4,405
+SI_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2014;3,718
+SI_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2015;3,386
+SI_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2016;3,975
+SI_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2017;3,377
+SI_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2018;3,388
+SI_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2019;4,205
+SI_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2020;9,1
+SI_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2021;12,661
+SI_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF11;Government schemes;2022;9,23
+IS_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2012;79,921
+IS_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2013;80,233
+IS_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2014;80,494
+IS_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2015;80,81
+IS_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2016;81,509
+IS_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2017;81,863
+IS_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2018;82,381
+IS_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2019;82,797
+IS_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2020;83,325
+IS_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2021;83,668
+IS_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF11;Government schemes;2022;83,271
+IL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2012;16,322
+IL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2013;16,699
+IL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2014;17,395
+IL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2015;16,808
+IL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2016;15,281
+IL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2017;15,699
+IL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2018;15,491
+IL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2019;15,659
+IL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2020;18,657
+IL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF11;Government schemes;2021;19,182
+HU_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2012;8,642
+HU_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2013;8,861
+HU_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2014;9,657
+HU_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2015;11,433
+HU_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2016;8,5
+HU_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2017;8,174
+HU_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2018;8,573
+HU_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2019;8,661
+HU_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2020;11,603
+HU_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2021;14,526
+HU_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF11;Government schemes;2022;11,718
+CY_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2012;45,638
+CY_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2013;45,436
+CY_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2014;42,416
+CY_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2015;41,806
+CY_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2016;41,568
+CY_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2017;41,237
+CY_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2018;41,803
+CY_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2019;40,474
+CY_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2020;33,8
+CY_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF11;Government schemes;2021;27,197
+FI_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2012;63,541
+FI_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2013;63,857
+FI_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2014;63,818
+FI_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2015;62,473
+FI_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2016;62,099
+FI_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2017;62,661
+FI_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2018;62,976
+FI_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2019;63,967
+FI_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2020;65,452
+FI_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF11;Government schemes;2021;66,766
+PL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2012;6,414
+PL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2013;9,972
+PL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2014;9,321
+PL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2015;9,461
+PL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2016;9,713
+PL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2017;10,354
+PL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2018;9,968
+PL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2019;9,939
+PL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2020;9,837
+PL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2021;15,134
+PL_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF11;Government schemes;2022;12,351
+IT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2012;75,648
+IT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2013;75,518
+IT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2014;75,182
+IT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2015;74,201
+IT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2016;74,221
+IT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2017;73,563
+IT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2018;73,706
+IT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2019;73,58
+IT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2020;75,77
+IT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2021;75,302
+IT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF11;Government schemes;2022;75,694
+FR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2012;5,028
+FR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2013;5,071
+FR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2014;5,094
+FR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2015;5,128
+FR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2016;5,147
+FR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2017;5,204
+FR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2018;5,284
+FR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2019;5,302
+FR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2020;5,513
+FR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF11;Government schemes;2021;4,251
+GM_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2012;81,479
+GM_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2013;80,087
+GM_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2014;80,18
+GM_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2015;80,151
+GM_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2016;80,577
+GM_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2017;79,99
+GM_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2018;79,325
+GM_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2019;79,286
+GM_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2020;83,069
+GM_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2021;83,026
+GM_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF11;Government schemes;2022;81,545
+HR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2012;2,46
+HR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2013;2,711
+HR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2014;2,959
+HR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2015;3,791
+HR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2016;5,592
+HR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2017;6,865
+HR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2018;6,904
+HR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2019;5,231
+HR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2020;6,651
+HR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF11;Government schemes;2021;9,429
+LT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2012;9,19
+LT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2013;8,804
+LT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2014;10,098
+LT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2015;9,966
+LT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2016;9,501
+LT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2017;8,976
+LT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2018;8,572
+LT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2019;8,21
+LT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2020;10,38
+LT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF11;Government schemes;2021;12,067
+AT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2012;31,133
+AT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2013;30,447
+AT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2014;30,206
+AT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2015;30,013
+AT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2016;29,915
+AT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2017;29,816
+AT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2018;30,273
+AT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2019;30,439
+AT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2020;33,606
+AT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF11;Government schemes;2021;37,765
+ES_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2012;67,871
+ES_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2013;66,626
+ES_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2014;65,882
+ES_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2015;67,032
+ES_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2016;67,254
+ES_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2017;66,409
+ES_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2018;66,057
+ES_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2019;66,528
+ES_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2020;69,401
+ES_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF11;Government schemes;2021;68,05
+RO_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2012;9,979
+RO_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2013;12,923
+RO_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2014;13,211
+RO_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2015;13,503
+RO_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2016;13,094
+RO_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2017;15,487
+RO_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2018;16,035
+RO_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2019;15,44
+RO_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2020;17,543
+RO_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF11;Government schemes;2021;18,22
+CZ_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2012;73,991
+CZ_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2013;73,306
+CZ_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2014;72,984
+CZ_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2015;73,132
+CZ_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2016;73,053
+CZ_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2017;72,306
+CZ_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2018;72,192
+CZ_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2019;72,08
+CZ_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2020;70,225
+CZ_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF12HF13;Compulsory contributory health insurance schemes;2021;70,973
+IT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2012;0,228
+IT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2013;0,241
+IT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2014;0,243
+IT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2015;0,234
+IT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2016;0,18
+IT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2017;0,173
+IT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2018;0,155
+IT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2019;0,165
+IT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2020;0,156
+IT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2021;0,159
+IT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF12HF13;Compulsory contributory health insurance schemes;2022;0,158
+DE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2012;76,149
+DE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2013;76,987
+DE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2014;77,324
+DE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2015;77,28
+DE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2016;77,272
+DE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2017;77,712
+DE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2018;77,554
+DE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2019;77,408
+DE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2020;76,05
+DE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF12HF13;Compulsory contributory health insurance schemes;2021;74,773
+FI_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2012;14,645
+FI_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2013;14,093
+FI_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2014;14,198
+FI_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2015;14,467
+FI_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2016;14,127
+FI_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2017;13,757
+FI_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2018;13,98
+FI_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2019;13,906
+FI_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2020;13,607
+FI_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF12HF13;Compulsory contributory health insurance schemes;2021;13,012
+MT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF12HF13;Compulsory contributory health insurance schemes;2020;0,069
+GR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2012;35,875
+GR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2013;31,521
+GR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2014;27,454
+GR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2015;30,229
+GR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2016;30,734
+GR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2017;32,867
+GR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2018;32,358
+GR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2019;34,18
+GR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2020;33,662
+GR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF12HF13;Compulsory contributory health insurance schemes;2021;31,764
+FR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2012;71,06
+FR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2013;71,09
+FR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2014;71,279
+FR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2015;71,454
+FR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2016;77,834
+FR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2017;77,889
+FR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2018;78,069
+FR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2019;78,254
+FR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2020;79,286
+FR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF12HF13;Compulsory contributory health insurance schemes;2021;80,555
+CY_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2012;0,704
+CY_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2013;0,654
+CY_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2014;0,629
+CY_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2015;0,325
+CY_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2016;0,327
+CY_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2017;0,269
+CY_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2018;0,223
+CY_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2019;13,723
+CY_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2020;41,058
+CY_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF12HF13;Compulsory contributory health insurance schemes;2021;58,09
+EE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2012;62,995
+EE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2013;61,96
+EE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2014;62,926
+EE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2015;62,394
+EE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2016;62,871
+EE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2017;62,165
+EE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2018;64,551
+EE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2019;66,355
+EE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2020;68,023
+EE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2021;63,656
+EE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF12HF13;Compulsory contributory health insurance schemes;2022;65,833
+PL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2012;63,627
+PL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2013;60,686
+PL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2014;61,338
+PL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2015;60,283
+PL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2016;59,608
+PL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2017;58,934
+PL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2018;61,526
+PL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2019;61,838
+PL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2020;62,429
+PL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2021;57,33
+PL_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF12HF13;Compulsory contributory health insurance schemes;2022;62,545
+HU_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2012;56,866
+HU_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2013;57,763
+HU_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2014;57,418
+HU_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2015;56,734
+HU_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2016;59,579
+HU_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2017;60,728
+HU_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2018;60,978
+HU_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2019;60,011
+HU_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2020;59,189
+HU_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2021;57,927
+HU_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF12HF13;Compulsory contributory health insurance schemes;2022;60,637
+CH_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2012;39,945
+CH_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2013;41,227
+CH_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2014;41,288
+CH_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2015;42,064
+CH_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2016;42,544
+CH_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2017;42,638
+CH_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2018;42,048
+CH_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2019;42,723
+CH_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2020;42,17
+CH_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF12HF13;Compulsory contributory health insurance schemes;2021;41,692
+IE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2012;0,241
+IE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2013;0,305
+IE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2014;0,284
+IE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2015;0,312
+IE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2016;0,317
+IE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2017;0,366
+IE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2018;0,608
+IE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2019;0,604
+IE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2020;0,531
+IE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF12HF13;Compulsory contributory health insurance schemes;2021;0,567
+IL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2012;46,285
+IL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2013;46,72
+IL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2014;45,737
+IL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2015;46,609
+IL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2016;48,035
+IL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2017;48,184
+IL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2018;49,174
+IL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2019;49,156
+IL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2020;49,537
+IL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF12HF13;Compulsory contributory health insurance schemes;2021;48,996
+LT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2012;58,133
+LT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2013;57,445
+LT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2014;57,462
+LT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2015;57,174
+LT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2016;57,095
+LT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2017;57,16
+LT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2018;58,603
+LT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2019;58,172
+LT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2020;59,785
+LT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF12HF13;Compulsory contributory health insurance schemes;2021;56,488
+ES_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2012;4,237
+ES_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2013;4,381
+ES_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2014;4,382
+ES_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2015;4,284
+ES_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2016;4,299
+ES_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2017;4,1
+ES_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2018;4,167
+ES_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2019;4,02
+ES_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2020;3,744
+ES_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF12HF13;Compulsory contributory health insurance schemes;2021;3,555
+AT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2012;43,545
+AT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2013;43,559
+AT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2014;43,805
+AT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2015;44,045
+AT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2016;44,046
+AT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2017;44,202
+AT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2018;44,396
+AT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2019;44,628
+AT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2020;43,219
+AT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF12HF13;Compulsory contributory health insurance schemes;2021;40,577
+PT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2012;2,137
+PT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2013;2,175
+PT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2014;2,317
+PT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2015;2,319
+PT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2016;2,36
+PT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2017;2,394
+PT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2018;2,381
+PT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2019;2,364
+PT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2020;2,388
+PT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2021;2,246
+PT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF12HF13;Compulsory contributory health insurance schemes;2022;2,289
+SK_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2012;65,379
+SK_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2013;67,55
+SK_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2014;76,227
+SK_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2015;75,381
+SK_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2016;77,682
+SK_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2017;77,521
+SK_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2018;77,832
+SK_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2019;77,368
+SK_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2020;75,737
+SK_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF12HF13;Compulsory contributory health insurance schemes;2021;70,288
+BG_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2012;40,015
+BG_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2013;46,471
+BG_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2014;48,71
+BG_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2015;45,956
+BG_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2016;45,111
+BG_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2017;46,454
+BG_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2018;48,677
+BG_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2019;50,157
+BG_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2020;45,605
+BG_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF12HF13;Compulsory contributory health insurance schemes;2021;49,493
+SI_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2012;68,235
+SI_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2013;66,97
+SI_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2014;67,395
+SI_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2015;68,42
+SI_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2016;68,753
+SI_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2017;68,819
+SI_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2018;69,434
+SI_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2019;68,58
+SI_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2020;64,066
+SI_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2021;61,078
+SI_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF12HF13;Compulsory contributory health insurance schemes;2022;65,05
+NL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2012;77,052
+NL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2013;76,169
+NL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2014;76,057
+NL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2015;75,152
+NL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2016;74,883
+NL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2017;75,523
+NL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2018;75,73
+NL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2019;76,26
+NL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2020;74,047
+NL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2021;71,789
+NL_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF12HF13;Compulsory contributory health insurance schemes;2022;74,928
+LU_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2012;79,026
+LU_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2013;79,26
+LU_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2014;79,059
+LU_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2015;79,121
+LU_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2016;78,889
+LU_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2017;79,208
+LU_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2018;79,718
+LU_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2019;80,289
+LU_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2020;78,969
+LU_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2021;77,022
+LU_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF12HF13;Compulsory contributory health insurance schemes;2022;79,569
+RO_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2012;66,943
+RO_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2013;66,415
+RO_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2014;65,785
+RO_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2015;64,519
+RO_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2016;65,234
+RO_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2017;63,165
+RO_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2018;63,697
+RO_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2019;65,005
+RO_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2020;62,728
+RO_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF12HF13;Compulsory contributory health insurance schemes;2021;60,113
+BE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2012;65,741
+BE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2013;65,195
+BE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2014;65,322
+BE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2015;55,941
+BE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2016;53,959
+BE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2017;53,76
+BE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2018;53,386
+BE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2019;53,988
+BE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2020;53,676
+BE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF12HF13;Compulsory contributory health insurance schemes;2021;54,853
+HR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2012;78,705
+HR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2013;82,154
+HR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2014;79,965
+HR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2015;78,842
+HR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2016;76,929
+HR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2017;75,679
+HR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2018;75,099
+HR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2019;76,677
+HR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2020;77,541
+HR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF12HF13;Compulsory contributory health insurance schemes;2021;76,074
+MT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF2;Voluntary health care payment schemes;2012;2,207
+MT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF2;Voluntary health care payment schemes;2013;2,027
+MT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF2;Voluntary health care payment schemes;2014;1,917
+MT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF2;Voluntary health care payment schemes;2015;1,958
+MT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF2;Voluntary health care payment schemes;2016;1,834
+MT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF2;Voluntary health care payment schemes;2017;1,878
+MT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF2;Voluntary health care payment schemes;2018;2,21
+MT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF2;Voluntary health care payment schemes;2019;3,35
+MT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF2;Voluntary health care payment schemes;2020;3,004
+PT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2012;9,082
+PT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2013;8,861
+PT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2014;8,865
+PT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2015;8,735
+PT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2016;8,905
+PT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2017;9,08
+PT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2018;8,855
+PT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2019;8,544
+PT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2020;7,684
+PT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2021;7,804
+PT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF2;Voluntary health care payment schemes;2022;7,961
+AT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2012;6,647
+AT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2013;6,823
+AT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2014;6,891
+AT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2015;6,851
+AT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2016;6,795
+AT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2017;6,829
+AT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2018;6,906
+AT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2019;7,018
+AT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2020;6,529
+AT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2021;5,879
+AT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF2;Voluntary health care payment schemes;2022;6,371
+GM_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2012;5,388
+GM_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2013;5,398
+GM_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2014;5,304
+GM_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2015;5,311
+GM_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2016;4,953
+GM_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2017;5,316
+GM_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2018;5,18
+GM_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2019;5,047
+GM_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2020;4,189
+GM_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2021;4,296
+GM_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF2;Voluntary health care payment schemes;2022;4,548
+PL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2012;5,695
+PL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2013;5,697
+PL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2014;6,215
+PL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2015;7,219
+PL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2016;7,86
+PL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2017;7,976
+PL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2018;8,085
+PL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2019;8,132
+PL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2020;8,199
+PL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2021;7,689
+PL_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF2;Voluntary health care payment schemes;2022;7,124
+SK_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2012;4,598
+SK_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2013;2,473
+SK_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2014;1,765
+SK_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2015;1,84
+SK_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2016;1,446
+SK_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2017;1,349
+SK_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2018;0,958
+SK_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2019;1,047
+SK_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2020;0,977
+SK_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF2;Voluntary health care payment schemes;2021;0,861
+GR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2012;3,3
+GR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2013;3,358
+GR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2014;3,937
+GR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2015;3,929
+GR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2016;4,05
+GR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2017;4,269
+GR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2018;4,571
+GR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2019;4,713
+GR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2020;4,578
+GR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF2;Voluntary health care payment schemes;2021;4,414
+EE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2012;1,78
+EE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2013;1,731
+EE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2014;1,625
+EE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2015;1,584
+EE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2016;1,615
+EE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2017;1,62
+EE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2018;1,812
+EE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2019;1,63
+EE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2020;1,468
+EE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2021;1,686
+EE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF2;Voluntary health care payment schemes;2022;1,963
+FR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2012;13,792
+FR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2013;13,823
+FR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2014;13,664
+FR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2015;13,679
+FR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2016;7,395
+FR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2017;7,215
+FR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2018;7,147
+FR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2019;6,99
+FR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2020;6,363
+FR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF2;Voluntary health care payment schemes;2021;6,269
+IS_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2012;1,512
+IS_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2013;1,511
+IS_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2014;1,526
+IS_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2015;1,549
+IS_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2016;1,623
+IS_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2017;1,688
+IS_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2018;1,682
+IS_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2019;1,658
+IS_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2020;1,698
+IS_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2021;1,685
+IS_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF2;Voluntary health care payment schemes;2022;1,798
+ES_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2012;6,085
+ES_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2013;6,219
+ES_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2014;6,601
+ES_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2015;6,387
+ES_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2016;6,487
+ES_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2017;7,246
+ES_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2018;7,531
+ES_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2019;7,62
+ES_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2020;7,127
+ES_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF2;Voluntary health care payment schemes;2021;7,399
+SE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2012;0,974
+SE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2013;1,049
+SE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2014;1,053
+SE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2015;1,136
+SE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2016;1,246
+SE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2017;1,207
+SE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2018;1,257
+SE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2019;1,163
+SE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2020;0,989
+SE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2021;0,993
+SE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF2;Voluntary health care payment schemes;2022;1,044
+RO_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2012;0,649
+RO_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2013;0,485
+RO_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2014;0,69
+RO_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2015;0,696
+RO_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2016;0,917
+RO_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2017;0,86
+RO_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2018;0,811
+RO_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2019;0,677
+RO_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2020;0,703
+RO_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF2;Voluntary health care payment schemes;2021;0,724
+IE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2012;14,398
+IE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2013;15,168
+IE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2014;14,732
+IE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2015;14,739
+IE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2016;14,44
+IE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2017;14,42
+IE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2018;13,836
+IE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2019;13,619
+IE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2020;11,035
+IE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2021;11,915
+IE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF2;Voluntary health care payment schemes;2022;11,959
+HU_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2012;5,095
+HU_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2013;4,991
+HU_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2014;4,563
+HU_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2015;4,345
+HU_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2016;4,232
+HU_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2017;3,848
+HU_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2018;3,66
+HU_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2019;3,542
+HU_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2020;3,06
+HU_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF2;Voluntary health care payment schemes;2021;2,907
+DK_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2012;2,123
+DK_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2013;2,195
+DK_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2014;2,221
+DK_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2015;2,29
+DK_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2016;2,3
+DK_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2017;2,35
+DK_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2018;2,426
+DK_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2019;2,496
+DK_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2020;2,312
+DK_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2021;2,196
+DK_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF2;Voluntary health care payment schemes;2022;2,286
+LT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2012;0,82
+LT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2013;0,888
+LT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2014;0,895
+LT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2015;0,959
+LT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2016;1,07
+LT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2017;1,196
+LT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2018;1,286
+LT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2019;1,324
+LT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2020;1,147
+LT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2021;1,257
+LT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF2;Voluntary health care payment schemes;2022;1,257
+SI_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2012;15,584
+SI_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2013;16,17
+SI_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2014;15,903
+SI_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2015;15,723
+SI_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2016;15,291
+SI_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2017;15,481
+SI_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2018;15,196
+SI_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2019;15,554
+SI_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2020;14,36
+SI_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2021;13,363
+SI_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF2;Voluntary health care payment schemes;2022;13,021
+HR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2012;7,085
+HR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2013;6,303
+HR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2014;5,801
+HR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2015;6,422
+HR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2016;6,505
+HR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2017;6,489
+HR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2018;6,61
+HR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2019;6,628
+HR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2020;5,358
+HR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF2;Voluntary health care payment schemes;2021;5,099
+BE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2012;4,055
+BE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2013;4,242
+BE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2014;4,313
+BE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2015;4,566
+BE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2016;4,729
+BE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2017;4,841
+BE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2018;4,871
+BE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2019;4,937
+BE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2020;4,681
+BE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF2;Voluntary health care payment schemes;2021;4,531
+IL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2012;12,573
+IL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2013;12,54
+IL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2014;12,525
+IL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2015;12,678
+IL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2016;12,523
+IL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2017;12,31
+IL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2018;12,112
+IL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2019;12,411
+IL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2020;11,026
+IL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF2;Voluntary health care payment schemes;2021;11,005
+FI_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2012;4,352
+FI_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2013;4,256
+FI_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2014;4,346
+FI_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2015;4,431
+FI_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2016;4,501
+FI_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2017;4,536
+FI_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2018;4,675
+FI_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2019;4,703
+FI_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2020;4,474
+FI_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF2;Voluntary health care payment schemes;2021;4,121
+LV_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2012;1,829
+LV_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2013;1,514
+LV_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2014;1,222
+LV_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2015;0,893
+LV_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2016;0,81
+LV_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2017;0,882
+LV_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2018;0,94
+LV_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2019;4,772
+LV_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2020;4,518
+LV_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF2;Voluntary health care payment schemes;2021;3,552
+DE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2012;3,001
+DE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2013;2,981
+DE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2014;2,918
+DE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2015;2,861
+DE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2016;2,822
+DE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2017;2,828
+DE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2018;2,846
+DE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2019;2,705
+DE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2020;2,619
+DE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2021;2,504
+DE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF2;Voluntary health care payment schemes;2022;2,481
+IT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2012;2,039
+IT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2013;2,015
+IT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2014;2,035
+IT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2015;2,098
+IT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2016;2,276
+IT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2017;2,459
+IT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2018;2,588
+IT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2019;2,794
+IT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2020;2,614
+IT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2021;2,644
+IT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF2;Voluntary health care payment schemes;2022;2,716
+LU_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2012;4,155
+LU_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2013;4,246
+LU_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2014;4,054
+LU_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2015;4,242
+LU_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2016;4,328
+LU_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2017;4,006
+LU_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2018;4,076
+LU_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2019;4,121
+LU_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2020;3,882
+LU_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2021;3,894
+LU_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF2;Voluntary health care payment schemes;2022;4,162
+CZ_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2012;0,888
+CZ_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2013;0,937
+CZ_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2014;1,313
+CZ_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2015;0,827
+CZ_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2016;0,922
+CZ_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2017;1,066
+CZ_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2018;0,935
+CZ_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2019;0,921
+CZ_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2020;0,77
+CZ_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF2;Voluntary health care payment schemes;2021;0,856
+NL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2012;7,798
+NL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2013;7,319
+NL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2014;7,333
+NL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2015;7,332
+NL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2016;7,536
+NL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2017;7,263
+NL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2018;7,104
+NL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2019;6,775
+NL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2020;5,761
+NL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2021;5,719
+NL_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF2;Voluntary health care payment schemes;2022;5,93
+CH_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2012;9,023
+CH_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2013;9,153
+CH_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2014;9,094
+CH_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2015;9,146
+CH_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2016;9,113
+CH_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2017;8,915
+CH_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2018;8,911
+CH_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2019;9,205
+CH_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2020;8,961
+CH_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF2;Voluntary health care payment schemes;2021;8,576
+BG_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2012;1,25
+BG_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2013;1,345
+BG_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2014;1,28
+BG_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2015;1,365
+BG_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2016;1,389
+BG_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2017;1,458
+BG_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2018;1,592
+BG_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2019;1,614
+BG_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2020;1,36
+BG_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF2;Voluntary health care payment schemes;2021;1,328
+CY_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2012;10,933
+CY_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2013;10,866
+CY_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2014;11,427
+CY_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2015;13,503
+CY_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2016;13,498
+CY_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2017;13,736
+CY_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2018;13,613
+CY_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2019;12,077
+CY_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2020;7,375
+CY_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF2;Voluntary health care payment schemes;2021;4,791
+GR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2012;30,449
+GR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2013;33,739
+GR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2014;37,2
+GR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2015;36,034
+GR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2016;34,308
+GR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2017;34,995
+GR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2018;36,08
+GR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2019;33,643
+GR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2020;33,438
+GR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GR;Greece;HF3;Household out-of-pocket payments;2021;33,33
+RO_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2012;22,428
+RO_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2013;20,176
+RO_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2014;20,314
+RO_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2015;21,282
+RO_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2016;20,755
+RO_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2017;20,488
+RO_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2018;19,458
+RO_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2019;18,877
+RO_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2020;19,026
+RO_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);RO;Romania;HF3;Household out-of-pocket payments;2021;20,942
+SK_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2012;23,233
+SK_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2013;23,322
+SK_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2014;18,008
+SK_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2015;18,444
+SK_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2016;18,194
+SK_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2017;18,712
+SK_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2018;18,908
+SK_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2019;19,159
+SK_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2020;18,752
+SK_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SK;Slovak Republic;HF3;Household out-of-pocket payments;2021;19,404
+SI_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2012;12,46
+SI_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2013;12,455
+SI_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2014;12,983
+SI_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2015;12,471
+SI_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2016;11,981
+SI_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2017;12,322
+SI_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2018;11,982
+SI_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2019;11,661
+SI_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2020;12,474
+SI_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2021;12,897
+SI_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SI;Slovenia;HF3;Household out-of-pocket payments;2022;12,699
+IE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2012;13,686
+IE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2013;14,032
+IE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2014;14,067
+IE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2015;13,467
+IE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2016;13,091
+IE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2017;12,584
+IE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2018;12,131
+IE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2019;12,133
+IE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2020;10,931
+IE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2021;10,688
+IE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IE;Ireland;HF3;Household out-of-pocket payments;2022;10,68
+SE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2012;14,81
+SE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2013;14,931
+SE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2014;14,919
+SE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2015;14,903
+SE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2016;14,492
+SE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2017;14,087
+SE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2018;13,959
+SE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2019;13,713
+SE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2020;12,832
+SE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2021;13,085
+SE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);SE;Sweden;HF3;Household out-of-pocket payments;2022;13,135
+BE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2012;19,454
+BE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2013;19,74
+BE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2014;19,536
+BE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2015;19,023
+BE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2016;18,469
+BE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2017;18,4
+BE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2018;18,499
+BE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2019;19,807
+BE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2020;17,394
+BE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BE;Belgium;HF3;Household out-of-pocket payments;2021;17,856
+HU_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2012;29,397
+HU_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2013;28,385
+HU_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2014;28,361
+HU_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2015;27,488
+HU_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2016;27,689
+HU_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2017;27,249
+HU_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2018;26,789
+HU_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2019;27,787
+HU_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2020;26,147
+HU_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2021;24,64
+HU_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HU;Hungary;HF3;Household out-of-pocket payments;2022;27,645
+FI_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2012;17,462
+FI_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2013;17,794
+FI_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2014;17,637
+FI_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2015;18,629
+FI_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2016;19,273
+FI_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2017;19,046
+FI_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2018;18,369
+FI_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2019;17,424
+FI_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2020;16,466
+FI_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FI;Finland;HF3;Household out-of-pocket payments;2021;16,101
+EE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2012;22,541
+EE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2013;23,605
+EE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2014;23,522
+EE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2015;23,719
+EE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2016;23,738
+EE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2017;24,807
+EE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2018;24,513
+EE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2019;23,925
+EE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2020;21,428
+EE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2021;22,074
+EE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);EE;Estonia;HF3;Household out-of-pocket payments;2022;22,097
+IL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2012;23,408
+IL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2013;22,654
+IL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2014;23,01
+IL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2015;22,501
+IL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2016;22,823
+IL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2017;22,431
+IL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2018;21,837
+IL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2019;21,356
+IL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2020;20,12
+IL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IL;Israel;HF3;Household out-of-pocket payments;2021;19,799
+FR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2012;10,12
+FR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2013;10,016
+FR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2014;9,963
+FR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2015;9,738
+FR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2016;9,624
+FR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2017;9,693
+FR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2018;9,5
+FR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2019;9,453
+FR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2020;8,838
+FR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);FR;France;HF3;Household out-of-pocket payments;2021;8,925
+DE_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2012;14,025
+DE_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2013;13,19
+DE_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2014;12,873
+DE_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2015;12,953
+DE_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2016;12,825
+DE_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2017;12,785
+DE_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2018;13,037
+DE_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2019;13,319
+DE_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2020;12,282
+DE_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2021;12,044
+DE_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DE;Germany;HF3;Household out-of-pocket payments;2022;11,017
+IS_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2012;18,568
+IS_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2013;18,256
+IS_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2014;17,98
+IS_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2015;17,641
+IS_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2016;16,868
+IS_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2017;16,449
+IS_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2018;15,937
+IS_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2019;15,545
+IS_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2020;14,977
+IS_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2021;14,647
+IS_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IS;Iceland;HF3;Household out-of-pocket payments;2022;14,931
+CH_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2012;24,863
+CH_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2013;24,531
+CH_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2014;23,999
+CH_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2015;23,635
+CH_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2016;22,957
+CH_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2017;23,091
+CH_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2018;23,333
+CH_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2019;23,395
+CH_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2020;22,638
+CH_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CH;Switzerland;HF3;Household out-of-pocket payments;2021;22,265
+CY_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2012;42,372
+CY_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2013;42,599
+CY_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2014;45,111
+CY_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2015;43,625
+CY_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2016;44,607
+CY_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2017;44,758
+CY_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2018;44,361
+CY_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2019;33,726
+CY_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2020;17,768
+CY_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CY;Cyprus;HF3;Household out-of-pocket payments;2021;9,923
+LT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2012;31,801
+LT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2013;32,82
+LT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2014;31,492
+LT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2015;31,839
+LT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2016;32,317
+LT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2017;32,645
+LT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2018;31,516
+LT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2019;32,27
+LT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2020;28,661
+LT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2021;30,158
+LT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LT;Lithuania;HF3;Household out-of-pocket payments;2022;30,158
+LU_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2012;11,47
+LU_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2013;11,199
+LU_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2014;11,073
+LU_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2015;10,715
+LU_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2016;10,744
+LU_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2017;10,661
+LU_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2018;10,436
+LU_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2019;9,588
+LU_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2020;8,387
+LU_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2021;8,906
+LU_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LU;Luxembourg;HF3;Household out-of-pocket payments;2022;8,812
+ES_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2012;21,807
+ES_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2013;22,775
+ES_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2014;23,135
+ES_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2015;22,297
+ES_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2016;21,96
+ES_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2017;22,246
+ES_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2018;22,244
+ES_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2019;21,832
+ES_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2020;19,728
+ES_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);ES;Spain;HF3;Household out-of-pocket payments;2021;20,997
+PL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2012;24,264
+PL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2013;23,645
+PL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2014;23,126
+PL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2015;23,037
+PL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2016;22,819
+PL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2017;22,736
+PL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2018;20,42
+PL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2019;20,091
+PL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2020;19,535
+PL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2021;19,847
+PL_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PL;Poland;HF3;Household out-of-pocket payments;2022;17,98
+NL_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2012;10,091
+NL_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2013;11,535
+NL_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2014;11,588
+NL_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2015;11,286
+NL_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2016;11,276
+NL_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2017;11,049
+NL_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2018;10,791
+NL_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2019;10,424
+NL_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2020;9,292
+NL_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2021;9,377
+NL_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);NL;Netherlands;HF3;Household out-of-pocket payments;2022;9,778
+BG_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2012;47,744
+BG_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2013;41,862
+BG_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2014;40,241
+BG_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2015;42,51
+BG_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2016;43,255
+BG_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2017;42,194
+BG_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2018;39,328
+BG_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2019;37,796
+BG_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2020;35,525
+BG_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);BG;Bulgaria;HF3;Household out-of-pocket payments;2021;33,97
+HR_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2012;11,751
+HR_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2013;8,832
+HR_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2014;11,276
+HR_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2015;10,945
+HR_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2016;10,974
+HR_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2017;10,967
+HR_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2018;11,387
+HR_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2019;11,465
+HR_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2020;10,449
+HR_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);HR;Croatia;HF3;Household out-of-pocket payments;2021;9,399
+LV_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2012;37,823
+LV_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2013;38,471
+LV_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2014;39,106
+LV_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2015;40,454
+LV_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2016;43,323
+LV_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2017;41,788
+LV_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2018;39,18
+LV_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2019;35,105
+LV_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2020;31,874
+LV_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);LV;Latvia;HF3;Household out-of-pocket payments;2021;26,982
+IT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2012;22,084
+IT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2013;22,226
+IT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2014;22,54
+IT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2015;23,467
+IT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2016;23,323
+IT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2017;23,806
+IT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2018;23,551
+IT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2019;23,461
+IT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2020;21,46
+IT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2021;21,894
+IT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);IT;Italy;HF3;Household out-of-pocket payments;2022;21,432
+CZ_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2012;14,487
+CZ_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2013;14,556
+CZ_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2014;14,565
+CZ_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2015;14,856
+CZ_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2016;14,827
+CZ_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2017;14,546
+CZ_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2018;14,187
+CZ_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2019;14,092
+CZ_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2020;11,528
+CZ_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);CZ;Czechia;HF3;Household out-of-pocket payments;2021;12,726
+GM_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2012;13,133
+GM_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2013;14,515
+GM_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2014;14,516
+GM_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2015;14,537
+GM_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2016;14,47
+GM_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2017;14,694
+GM_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2018;15,495
+GM_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2019;15,668
+GM_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2020;12,742
+GM_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2021;12,678
+GM_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);GM;United Kingdom;HF3;Household out-of-pocket payments;2022;13,907
+MT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF3;Household out-of-pocket payments;2012;35,038
+MT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF3;Household out-of-pocket payments;2013;35,402
+MT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF3;Household out-of-pocket payments;2014;36,761
+MT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF3;Household out-of-pocket payments;2015;37,473
+MT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF3;Household out-of-pocket payments;2016;35,137
+MT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF3;Household out-of-pocket payments;2017;35,225
+MT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF3;Household out-of-pocket payments;2018;34,296
+MT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF3;Household out-of-pocket payments;2019;34,131
+MT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);MT;Malta;HF3;Household out-of-pocket payments;2020;30,304
+PT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2012;29,583
+PT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2013;28,794
+PT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2014;29,335
+PT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2015;29,535
+PT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2016;29,432
+PT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2017;29,688
+PT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2018;29,917
+PT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2019;30,607
+PT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2020;28,019
+PT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2021;28,988
+PT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);PT;Portugal;HF3;Household out-of-pocket payments;2022;28,598
+AT_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2012;18,674
+AT_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2013;19,171
+AT_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2014;19,098
+AT_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2015;19,091
+AT_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2016;19,243
+AT_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2017;19,153
+AT_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2018;18,425
+AT_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2019;17,915
+AT_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2020;16,646
+AT_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2021;15,779
+AT_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);AT;Austria;HF3;Household out-of-pocket payments;2022;15,781
+DK_2012;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2012;13,534
+DK_2013;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2013;13,372
+DK_2014;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2014;13,362
+DK_2015;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2015;13,48
+DK_2016;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2016;13,54
+DK_2017;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2017;13,694
+DK_2018;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2018;13,824
+DK_2019;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2019;13,794
+DK_2020;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2020;12,933
+DK_2021;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2021;12,598
+DK_2022;OECD.ELS.HD:DSD_SHA@DF_SHA(1.0);DK;Denmark;HF3;Household out-of-pocket payments;2022;12,933
