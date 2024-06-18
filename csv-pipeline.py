@@ -147,7 +147,10 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
 
     df_flat = df.groupby('ID_NOTICE_CAN').first()
     df_flat.index = df_flat.index.to_series().apply(transform_id)
-    df_flat = df_flat.where(pd.notnull(df_flat), None) #JSON Parser does not accept na. We set them at -1.
+    df_flat.fillna({'VALUE_EURO': -1.,
+                   'VALUE_EURO_FIN_1': -1.,
+                   'VALUE_EURO_FIN_2': -1., }, inplace=True) #JSON Parser does not accept na. We set them at -1.
+    df_flat = df_flat.where(pd.notnull(df_flat), None)  # OpenSearch does not accept pd.nan We convert them to None
     return df_flat
 
 #                               ------------ CODE -----------------
