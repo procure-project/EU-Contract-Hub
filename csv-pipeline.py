@@ -36,9 +36,7 @@ client = OpenSearch(
 def download_file(url, file_path):
     try:
         absolute_path = os.path.abspath(file_path)
-        print(absolute_path)
         wget.download(url, out=absolute_path)
-        print(f"Downloaded: {url}")
     except Exception as e:
         print(f"Failed to download {url}: {e}")
 
@@ -57,7 +55,6 @@ def extract_file(file_path):
                     source_file_path = os.path.join(root, file)
                     destination_folder = os.path.dirname(root)
                     shutil.move(source_file_path, destination_folder)
-                    print(f"Extracted: {file}")
         os.rmdir(file_path[:-4])
     except Exception as e:
         print(f"Failed to extract {file_path}: {e}")
@@ -66,7 +63,7 @@ def download_csv(save_folder):
     start_year = 2018
     end_year = 2023
     base_url = 'https://data.europa.eu/api/hub/store/data/ted-contract-award-notices-'
-    for year in range(start_year, end_year + 1):
+    for year in tqdm(range(start_year, end_year + 1), desc="Downloading", unit='year'):
         download_url = f"{base_url}{year}.zip"
         save_path = f"{save_folder}TED_AWARD_{year}.zip"
         download_file(download_url, save_path)
