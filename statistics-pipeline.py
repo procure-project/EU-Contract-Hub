@@ -6,7 +6,7 @@ import getpass
 FOLDER = "../data/oecd-eurostat/"
 HOST = 'localhost'
 PORT = 9200
-INDEX = 'eurostat-oecd'
+INDEX = 'oecd-eurostat'
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)
