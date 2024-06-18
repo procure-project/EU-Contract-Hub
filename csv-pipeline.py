@@ -35,6 +35,7 @@ client = OpenSearch(
 # Function to download files from url into file_path
 def download_file(url, file_path):
     try:
+        print(file_path)
         wget.download(url, out=file_path)
         print(f"Downloaded: {url}")
     except Exception as e:
@@ -154,6 +155,7 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
     return df_flat
 
 #                               ------------ CODE -----------------
+
 
 download_csv(FOLDER)
 if not os.path.exists(FOLDER):
