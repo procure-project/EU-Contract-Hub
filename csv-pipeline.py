@@ -151,6 +151,9 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
 if not os.path.exists(FOLDER):
     os.makedirs(FOLDER)
 df = read_csvs(FOLDER)
+df.fillna({'VALUE_EURO' : None,
+            'VALUE_EURO_FIN_1' : None,
+            'VALUE_EURO_FIN_2' : None}, inplace=True)
 lines = df.shape[0]
 columns = df.columns
 
