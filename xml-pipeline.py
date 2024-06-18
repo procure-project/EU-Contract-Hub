@@ -11,6 +11,29 @@ import datetime
 from tqdm import tqdm
 import getpass
 
+#                               ------------ CONSTANTS -----------------
+BASE_URL = 'https://ted.europa.eu/packages/daily/'
+BASE_FOLDER = "/home/procure/data/ted/xml/"
+START_YEAR = 2023
+END_YEAR = datetime.date.today().year
+# Opensearch client
+HOST = 'localhost'
+PORT = 9200
+username = input("Enter ProCureSpot username: ")
+password = getpass.getpass(prompt="Enter ProCureSpot password: ")
+auth = (username, password)
+# Create the client with SSL/TLS enabled, but hostname verification disabled.
+OS_CLIENT = OpenSearch(
+    hosts=[{'host': HOST, 'port': PORT}],
+    http_compress=True,  # enables gzip compression for request bodies
+    http_auth=auth,
+    use_ssl=True,
+    verify_certs=False,
+    ssl_assert_hostname=True,
+    ssl_show_warn=False,
+)
+
+#                          ------------ FUNCTIONS -----------------
 # Extracts a .tar.gz compressed file and deletes the compressed file
 def extract_file(file_path):
     try:
@@ -147,35 +170,11 @@ def ted_xml_ingestion(year):
         ojs += 1
 
 
-def ted_xml():
-    start_year = 2023  # 2018
-    end_year = datetime.date.today().year
-    for year in range(start_year, end_year + 1):
-        year_folder = f"{BASE_FOLDER}{year}/"  # Temp yearly packages folder
-        if not os.path.exists(year_folder):
-            os.makedirs(year_folder)
-        ted_xml_ingestion(year)
-        shutil.rmtree(year_folder)
+#                               ------------ CODE -----------------
 
-
-BASE_URL = 'https://ted.europa.eu/packages/daily/'
-BASE_FOLDER = "/home/procure/data/ted/xml/"
-
-# Opensearch client
-HOST = 'localhost'
-PORT = 9200
-username = input("Enter ProCureSpot username: ")
-password = getpass.getpass(prompt="Enter ProCureSpot password: ")
-auth = (username, password)
-# Create the client with SSL/TLS enabled, but hostname verification disabled.
-OS_CLIENT = OpenSearch(
-    hosts=[{'host': HOST, 'port': PORT}],
-    http_compress=True,  # enables gzip compression for request bodies
-    http_auth=auth,
-    use_ssl=True,
-    verify_certs=False,
-    ssl_assert_hostname=True,
-    ssl_show_warn=False,
-)
-
-ted_xml()
+for year in range(START_YEAR, END_YEAR + 1):
+    year_folder = f"{BASE_FOLDER}{year}/"  # Temp yearly packages folder
+    if not os.path.exists(year_folder):
+        os.makedirs(year_folder)
+    ted_xml_ingestion(year)
+    shutil.rmtree(year_folder)
