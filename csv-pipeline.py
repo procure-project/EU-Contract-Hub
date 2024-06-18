@@ -35,8 +35,8 @@ client = OpenSearch(
 # Function to download files from url into file_path
 def download_file(url, file_path):
     try:
-        print(file_path)
-        wget.download(url, out=file_path)
+        absolute_path = os.path.abspath(file_path)
+        wget.download(url, out=absolute_path)
         print(f"Downloaded: {url}")
     except Exception as e:
         print(f"Failed to download {url}: {e}")
