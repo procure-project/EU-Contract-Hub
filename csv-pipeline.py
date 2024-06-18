@@ -9,7 +9,7 @@ import wget
 import zipfile
 import shutil
 import getpass
-
+from tqdm import tqdm
 #                               ------------ CONSTANTS -----------------
 FOLDER = "./temp/csv/"
 HOST = 'localhost'
@@ -134,11 +134,18 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
     converters['LOTS_NUMBER'] = lots_converter
     converters['DT_DISPATCH'] = date_converter
     dfs = []
-    for file_name in os.listdir(folder_path):
-        if file_name.endswith('.csv') and file_name.startswith('export_CAN'):
-            file_path = os.path.join(folder_path, file_name)
-            current_df = pd.read_csv(file_path, usecols=columns_can_level, dtype=dtypes, converters=converters)
-            dfs.append(current_df)
+
+    for _, _, files in os.walk(folder_path):
+        csv_files = [csv_file for csv_file in files if csv_file.startswith(".export_CAN")]
+        if csv_files:
+            with tqdm(total=len(csv_files), desc=f"Indexing CSVs", colour='white', unit='file',
+                      bar_format="{desc}: |{bar}| {n}/{total}") as pbar:
+                for csv_file in csv_files:
+                    file_path = os.path.join(folder_path, csv_file)
+                    current_df = pd.read_csv(file_path, usecols=columns_can_level, dtype=dtypes, converters=converters)
+                    dfs.append(current_df)
+                    pbar.update(1)
+
     df = pd.concat(dfs, ignore_index=True)
 
     df_flat = df.groupby('ID_NOTICE_CAN').first()
@@ -154,9 +161,6 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
 if not os.path.exists(FOLDER):
     os.makedirs(FOLDER)
 df = read_csvs(FOLDER)
-df.fillna({'VALUE_EURO' : None,
-            'VALUE_EURO_FIN_1' : None,
-            'VALUE_EURO_FIN_2' : None}, inplace=True)
 lines = df.shape[0]
 columns = df.columns
 
