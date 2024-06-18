@@ -150,7 +150,7 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
     df_flat.fillna({'VALUE_EURO': -1.,
                    'VALUE_EURO_FIN_1': -1.,
                    'VALUE_EURO_FIN_2': -1., }, inplace=True) #JSON Parser does not accept na. We set them at -1.
-    df_flat = df_flat.where(pd.notnull(df_flat), None)  # OpenSearch does not accept pd.nan We convert them to None
+    #df_flat = df_flat.where(pd.notnull(df_flat), None)  # OpenSearch does not accept pd.nan We convert them to None
     return df_flat
 
 #                               ------------ CODE -----------------
@@ -186,37 +186,34 @@ for i in tqdm(range(iters), desc="Indexing", unit='100000 lines'):
     # Use the bulk API to index the documents
     try:
         success, failed = helpers.bulk(client, actions, index=INDEX, raise_on_error=True, refresh=True)
-        #Logging
-        successful_ids = {action['_id'] for action in actions}
-        failed_ids = {failure['index']['_id'] for failure in failed}
-        successful_ids -= failed_ids
+
+        # Prepare log entries
+        successful_ids = {action['_id'] for action in actions} - {failure['index']['_id'] for failure in failed}
         current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+        # Log successful actions
         for action in actions:
-            print(action)
             if action['_id'] in successful_ids:
-                log_entry = pd.DataFrame({
+                log_entry = pd.DataFrame([{
                     '_id': action['_id'],
                     '_index': action['_index'],
                     'status': 'success',
                     'error': None,
                     'date': current_date
-                })
+                }])
                 logs.append(log_entry)
 
+        # Log failed actions
         for failure in failed:
-            action = failure['index'] if 'index' in failure else failure['create']
-            error = failure['index']['error'] if 'index' in failure else failure['create']['error']
-            document_id = action['_id']
-            index = action['_index']
-            reason = error['reason']
-
-            log_entry = pd.DataFrame({
-                '_id': document_id,
-                '_index': index,
+            action = failure.get('index', failure.get('create'))
+            reason = action['error']['reason']
+            log_entry = pd.DataFrame([{
+                '_id': action['_id'],
+                '_index': action['_index'],
                 'status': 'failed',
                 'error': reason,
                 'date': current_date
-            })
+            }])
             logs.append(log_entry)
     except Exception as e:
         print(f"Error during bulk indexing: {e}")
