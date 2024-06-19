@@ -153,6 +153,40 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
     #df_flat = df_flat.where(pd.notnull(df_flat), None)  # OpenSearch does not accept pd.nan We convert them to None
     return df_flat
 
+def logger(actions,failed):
+    # Prepare log entries
+    file_path ="./logs/csv-ingestion.csv"
+    logs = []
+    successful_ids = {action['_id'] for action in actions} - {failure['index']['_id'] for failure in failed}
+    current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    # Log successful actions
+    for action in actions:
+        if action['_id'] in successful_ids:
+            log_entry = pd.DataFrame([{
+                '_id': action['_id'],
+                '_index': action['_index'],
+                'status': 'success',
+                'error': None,
+                'date': current_date
+            }])
+            logs.append(log_entry)
+
+    # Log failed actions
+    for failure in failed:
+        action = failure.get('index', failure.get('create'))
+        reason = action['error']['reason']
+        log_entry = pd.DataFrame([{
+            '_id': action['_id'],
+            '_index': action['_index'],
+            'status': 'failed',
+            'error': reason,
+            'date': current_date
+        }])
+        logs.append(log_entry)
+    logs_df = pd.concat(logs, ignore_index=True)
+    file_exists = os.path.exists(file_path)
+    logs_df.to_csv(file_path, mode='a', header=not file_exists, index=False)
 #                               ------------ CODE -----------------
 
 
@@ -164,7 +198,6 @@ lines = df.shape[0]
 columns = df.columns
 
 
-logs = []
 print("Lines to upload " + str(lines))
 iters = math.ceil(lines / 100000)
 for i in tqdm(range(iters), desc="Indexing", unit='100000 lines'):
@@ -186,37 +219,9 @@ for i in tqdm(range(iters), desc="Indexing", unit='100000 lines'):
     # Use the bulk API to index the documents
     try:
         success, failed = helpers.bulk(client, actions, index=INDEX, raise_on_error=True, refresh=True)
-
-        # Prepare log entries
-        successful_ids = {action['_id'] for action in actions} - {failure['index']['_id'] for failure in failed}
-        current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-        # Log successful actions
-        for action in actions:
-            if action['_id'] in successful_ids:
-                log_entry = pd.DataFrame([{
-                    '_id': action['_id'],
-                    '_index': action['_index'],
-                    'status': 'success',
-                    'error': None,
-                    'date': current_date
-                }])
-                logs.append(log_entry)
-
-        # Log failed actions
-        for failure in failed:
-            action = failure.get('index', failure.get('create'))
-            reason = action['error']['reason']
-            log_entry = pd.DataFrame([{
-                '_id': action['_id'],
-                '_index': action['_index'],
-                'status': 'failed',
-                'error': reason,
-                'date': current_date
-            }])
-            logs.append(log_entry)
+        logger(actions, failed)
     except Exception as e:
         print(f"Error during bulk indexing: {e}")
+
+
 shutil.rmtree(FOLDER)
-logs_df = pd.concat(logs, ignore_index=True)
-logs_df.to_csv("./logs/csv-ingestion.csv", index=False)
