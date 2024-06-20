@@ -67,7 +67,7 @@ response = client.search(
     index=index_name,
     body=query,
     size=scroll_size,  # Number of documents to retrieve per batch
-    scroll="10m"  # Keep the scroll window open for 1 minute
+    scroll="60m"  # Keep the scroll window open for 1 minute
 )
 scroll_id = response["_scroll_id"]
 scr = 1
@@ -75,7 +75,7 @@ while True:
     translated = pd.read_csv('temp_translations.csv',usecols=['Document ID'])
     print("Already Translated: " + str(len(translated)))
     # Continue scrolling
-    response = client.scroll(scroll_id=scroll_id, scroll="1m")
+    response = client.scroll(scroll_id=scroll_id, scroll="60m")
     id_field_pairs = []
 
     # Extract document IDs and corresponding field values from the current batch of results
