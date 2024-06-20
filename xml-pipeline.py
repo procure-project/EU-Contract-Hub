@@ -76,7 +76,7 @@ def modify_p_fields(dictionary):
                     dictionary["P"] = dictionary["P"]["FT"]["#text"]
                     # print("after: "+json.dumps(dictionary))
         elif key == "EU_PROGR_RELATED":
-            if isinstance(value,dict):
+            if isinstance(value, dict):
                 dictionary[key] = value["P"]
         elif isinstance(value, dict):
             modify_p_fields(value)
@@ -209,7 +209,45 @@ def ted_xml_ingestion(year):
             print(f"Failed to process {package}: {e}")
         ojs += 1
 
+def logger(actions,failed):
+    # Prepare log entries
+    logs_path ="./logs/xml-ingestion.csv"
+    logs = []
+    successful_ids = {action['_id'] for action in actions} - {failure['index']['_id'] for failure in failed}
+    current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+    # Log successful actions
+    for action in actions:
+        if action['_id'] in successful_ids:
+            log_entry = pd.DataFrame([{
+                '_id': action['_id'],
+                '_index': action['_index'],
+
+
+
+
+                
+                'status': 'success',
+                'error': None,
+                'date': current_date
+            }])
+            logs.append(log_entry)
+
+    # Log failed actions
+    for failure in failed:
+        action = failure.get('index', failure.get('create'))
+        reason = action['error']['reason']
+        log_entry = pd.DataFrame([{
+            '_id': action['_id'],
+            '_index': action['_index'],
+            'status': 'failed',
+            'error': reason,
+            'date': current_date
+        }])
+        logs.append(log_entry)
+    logs_df = pd.concat(logs, ignore_index=True)
+    file_exists = os.path.exists(logs_path)
+    logs_df.to_csv(logs_path, mode='a', header=not file_exists, index=False)
 #                               ------------ CODE -----------------
 
 for year in range(START_YEAR, END_YEAR + 1):
