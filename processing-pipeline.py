@@ -179,7 +179,7 @@ while True:
     actions = [
         {
             "_op_type": "index",
-            "_index": "procure-test",
+            "_index": "procure",
             "_id": doc['Document ID'],
             **{f"{col_name}": doc[col_name] for col_name in df.columns if col_name != "Document ID"}
 
@@ -187,7 +187,7 @@ while True:
         for _, doc in df.iterrows()
     ]
     try:
-        success, failed = helpers.bulk(client, actions, index="procure-test", raise_on_error=True, refresh=True)
+        success, failed = helpers.bulk(client, actions, index="procure", raise_on_error=True, refresh=True)
         print(f"Successfully indexed {success} documents.")
         print(f"Failed to index {failed} documents.")
     except Exception as e:

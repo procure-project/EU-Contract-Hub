@@ -151,6 +151,7 @@ def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CA
                    'VALUE_EURO_FIN_1': -1.,
                    'VALUE_EURO_FIN_2': -1., }, inplace=True) #JSON Parser does not accept na. We set them at -1.
     #df_flat = df_flat.where(pd.notnull(df_flat), None)  # OpenSearch does not accept pd.nan We convert them to None
+    df_flat = df_flat.replace({'ISO_COUNTRY_CODE': {'UK': 'GB'}})
     return df_flat
 
 def logger(actions,failed):
