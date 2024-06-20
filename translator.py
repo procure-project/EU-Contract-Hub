@@ -92,9 +92,9 @@ while True:
     # Processing fields Scroll-level
     df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description",
                                                "Description (Translation)"])
-    print('Lines to drop: '+str(len(df['Document ID'].isin(translated['Document ID']))))
+    print('Lines before dropping: '+ str(len(df)))
     df = df[~df['Document ID'].isin(translated['Document ID'])]
-
+    print('Lines to translate: ' + str(len(df)))
     try:
         df_to_write = batch_translate(df)
         df.to_csv('temp_translations.csv',mode='a', index=False, header=False)
