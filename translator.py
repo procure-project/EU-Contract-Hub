@@ -92,6 +92,7 @@ while True:
     # Processing fields Scroll-level
     df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description",
                                                "Description (Translation)"])
+    print('Lines to drop: '+str(len(df['Document ID'].isin(translated['Document ID']))))
     df = df[~df['Document ID'].isin(translated['Document ID'])]
 
     try:
