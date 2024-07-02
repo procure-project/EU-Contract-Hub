@@ -97,7 +97,7 @@ while True:
     print('Lines to translate: ' + str(len(df)))
     try:
         df_to_write = batch_translate(df)
-        df.to_csv('temp_translations.csv',mode='a', index=False, header=False)
+        df.to_csv('../data/temp_translations.csv',mode='a', index=False, header=False)
     except Exception as e:
         print(e)
     scr = scr + 1
