@@ -72,7 +72,7 @@ response = client.search(
 scroll_id = response["_scroll_id"]
 scr = 1
 while True:
-    translated = pd.read_csv('temp_translations.csv',usecols=['Document ID'])
+    translated = pd.read_csv('../data/temp_translations.csv',usecols=['Document ID'])
     print("Already Translated: " + str(len(translated)))
     # Continue scrolling
     response = client.scroll(scroll_id=scroll_id, scroll="60m")
