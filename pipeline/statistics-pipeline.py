@@ -22,7 +22,7 @@ client = OpenSearch(
     ssl_show_warn=False,
 )
 
-metadata = pd.read_csv("./Statistical_metadata.csv")
+metadata = pd.read_csv("../data/Statistical_metadata.csv")
 legend = {
     "COUNTRY": "Country",
     "TIME_PERIOD": "Year",
