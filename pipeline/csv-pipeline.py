@@ -190,10 +190,9 @@ def logger(actions,failed):
     logs_df.to_csv(file_path, mode='a', header=not file_exists, index=False)
 #                               ------------ CODE -----------------
 
-
-download_csv(FOLDER)
 if not os.path.exists(FOLDER):
     os.makedirs(FOLDER)
+download_csv(FOLDER)
 df = read_csvs(FOLDER)
 lines = df.shape[0]
 columns = df.columns
