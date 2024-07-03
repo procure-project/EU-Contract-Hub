@@ -10,11 +10,7 @@ INDEX = 'oecd-eurostat'
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)
-def convert_float(value):
-    try:
-        return float(str(value).replace(",", "."))
-    except ValueError:
-        return None
+
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 client = OpenSearch(
     hosts=[{'host': HOST, 'port': PORT}],
@@ -75,7 +71,7 @@ dfs = []
 stat_files = [stat_file for stat_file in os.listdir(FOLDER)]
 for csv_file in stat_files:
     file_path = os.path.join(FOLDER, csv_file)
-    df = pd.read_csv(file_path, sep=';')
+    df = pd.read_csv(file_path, sep=';', decimal=',')
     if csv_file == "Health exp by scheme.csv":
         df['ID'] = csv_file[:-4].replace(" ", "") + "_" + df['FINANCING_SCHEME'] + "_" + df['ID']
     elif csv_file == "Health exp Government  Compulsory financing schemes.csv":
@@ -92,27 +88,7 @@ for csv_file in stat_files:
     df['File'] = csv_file[:-4]
     df = pd.merge(df, metadata, on='File', how='left')
 
-    df = df.where(pd.notna(df), None)
-    num_cols = [
-        "Crude birth rate - Per 1000 people",
-        "Crude death rate - per thousand people",
-        "GDP - Million euro",
-        "Healthy life years female - Years",
-        "Healthy life years male - Years",
-        "Infant mortality rate - Per 1000 live births",
-        "Life expectancy female - Years",
-        "Life expectancy male - Years",
-        "Percentage of expenditure on health - Percentage",
-        "Population 65 years and over - Percentage",
-        "Population growth rate - Percentage",
-        "Total Health expenditure - Million euro",
-        "Total Health expenditure per inhabitant - Euro"
-    ]
-    pd.set_option('display.max_columns', None)
-    # Apply transformation directly using applymap
-    num_columns_existing = [col for col in num_cols if col in df.columns]
-    if num_columns_existing:
-        df[num_columns_existing] = df[num_columns_existing].apply(convert_float)
+    df = df.where(pd.notna(df), 'None')
 
     columns_to_drop = ['DATAFLOW', 'Health care provider', 'Financing scheme', 'UNIT_MEASURE']
     columns_existing = [col for col in columns_to_drop if col in df.columns]
