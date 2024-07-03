@@ -87,8 +87,6 @@ for csv_file in stat_files:
     df.replace(legend, inplace=True)
     df['File'] = csv_file[:-4]
     df = pd.merge(df, metadata, on='File', how='left')
-    df = df.where(pd.notna(df), None)
-    print(df.columns)
     num_cols = [
         "Crude birth rate - Per 1000 people",
         "Crude death rate - per thousand people",
@@ -110,13 +108,9 @@ for csv_file in stat_files:
     # Apply transformation directly using applymap
     num_columns_existing = [col for col in num_cols if col in df.columns]
     if num_columns_existing:
-        if "Population growth rate - Percentage" in num_columns_existing:
-
-            print(df.head(10))
         df[num_columns_existing] = df[num_columns_existing].map(lambda x: float(x.replace(",", ".")) if isinstance(x, str) else x)
-        if "Population growth rate - Percentage" in num_columns_existing:
-            print(df.head(10))
 
+    df = df.where(pd.notna(df), None)
     columns_to_drop = ['DATAFLOW', 'Health care provider', 'Financing scheme', 'UNIT_MEASURE']
     columns_existing = [col for col in columns_to_drop if col in df.columns]
     if columns_existing:
