@@ -59,7 +59,7 @@ PUT oecd-eurostat
         "type": "float"
       },
       "Question": {
-        "type": "keyword"
+        "type": "text"
       },
       "Reference area": {
         "type": "keyword"
