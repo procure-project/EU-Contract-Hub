@@ -109,7 +109,7 @@ for csv_file in stat_files:
     # Apply transformation directly using applymap
     num_columns_existing = [col for col in num_cols if col in df.columns]
     if num_columns_existing:
-        df[num_columns_existing] = df[num_columns_existing].applymap(lambda x: float(x.replace(",", ".")) if isinstance(x, str) else x)
+        df[num_columns_existing] = df[num_columns_existing].map(lambda x: float(x.replace(",", ".")) if isinstance(x, str) else x)
 
     columns_to_drop = ['DATAFLOW', 'Health care provider', 'Financing scheme', 'UNIT_MEASURE']
     columns_existing = [col for col in columns_to_drop if col in df.columns]
