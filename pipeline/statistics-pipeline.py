@@ -110,7 +110,7 @@ for csv_file in stat_files:
     # Apply transformation directly using applymap
     num_columns_existing = [col for col in num_cols if col in df.columns]
     if num_columns_existing:
-        df[num_columns_existing] = df[num_columns_existing].applymap(lambda x: float(x.replace(",", ".")) )
+        df[num_columns_existing] = df[num_columns_existing].applymap(lambda x: float(str(x).replace(",", ".")) )
 
     print(df.isna().sum().sum())
     columns_to_drop = ['DATAFLOW', 'Health care provider', 'Financing scheme', 'UNIT_MEASURE']
