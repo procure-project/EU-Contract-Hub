@@ -112,6 +112,7 @@ for csv_file in stat_files:
 
     print(df.isna().sum().sum())
     df = df.where(pd.notna(df), None)
+    df = df.where(df.notna(), None)
     print(df.isna().sum().sum())
     columns_to_drop = ['DATAFLOW', 'Health care provider', 'Financing scheme', 'UNIT_MEASURE']
     columns_existing = [col for col in columns_to_drop if col in df.columns]
