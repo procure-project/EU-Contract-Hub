@@ -1,0 +1,84 @@
+PUT oecd-eurostat
+{ "mappings": {
+    "properties": {
+      "Country": {
+        "type": "keyword"
+      },
+      "Crude birth rate - Per 1000 people": {
+        "type": "float"
+      },
+      "Crude death rate - per thousand people": {
+        "type": "float"
+      },
+      "Dataset": {
+        "type": "keyword"
+      },
+      "File": {
+        "type": "keyword"
+      },
+      "Financing Scheme": {
+        "type": "keyword"
+      },
+      "Function": {
+        "type": "keyword"
+      },
+      "GDP - Million euro": {
+        "type": "float"
+      },
+      "Healthcare Provider": {
+        "type": "keyword"
+      },
+      "Healthy life years female - Years": {
+        "type": "float"
+      },
+      "Healthy life years male - Years": {
+        "type": "float"
+      },
+      "Infant mortality rate - Per 1000 live births": {
+        "type": "float"
+      },
+      "Life expectancy female - Years": {
+        "type": "float"
+      },
+      "Life expectancy male - Years": {
+        "type": "float"
+      },
+      "Link": {
+        "type": "keyword"
+      },
+      "Percentage of expenditure on health - Percentage": {
+        "type": "float"
+      },
+      "Population": {
+        "type": "long"
+      },
+      "Population 65 years and over - Percentage": {
+        "type": "float"
+      },
+      "Population growth rate - Percentage": {
+        "type": "float"
+      },
+      "Question": {
+        "type": "keyword"
+      },
+      "Reference area": {
+        "type": "keyword"
+      },
+      "Total Health expenditure - Million euro": {
+        "type": "float"
+      },
+      "Total Health expenditure per inhabitant - Euro": {
+        "type": "float"
+      },
+      "Unit of measure": {
+        "type": "keyword"
+      },
+      "Value": {
+        "type": "keyword"
+      },
+      "Year": {
+        "type": "long"
+      }
+    }
+  }
+}

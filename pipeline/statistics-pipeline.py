@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import getpass
 #                               ------------ CONSTANTS -----------------
-FOLDER = "../data/oecd-eurostat/"
+FOLDER = "../../data/oecd-eurostat/"
 HOST = 'localhost'
 PORT = 9200
 INDEX = 'oecd-eurostat'
