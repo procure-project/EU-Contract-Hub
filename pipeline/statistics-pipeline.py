@@ -111,6 +111,7 @@ for csv_file in stat_files:
         df[num_columns_existing] = df[num_columns_existing].map(lambda x: float(x.replace(",", ".")) if isinstance(x, str) else x)
 
     df = df.where(pd.notna(df), None)
+    df = df.fillna(value=None)
     columns_to_drop = ['DATAFLOW', 'Health care provider', 'Financing scheme', 'UNIT_MEASURE']
     columns_existing = [col for col in columns_to_drop if col in df.columns]
     if columns_existing:
