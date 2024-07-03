@@ -88,6 +88,7 @@ for csv_file in stat_files:
     df['File'] = csv_file[:-4]
     df = pd.merge(df, metadata, on='File', how='left')
     df = df.where(pd.notna(df), None)
+    print(df.columns)
     num_cols = [
         "Crude birth rate - Per 1000 people",
         "Crude death rate - per thousand people",
