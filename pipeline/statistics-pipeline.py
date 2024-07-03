@@ -10,7 +10,11 @@ INDEX = 'oecd-eurostat'
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)
-
+def convert_float(value):
+    try:
+        return float(str(value).replace(",", "."))
+    except ValueError:
+        return None
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 client = OpenSearch(
     hosts=[{'host': HOST, 'port': PORT}],
@@ -110,7 +114,8 @@ for csv_file in stat_files:
     # Apply transformation directly using applymap
     num_columns_existing = [col for col in num_cols if col in df.columns]
     if num_columns_existing:
-        df[num_columns_existing] = df[num_columns_existing].map(lambda x: float(str(x).replace(",", ".")) if str(x) != 'None' else None)
+        try:
+            df[num_columns_existing] = df[num_columns_existing].apply(convert_float)
 
     print(df.isna().sum().sum())
     columns_to_drop = ['DATAFLOW', 'Health care provider', 'Financing scheme', 'UNIT_MEASURE']
