@@ -106,8 +106,7 @@ for csv_file in stat_files:
         "Population 65 years and over - Percentage",
         "Population growth rate - Percentage",
         "Total Health expenditure - Million euro",
-        "Total Health expenditure per inhabitant - Euro",
-        "Population"
+        "Total Health expenditure per inhabitant - Euro"
     ]
     pd.set_option('display.max_columns', None)
     # Apply transformation directly using applymap
