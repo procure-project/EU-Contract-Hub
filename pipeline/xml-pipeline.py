@@ -99,14 +99,11 @@ def modify_txt_fields(dictionary):
         for k, v in dictionary.items():
             if isinstance(v, dict):
                 if '#text' in v.keys():
-                    if 'OVERHEIDSOPDRACHT BETREFFENDE DE TERBESCHIKKINGSTELLING' in v['#text']:
-                        print("before: " + json.dumps(dictionary))
+                    #print("before: " + json.dumps(dictionary))
                     # if p_value is not None:
                     #     print('---------------------------------------------------------------------------------------------------------------------------------------------------')
-                    #     print(text_field +": "+fetch_p_text(p_value))
                     dictionary[k] = dictionary[k]['#text']
-                    if 'OVERHEIDSOPDRACHT BETREFFENDE DE TERBESCHIKKINGSTELLING' in v['#text']:
-                        print("after: " + json.dumps(dictionary))
+                    #print("after: " + json.dumps(dictionary))
                 else:
                     modify_txt_fields(v)
             elif isinstance(v, list):
