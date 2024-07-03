@@ -83,8 +83,8 @@ while True:
         if not (isinstance(hit["_source"]["CONTRACT_AWARD_NOTICE"],
                            list)):  # REMOVE CONDITION there should not be any list in final version
             doc_id = hit["_id"]
-            title = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["TITLE"]["P"]
-            description = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["SHORT_DESCR"]["P"]
+            title = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["TITLE"]
+            description = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["SHORT_DESCR"]
             title_translated = "-"
             description_translated = "-"
 
