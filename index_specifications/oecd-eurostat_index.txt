@@ -1,3 +1,4 @@
+
 PUT oecd-eurostat
 { "mappings": {
     "properties": {
@@ -74,7 +75,7 @@ PUT oecd-eurostat
         "type": "keyword"
       },
       "Value": {
-        "type": "keyword"
+        "type": "float"
       },
       "Year": {
         "type": "long"
