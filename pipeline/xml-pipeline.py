@@ -17,7 +17,7 @@ from datetime import datetime as dt
 BASE_URL = 'https://ted.europa.eu/packages/daily/'
 BASE_FOLDER = "./temp/xml/"
 LOGS_PATH ="./logs/xml-ingestion.csv"
-START_YEAR = 2018
+START_YEAR = 2024
 END_YEAR = datetime.date.today().year
 # Opensearch client
 HOST = 'localhost'
