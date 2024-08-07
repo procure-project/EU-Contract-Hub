@@ -115,11 +115,11 @@ while True:
 
     # Extract document IDs and corresponding field values from the current batch of results
     for hit in response["hits"]["hits"]:  # Processing and Extracting Info Document-wise
-        if not (isinstance(hit["_source"]["CONTRACT_AWARD_NOTICE"],
-                           list)):  # REMOVE CONDITION there should not be any list in final version
-            doc_id = hit["_id"]
-            title = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["TITLE"]["P"]
-            description = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["SHORT_DESCR"]["P"]
+        doc_id = hit["_id"]
+        if "CONTRACT_AWARD_NOTICE" in hit["_source"].keys(): ######## Processing for legacy XML ####################################
+
+            title = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["TITLE"]
+            description = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["SHORT_DESCR"]
 
             cpv_data = hit["_source"]["CODED_DATA_SECTION"]["NOTICE_DATA"]["ORIGINAL_CPV"] # may be a list or a dictionary
             if isinstance(cpv_data, list):
@@ -135,35 +135,53 @@ while True:
 
             ca_name = hit["_source"]["CONTRACT_AWARD_NOTICE"]["CONTRACTING_BODY"]["ADDRESS_CONTRACTING_BODY"][
                 "OFFICIALNAME"]
+        else:          ############################################## Processing for eforms ##########################################
+            title = hit["_source"]["cac:ProcurementProject"]["cbc:Name"]
+            description = hit["_source"]["cac:ProcurementProject"]["cbc:Description"]
 
-            try:
-                inner_hit = client.get(index="ted-csv", id=doc_id)
-                value = inner_hit["_source"]["VALUE_EURO_FIN_2"]
+            cpv_data = hit["_source"]["cac:ProcurementProject"]["cac:MainCommodityClassification"][
+                "cbc:ItemClassificationCode"]
+            if isinstance(cpv_data, list):
+                cpv = [int(item) for item in cpv_data]
+                cpv_desc = ['-' for item in cpv_data]
+            else:
+                cpv = str(cpv_data)
+                cpv_desc = '-'
 
-                multiple_country = inner_hit["_source"]["B_MULTIPLE_COUNTRY"]
-                central_body = inner_hit["_source"]["B_AWARDED_BY_CENTRAL_BODY"]
-                joint_procurement = inner_hit["_source"]["B_INVOLVES_JOINT_PROCUREMENT"]
-                cae_type = inner_hit["_source"]["CAE_TYPE"]
-                if multiple_country:
-                    proc_route = "Cross Country Procurement"
-                elif joint_procurement:
-                    proc_route = "Joint Procurement"
-                elif not central_body:
-                    proc_route = "Direct Procurement"
-                elif cae_type == "1" or cae_type == "N":
-                    proc_route = "Centralized Procurement at National Level"
-                elif cae_type == "3" or cae_type == "R":
-                    proc_route = "Centralized Procurement at Regional Level"
-                elif cae_type == "4" or cae_type == "6" or cae_type == "8" or cae_type == "Z":
-                    proc_route = "Centralized Procurement at Unspecified Level"
-                else:
-                    proc_route = "Not applicable"
-            except Exception as e:
-                print(f"An error occurred: {e}")
-                value = -1
-                proc_route = "Unknown"
+            health_cpv = False
 
-            title_translated = "-"
+            country = hit["_source"]["cac:ProcurementProject"]["cac:RealizedLocation"]["cac:Address"]["cac:Country"][
+                "cbc:IdentificationCode"]
+
+            ca_name = hit["_source"]["cac:ContractingParty"]["cac:Party"]["cac:PartyName"]["cbc:Name"]
+        try: ######################################################### Query for CSV data ################################################
+            inner_hit = client.get(index="ted-csv", id=doc_id)
+            value = inner_hit["_source"]["VALUE_EURO_FIN_2"]
+
+            multiple_country = inner_hit["_source"]["B_MULTIPLE_COUNTRY"]
+            central_body = inner_hit["_source"]["B_AWARDED_BY_CENTRAL_BODY"]
+            joint_procurement = inner_hit["_source"]["B_INVOLVES_JOINT_PROCUREMENT"]
+            cae_type = inner_hit["_source"]["CAE_TYPE"]
+            if multiple_country:
+                proc_route = "Cross Country Procurement"
+            elif joint_procurement:
+                proc_route = "Joint Procurement"
+            elif not central_body:
+                proc_route = "Direct Procurement"
+            elif cae_type == "1" or cae_type == "N":
+                proc_route = "Centralized Procurement at National Level"
+            elif cae_type == "3" or cae_type == "R":
+                proc_route = "Centralized Procurement at Regional Level"
+            elif cae_type == "4" or cae_type == "6" or cae_type == "8" or cae_type == "Z":
+                proc_route = "Centralized Procurement at Unspecified Level"
+            else:
+                proc_route = "Not applicable"
+        except Exception as e: ########################################## If CSV not found handler ###########################################
+            print(f"An error occurred: {e}")
+            value = -1
+            proc_route = "Unknown"
+
+            title_translated = "-" # No translation for now (too slow)
             description_translated = "-"
 
             id_field_pairs.append((doc_id, title, title_translated, description, description_translated, cpv, cpv_desc,

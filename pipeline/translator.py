@@ -4,7 +4,7 @@ from deep_translator import GoogleTranslator
 import getpass
 
 translator = GoogleTranslator(source='auto', target='english')
-
+FILE="../../data/temp_translations.csv"
 
 def translate_title_batch(titles):
     return translator.translate_batch(titles)
@@ -72,7 +72,7 @@ response = client.search(
 scroll_id = response["_scroll_id"]
 scr = 1
 while True:
-    translated = pd.read_csv('temp_translations.csv',usecols=['Document ID'])
+    translated = pd.read_csv(FILE,usecols=['Document ID'])
     print("Already Translated: " + str(len(translated)))
     # Continue scrolling
     response = client.scroll(scroll_id=scroll_id, scroll="60m")
@@ -83,8 +83,8 @@ while True:
         if not (isinstance(hit["_source"]["CONTRACT_AWARD_NOTICE"],
                            list)):  # REMOVE CONDITION there should not be any list in final version
             doc_id = hit["_id"]
-            title = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["TITLE"]["P"]
-            description = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["SHORT_DESCR"]["P"]
+            title = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["TITLE"]
+            description = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["SHORT_DESCR"]
             title_translated = "-"
             description_translated = "-"
 
@@ -97,7 +97,7 @@ while True:
     print('Lines to translate: ' + str(len(df)))
     try:
         df_to_write = batch_translate(df)
-        df.to_csv('temp_translations.csv',mode='a', index=False, header=False)
+        df.to_csv(FILE,mode='a', index=False, header=False)
     except Exception as e:
         print(e)
     scr = scr + 1
