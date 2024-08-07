@@ -10,11 +10,14 @@ from urllib.error import HTTPError
 import datetime
 from tqdm import tqdm
 import getpass
+import traceback
+from datetime import datetime as dt
 
 #                               ------------ CONSTANTS -----------------
 BASE_URL = 'https://ted.europa.eu/packages/daily/'
-BASE_FOLDER = "/home/procure/data/ted/xml/"
-START_YEAR = 2023
+BASE_FOLDER = "./temp/xml/"
+LOGS_PATH ="./logs/xml-ingestion.csv"
+START_YEAR = 2024
 END_YEAR = datetime.date.today().year
 # Opensearch client
 HOST = 'localhost'
@@ -50,55 +53,98 @@ def extract_file(file_path):
 
 
 def modify_p_fields(dictionary):
-    for key, value in dictionary.items():
-        if key == 'P':
+    if isinstance(dictionary, dict):
+        for text_field, text_dictionary in dictionary.items():
+            if isinstance(text_dictionary, dict):
+                for p_field, p_value in text_dictionary.items():
+                    if p_field == 'P':
+                        # print("before: "+json.dumps(dictionary[text_field]))
+                        # if p_value is not None:
+                        #     print('---------------------------------------------------------------------------------------------------------------------------------------------------')
+                        #     print(text_field +": "+fetch_p_text(p_value))
+                        dictionary[text_field] = fetch_p_text(p_value)
+                        # print("after: "+json.dumps(dictionary[text_field]))
+                    else:
+                        modify_p_fields(text_dictionary)
+            elif isinstance(text_dictionary, list):
+                modify_p_fields(text_dictionary)
+    elif isinstance(dictionary, list):
+        for e in range(len(dictionary)):
+            if isinstance(dictionary[e], dict):
+                modify_p_fields(dictionary[e])
 
-            # print("before: "+json.dumps(dictionary))
-            if isinstance(value, str):
-                dictionary["P"] = value
-            elif isinstance(value, list):
-                flattened = []
 
-                def flatten_recursive(sublist):
-                    for item in sublist:
-                        if isinstance(item, list):
-                            flatten_recursive(item)
-                        elif isinstance(item, str) and item.strip() != "":
-                            flattened.append(item.strip())
+def fetch_p_text(p_dictionary):
+    if p_dictionary is None:
+        return ""
+    elif isinstance(p_dictionary, str):
+        return p_dictionary
+    elif isinstance(p_dictionary, list):
+        p_text = ""
+        for item in p_dictionary:
+            p_text = p_text + "\n" + fetch_p_text(item)
+        return p_text[1:]
+    elif isinstance(p_dictionary, dict):
+        if "#text" in p_dictionary:
+            return p_dictionary["#text"]
+        else:
+            p_text = ""
+            for inner_field, inner_dictionary in p_dictionary.items():
+                p_text = p_text + "; " + fetch_p_text(inner_dictionary)
+            return p_text[2:]
 
-                flatten_recursive(value)
-                dictionary["P"] = '\n'.join(flattened)
 
-            elif isinstance(value, dict):
-                if "#text" in dictionary["P"]:
-                    dictionary["P"] = dictionary["P"]["#text"]
+def modify_txt_fields(dictionary):
+    if isinstance(dictionary, dict):
+        for k, v in dictionary.items():
+            if isinstance(v, dict):
+                if '#text' in v.keys():
+                    #print("before: " + json.dumps(dictionary))
+                    # if p_value is not None:
+                    #     print('---------------------------------------------------------------------------------------------------------------------------------------------------')
+                    dictionary[k] = dictionary[k]['#text']
+                    #print("after: " + json.dumps(dictionary))
                 else:
-                    dictionary["P"] = dictionary["P"]["FT"]["#text"]
-                    # print("after: "+json.dumps(dictionary))
-        elif key == "EU_PROGR_RELATED":
-            if isinstance(value, dict):
-                dictionary[key] = value["P"]
-        elif isinstance(value, dict):
-            modify_p_fields(value)
-        elif isinstance(value, list):
-            for e in range(len(value)):
-                if isinstance(value[e], dict):
-                    modify_p_fields(value[e])
+                    modify_txt_fields(v)
+            elif isinstance(v, list):
+                for e in range(len(v)):
+                    if isinstance(v[e], dict):
+                        if '#text' in v[e].keys():
+                            dictionary[k] = v[e]['#text']
+                        else:
+                            modify_txt_fields(v[e])
+    elif isinstance(dictionary, list):
+        for e in range(len(dictionary)):
+            modify_txt_fields(dictionary[e])
 
 
 # Preformats the xml, selecting only Contract Award Notices and preformatting P text fields so opensearch may index them as they had a variable structure.
-def format_dict(xml_dict):
-    id = xml_dict["TED_EXPORT"]["@DOC_ID"]
-    try:
-        xml_out = {
-            "CODED_DATA_SECTION": xml_dict["TED_EXPORT"]["CODED_DATA_SECTION"],
-            "CONTRACT_AWARD_NOTICE": xml_dict["TED_EXPORT"]["FORM_SECTION"]["F03_2014"]
-        }
-        modify_p_fields(xml_out)
-    except KeyError as e:
-        raise
+def format_dict(notice):
+    if "TED_EXPORT" in notice:
+        notice = notice["TED_EXPORT"]
+    if "CODED_DATA_SECTION" in notice:
+        try:
+            notice_id = notice["CODED_DATA_SECTION"]["NOTICE_DATA"]["NO_DOC_OJS"]
+            notice_clean = {
+                "CODED_DATA_SECTION": notice["CODED_DATA_SECTION"],
+                "CONTRACT_AWARD_NOTICE": notice["FORM_SECTION"]["F03_2014"]
+            }
+            modify_p_fields(notice_clean)
+        except KeyError as e:
+            raise
 
-    return id, xml_out
+    else:  # "ContractAwardNotice" in notice:
+        try:
+            notice_clean = notice['ContractAwardNotice']
+            notice_id = \
+            notice_clean['ext:UBLExtensions']['ext:UBLExtension']['ext:ExtensionContent']['efext:EformsExtension'][
+                'efac:Publication']['efbc:NoticePublicationID']['#text'][
+            -11:]  # New ID come with dddddddd-yyyy (d=identifier,y=year); legacy comes with dddddd-yyyy. Until reindexing all contracts we modify the eforms ID. After we should change to 8digits but needs modifying xml, csv pipelines
+            modify_txt_fields(notice_clean)
+
+        except KeyError as e:
+            raise
+    return notice_id, notice_clean
 
 
 # Indexes a document with given id to an opensearch client
@@ -113,6 +159,14 @@ def index_doc_opensearch(doc_id, doc):
     except Exception as e:
         print(f"Error during indexing: {e}")
 
+def generate_log(package,doc_id,index,status,error):
+    return pd.DataFrame([{'package': package,
+                        '_id': doc_id,
+                        '_index': index,
+                        'status': status,
+                        'error': error,
+                        'date': dt.now().strftime('%Y-%m-%d %H:%M:%S')
+                    }])
 
 def ted_xml_upload(package, package_path):
     logs = []
@@ -128,58 +182,31 @@ def ted_xml_upload(package, package_path):
                         xml_data = file.read()
                         xml_dict = xmltodict.parse(xml_data)
                         try:
+                            # print(xml_dict)
                             doc_id, xml_processed = format_dict(xml_dict)
                             index_doc_opensearch(doc_id, xml_processed)
-                            log_entry = pd.DataFrame([{
-                                'package': package,
-                                '_id': doc_id,
-                                '_index': INDEX,
-                                'status': 'success',
-                                'error': None,
-                                'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                            }])
-                            logs.append(log_entry)
+                            logs.append(generate_log(package, doc_id, INDEX, 'success', None))
                             pbar.update(1)
                         except KeyError as keyerror:
-                            if keyerror.args[0] != 'F03_2014':
+                            if keyerror.args[0] not in ('F03_2014', 'ContractAwardNotice'):
                                 print(f"exception{keyerror}")
-                                log_entry = pd.DataFrame([{
-                                    'package': package,
-                                    '_id': doc_id,
-                                    '_index': INDEX,
-                                    'status': 'failed',
-                                    'error': 'Key Error:' + keyerror,
-                                    'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                                }])
-                                logs.append(log_entry)
+                                logs.append(generate_log(package, xml_path, INDEX, 'failed',
+                                                         'Key Error:' + str(keyerror)))
                                 break
                             else:
-                                log_entry = pd.DataFrame([{
-                                'package': package,
-                                '_id': doc_id,
-                                '_index': INDEX,
-                                'status': 'discarded',
-                                'error': 'Not CAN',
-                                'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                                }])
-                                logs.append(log_entry)
                                 pbar.update(1)
+                                logs.append(generate_log(package, xml_path, INDEX, 'discarded', 'Not CAN'))
                                 pass
                         except Exception as e:
-                            log_entry = pd.DataFrame([{
-                                'package': package,
-                                '_id': doc_id,
-                                '_index': INDEX,
-                                'status': 'failed',
-                                'error': 'Error:' + e,
-                                'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                            }])
-                            logs.append(log_entry)
+                            logs.append(generate_log(package, xml_path, None, 'failed', 'Error:' + str(e)))
                             print(e)
-                            print(json.dumps(xml_processed, indent=4))
+                            traceback.print_exc()
+                            print(json.dumps(xml_dict, indent=4))
                             break
     logs_df = pd.concat(logs, ignore_index=True)
-    logs_df.to_csv("./logs/xml-ingestion.csv", index=False)
+    file_exists = os.path.exists(LOGS_PATH)
+    logs_df.to_csv(LOGS_PATH, mode='a', header=not file_exists, index=False)
+
 
 
 def ted_xml_ingestion(year):
@@ -209,43 +236,14 @@ def ted_xml_ingestion(year):
             print(f"Failed to process {package}: {e}")
         ojs += 1
 
-def logger(actions,failed):
-    # Prepare log entries
-    logs_path ="./logs/xml-ingestion.csv"
-    logs = []
-    successful_ids = {action['_id'] for action in actions} - {failure['index']['_id'] for failure in failed}
-    current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    # Log successful actions
-    for action in actions:
-        if action['_id'] in successful_ids:
-            log_entry = pd.DataFrame([{
-                '_id': action['_id'],
-                '_index': action['_index'],
-                'status': 'success',
-                'error': None,
-                'date': current_date
-            }])
-            logs.append(log_entry)
-
-    # Log failed actions
-    for failure in failed:
-        action = failure.get('index', failure.get('create'))
-        reason = action['error']['reason']
-        log_entry = pd.DataFrame([{
-            '_id': action['_id'],
-            '_index': action['_index'],
-            'status': 'failed',
-            'error': reason,
-            'date': current_date
-        }])
-        logs.append(log_entry)
-    logs_df = pd.concat(logs, ignore_index=True)
-    file_exists = os.path.exists(logs_path)
-    logs_df.to_csv(logs_path, mode='a', header=not file_exists, index=False)
 #                               ------------ CODE -----------------
+
+if not os.path.exists(BASE_FOLDER):
+    os.makedirs(BASE_FOLDER)
 for year in range(START_YEAR, END_YEAR + 1):
     year_folder = f"{BASE_FOLDER}{year}/"  # Temp yearly packages folder
     if not os.path.exists(year_folder):
         os.makedirs(year_folder)
     ted_xml_ingestion(year)
     shutil.rmtree(year_folder)
+shutil.rmtree(BASE_FOLDER)

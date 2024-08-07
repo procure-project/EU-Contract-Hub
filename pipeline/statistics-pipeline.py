@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import getpass
 #                               ------------ CONSTANTS -----------------
-FOLDER = "../data/oecd-eurostat/"
+FOLDER = "../../data/oecd-eurostat/"
 HOST = 'localhost'
 PORT = 9200
 INDEX = 'oecd-eurostat'
@@ -22,7 +22,7 @@ client = OpenSearch(
     ssl_show_warn=False,
 )
 
-metadata = pd.read_csv("./Statistical_metadata.csv")
+metadata = pd.read_csv("../data/Statistical_metadata.csv")
 legend = {
     "COUNTRY": "Country",
     "TIME_PERIOD": "Year",
@@ -71,7 +71,7 @@ dfs = []
 stat_files = [stat_file for stat_file in os.listdir(FOLDER)]
 for csv_file in stat_files:
     file_path = os.path.join(FOLDER, csv_file)
-    df = pd.read_csv(file_path, sep=';')
+    df = pd.read_csv(file_path, sep=';', decimal=',')
     if csv_file == "Health exp by scheme.csv":
         df['ID'] = csv_file[:-4].replace(" ", "") + "_" + df['FINANCING_SCHEME'] + "_" + df['ID']
     elif csv_file == "Health exp Government  Compulsory financing schemes.csv":
@@ -87,7 +87,9 @@ for csv_file in stat_files:
     df.replace(legend, inplace=True)
     df['File'] = csv_file[:-4]
     df = pd.merge(df, metadata, on='File', how='left')
-    df = df.where(pd.notna(df), None)
+
+    df = df.where(pd.notna(df), 'None')
+    df = df.replace('None', None)
 
     columns_to_drop = ['DATAFLOW', 'Health care provider', 'Financing scheme', 'UNIT_MEASURE']
     columns_existing = [col for col in columns_to_drop if col in df.columns]
@@ -95,6 +97,7 @@ for csv_file in stat_files:
         df.drop(columns=columns_existing, inplace=True)
     actions = [
         {
+
             "_op_type": "index",
             "_index": INDEX,
             "_id": doc['ID'],
