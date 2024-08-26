@@ -1,4 +1,4 @@
-PUT ted-csv
+PUT procure_v2
 {
   "mappings": {
     "properties": {
