@@ -72,7 +72,7 @@ def download_csv(save_folder):
 #Converter functions for reading csv
 def transform_id(id_csv): #Function to swap the ID_NOTICE_CAN field so it aligns with the one used in the xml format
     year_part = str(id_csv)[:4]
-    id_xml = str(id_csv)[4:].zfill(6) + '-' + year_part
+    id_xml = str(id_csv)[4:].zfill(8) + '-' + year_part
     return id_xml
 def bool_converter(value):
     if pd.isnull(value) or value =='':

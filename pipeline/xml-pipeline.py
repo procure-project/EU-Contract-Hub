@@ -124,7 +124,8 @@ def format_dict(notice):
         notice = notice["TED_EXPORT"]
     if "CODED_DATA_SECTION" in notice:
         try:
-            notice_id = notice["CODED_DATA_SECTION"]["NOTICE_DATA"]["NO_DOC_OJS"]
+            doc_ojs = notice["CODED_DATA_SECTION"]["NOTICE_DATA"]["NO_DOC_OJS"]
+            notice_id = doc_ojs.split("-")[-1].zfill(8) + "-" + doc_ojs[:4]
             notice_clean = {
                 "CODED_DATA_SECTION": notice["CODED_DATA_SECTION"],
                 "CONTRACT_AWARD_NOTICE": notice["FORM_SECTION"]["F03_2014"]
@@ -138,8 +139,7 @@ def format_dict(notice):
             notice_clean = notice['ContractAwardNotice']
             notice_id = \
             notice_clean['ext:UBLExtensions']['ext:UBLExtension']['ext:ExtensionContent']['efext:EformsExtension'][
-                'efac:Publication']['efbc:NoticePublicationID']['#text'][
-            -11:]  # New ID come with dddddddd-yyyy (d=identifier,y=year); legacy comes with dddddd-yyyy. Until reindexing all contracts we modify the eforms ID. After we should change to 8digits but needs modifying xml, csv pipelines
+                'efac:Publication']['efbc:NoticePublicationID']['#text']
             modify_txt_fields(notice_clean)
 
         except KeyError as e:
