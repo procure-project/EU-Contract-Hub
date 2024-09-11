@@ -244,7 +244,6 @@ while True:
     # Extract document IDs and corresponding field values from the current batch of results
     for hit in response["hits"]["hits"]:  # Processing and Extracting Info Document-wise
         doc_id = hit["_id"]
-        doc_id = doc_id.split("-")[-1].zfill(8) + "-" + doc_id[:4]
         skip = False  # Temp variable to skip certain formats in processing phase
 
         if "CONTRACT_AWARD_NOTICE" in hit["_source"].keys(): ######## Processing for legacy XML ####################################
