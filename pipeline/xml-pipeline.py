@@ -121,11 +121,11 @@ def modify_txt_fields(dictionary):
 
 # Preformats the xml, selecting only Contract Award Notices and preformatting P text fields so opensearch may index them as they had a variable structure.
 def format_dict(notice):
-    isEForms = True
+    is_eforms = True
     if "TED_EXPORT" in notice:
         notice = notice["TED_EXPORT"]
     if "CODED_DATA_SECTION" in notice:
-        isEForms = False
+        is_eforms = False
         try:
             doc_ojs = notice["CODED_DATA_SECTION"]["NOTICE_DATA"]["NO_DOC_OJS"]
             notice_id = doc_ojs.split("-")[-1].zfill(8) + "-" + doc_ojs[:4]
@@ -147,7 +147,7 @@ def format_dict(notice):
 
         except KeyError as e:
             raise
-    return isEForms, notice_id, notice_clean
+    return is_eforms, notice_id, notice_clean
 
 
 # Indexes a document with given id to an opensearch client
@@ -181,16 +181,15 @@ def ted_xml_upload(package, package_path):
 
                 for xml_file in xml_files:
                     xml_path = os.path.join(root, xml_file)
+                    index = INDEX_XML
                     with open(xml_path, 'r', encoding='utf-8') as file:  # Reads and parses XML files to json
                         xml_data = file.read()
                         xml_dict = xmltodict.parse(xml_data)
                         try:
                             # print(xml_dict)
-                            isEForms, doc_id, xml_processed = format_dict(xml_dict)
-                            if isEForms:
+                            is_eforms, doc_id, xml_processed = format_dict(xml_dict)
+                            if is_eforms:
                                 index = INDEX_EFORMS
-                            else:
-                                index = INDEX_XML
                             logs.append(generate_log(package, doc_id, index, 'success', None))
                             pbar.update(1)
                         except KeyError as keyerror:
