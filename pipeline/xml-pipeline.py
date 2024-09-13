@@ -17,7 +17,7 @@ from datetime import datetime as dt
 BASE_URL = 'https://ted.europa.eu/packages/daily/'
 BASE_FOLDER = "./temp/xml/"
 LOGS_PATH ="./logs/xml-ingestion.csv"
-START_YEAR = 2024
+START_YEAR = 2018
 END_YEAR = datetime.date.today().year
 # Opensearch client
 HOST = 'localhost'
@@ -190,6 +190,7 @@ def ted_xml_upload(package, package_path):
                             is_eforms, doc_id, xml_processed = format_dict(xml_dict)
                             if is_eforms:
                                 index = INDEX_EFORMS
+                            index_doc_opensearch(doc_id, xml_processed, index)
                             logs.append(generate_log(package, doc_id, index, 'success', None))
                             pbar.update(1)
                         except KeyError as keyerror:
