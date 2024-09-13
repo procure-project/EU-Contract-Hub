@@ -25,7 +25,8 @@ PORT = 9200
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)
-INDEX = 'ted-xml'
+INDEX_XML = 'ted-xml_v2'
+INDEX_EFORMS = 'ted-eforms_v1'
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 OS_CLIENT = OpenSearch(
     hosts=[{'host': HOST, 'port': PORT}],
@@ -120,9 +121,11 @@ def modify_txt_fields(dictionary):
 
 # Preformats the xml, selecting only Contract Award Notices and preformatting P text fields so opensearch may index them as they had a variable structure.
 def format_dict(notice):
+    isEForms = True
     if "TED_EXPORT" in notice:
         notice = notice["TED_EXPORT"]
     if "CODED_DATA_SECTION" in notice:
+        isEForms = False
         try:
             doc_ojs = notice["CODED_DATA_SECTION"]["NOTICE_DATA"]["NO_DOC_OJS"]
             notice_id = doc_ojs.split("-")[-1].zfill(8) + "-" + doc_ojs[:4]
@@ -144,14 +147,14 @@ def format_dict(notice):
 
         except KeyError as e:
             raise
-    return notice_id, notice_clean
+    return isEForms, notice_id, notice_clean
 
 
 # Indexes a document with given id to an opensearch client
-def index_doc_opensearch(doc_id, doc):
+def index_doc_opensearch(doc_id, doc, index):
     try:
         response = OS_CLIENT.index(
-            index=INDEX,
+            index=index,
             body=doc,
             id=doc_id,
             refresh=True
@@ -183,19 +186,22 @@ def ted_xml_upload(package, package_path):
                         xml_dict = xmltodict.parse(xml_data)
                         try:
                             # print(xml_dict)
-                            doc_id, xml_processed = format_dict(xml_dict)
-                            index_doc_opensearch(doc_id, xml_processed)
-                            logs.append(generate_log(package, doc_id, INDEX, 'success', None))
+                            isEForms, doc_id, xml_processed = format_dict(xml_dict)
+                            if isEForms:
+                                index = INDEX_EFORMS
+                            else:
+                                index = INDEX_XML
+                            logs.append(generate_log(package, doc_id, index, 'success', None))
                             pbar.update(1)
                         except KeyError as keyerror:
                             if keyerror.args[0] not in ('F03_2014', 'ContractAwardNotice'):
                                 print(f"exception{keyerror}")
-                                logs.append(generate_log(package, xml_path, INDEX, 'failed',
+                                logs.append(generate_log(package, xml_path, index, 'failed',
                                                          'Key Error:' + str(keyerror)))
                                 break
                             else:
                                 pbar.update(1)
-                                logs.append(generate_log(package, xml_path, INDEX, 'discarded', 'Not CAN'))
+                                logs.append(generate_log(package, xml_path, index, 'discarded', 'Not CAN'))
                                 pass
                         except Exception as e:
                             logs.append(generate_log(package, xml_path, None, 'failed', 'Error:' + str(e)))
