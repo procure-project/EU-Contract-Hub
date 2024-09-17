@@ -33,7 +33,7 @@ def csv_to_bulk_actions(file_path):
         for row in reader:
             yield {
                 "_op_type": "update",
-                "_index": "procure_v2",
+                "_index": "procure_v3",
                 "_id": row['Document ID'],
                 "doc": {
                     "Title (Translation)": row['Title (Translation)'],
