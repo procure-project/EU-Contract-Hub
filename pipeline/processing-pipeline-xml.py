@@ -37,13 +37,14 @@ def processing_scroll(df):
 
 def parse_weight(weight):
     """Convert weight to a float, whether it's an integer, a string percentage, or a float."""
-    if isinstance(weight, str) and "%" in weight:
-        return float(weight.replace("%", "").strip())
-    else:
-        try:
-            return float(weight)
-        except ValueError:
-            return 0.0
+    if isinstance(weight, str):
+        weight = weight.replace(",", ".")
+        if "%" in weight:
+            return float(weight.replace("%", "").strip())
+    try:
+        return float(weight)
+    except ValueError:
+        return -1
 
 def extract_lots(can):
     lots = can.get("OBJECT_CONTRACT", {}).get("OBJECT_DESCR", [])
