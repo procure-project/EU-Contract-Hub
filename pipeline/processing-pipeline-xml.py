@@ -82,7 +82,7 @@ def extract_lots(can):
                     criteria_list.append(criteria)
                 except Exception as e:
                     print(f"Error extracting criteria: {e}")
-                    criteria_list.append({"Price": {"Weight": 100}})
+                    criteria_list.append({})
             else:
                 print("warning: no criteria")
                 criteria_list = []
