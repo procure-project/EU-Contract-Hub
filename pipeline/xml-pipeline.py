@@ -17,7 +17,7 @@ from datetime import datetime as dt
 BASE_URL = 'https://ted.europa.eu/packages/daily/'
 BASE_FOLDER = "./temp/xml/"
 LOGS_PATH ="./logs/xml-ingestion.csv"
-START_YEAR = 2018
+START_YEAR = 2019
 END_YEAR = datetime.date.today().year
 # Opensearch client
 HOST = 'localhost'
@@ -144,7 +144,7 @@ def format_dict(notice):
             notice_clean['ext:UBLExtensions']['ext:UBLExtension']['ext:ExtensionContent']['efext:EformsExtension'][
                 'efac:Publication']['efbc:NoticePublicationID']['#text']
             modify_txt_fields(notice_clean)
-
+            notice_clean = {k: v for k, v in notice_clean.items() if not k.startswith('@')} #Clean namespace tags
         except KeyError as e:
             raise
     return is_eforms, notice_id, notice_clean

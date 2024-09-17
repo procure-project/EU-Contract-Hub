@@ -54,53 +54,50 @@ client = OpenSearch(
     ssl_show_warn=False,
 )
 
-index_name = "ted-xml"
-# Define the query to retrieve all documents
+index_name = "procure"
+scroll_size = 100
 query = {
-    "query": {
-        "match_all": {}  # Retrieve all documents
-    }
+  "query": {
+          "term": {
+            "Title (Translation).keyword": "-"
+          }
+  },
+  "size": scroll_size
 }
-scroll_size = 1000
-# Execute the initial search query to get the first batch of results
-response = client.search(
-    index=index_name,
-    body=query,
-    size=scroll_size,  # Number of documents to retrieve per batch
-    scroll="60m"  # Keep the scroll window open for 1 minute
-)
-scroll_id = response["_scroll_id"]
-scr = 1
 while True:
-    translated = pd.read_csv(FILE,usecols=['Document ID'])
-    print("Already Translated: " + str(len(translated)))
-    # Continue scrolling
-    response = client.scroll(scroll_id=scroll_id, scroll="60m")
+    response = client.search(index=index_name, body=query)
+    hits = response["hits"]["hits"]
+    if not hits:
+        print("No more documents to process.")
+        break
     id_field_pairs = []
-
-    # Extract document IDs and corresponding field values from the current batch of results
-    for hit in response["hits"]["hits"]:  # Processing and Extracting Info Document-wise
+    for hit in hits:  # Processing and Extracting Info Document-wise
         if not (isinstance(hit["_source"]["CONTRACT_AWARD_NOTICE"],
                            list)):  # REMOVE CONDITION there should not be any list in final version
             doc_id = hit["_id"]
-            title = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["TITLE"]
-            description = hit["_source"]["CONTRACT_AWARD_NOTICE"]["OBJECT_CONTRACT"]["SHORT_DESCR"]
+            title = hit["_source"]["Title"]
+            description = hit["_source"]["Description"]
             title_translated = "-"
             description_translated = "-"
 
             id_field_pairs.append((doc_id, title, title_translated, description, description_translated))
-    # Processing fields Scroll-level
-    df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description",
-                                               "Description (Translation)"])
-    print('Lines before dropping: '+ str(len(df)))
-    df = df[~df['Document ID'].isin(translated['Document ID'])]
-    print('Lines to translate: ' + str(len(df)))
+    df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description", "Description (Translation)"])
     try:
-        df_to_write = batch_translate(df)
-        df.to_csv(FILE,mode='a', index=False, header=False)
+        df_translated  = batch_translate(df)
+        actions = [
+            {
+                "_op_type": "update",
+                "_index": index_name,
+                "_id": row['Document ID'],
+                "doc": {
+                    "Title (Translation)": row['Title (Translation)'],
+                    "Description (Translation)": row['Description (Translation)']
+                }
+            }
+            for _, row in df_translated.iterrows()
+        ]
+        helpers.bulk(client, actions)
+        print(f"Processed and updated {len(df_translated)} documents.")
     except Exception as e:
         print(e)
-    scr = scr + 1
-    if len(response["hits"]["hits"]) < scroll_size:
-        break
 # Create a DataFrame to store the document IDs and field values
