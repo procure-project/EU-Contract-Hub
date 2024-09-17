@@ -4,7 +4,6 @@ from deep_translator import GoogleTranslator
 import getpass
 
 translator = GoogleTranslator(source='auto', target='english')
-FILE="../../data/temp_translations.csv"
 
 def translate_title_batch(titles):
     return translator.translate_batch(titles)
@@ -54,7 +53,7 @@ client = OpenSearch(
     ssl_show_warn=False,
 )
 
-index_name = "procure"
+index_name = "procure_v3"
 scroll_size = 100
 query = {
   "query": {
