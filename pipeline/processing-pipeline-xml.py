@@ -30,7 +30,9 @@ def processing_scroll(df):
     # VALUE FILTERING
     df['Value'] = df['Value'].where((df['Value'] > 100) & (df['Value'] < 10 ** 10), -1) #Filter high and low values
     df["Healthcare CPV"] = df["CPV"].apply(lambda x: cpv_match(HEALTHCARE_CPV, x)) #Checks a contract CPV codes against a set of healthcare CPV
-    df["Critical Services CPV"] = df[df["Healthcare CPV"] == True]["CPV"].apply(lambda x: cpv_match(CRITICAL_CPV, x)) #For those contracts categorized above checks again against a set of critical CPV<
+    df["Critical Services CPV"] = df["CPV"].apply(
+        lambda x: cpv_match(CRITICAL_CPV, x) if cpv_match(HEALTHCARE_CPV, x) else False)
+    #For those contracts categorized above checks again against a set of critical CPV
     return df
 
 def extract_lots(can):
@@ -52,18 +54,21 @@ def extract_lots(can):
             ac_list = [ac_list]
 
         for ac in ac_list:
-            try:
-                criteria = {"Price": {"Weight": ac.get("AC_PRICE", {}).get("AC_WEIGHTING", 0)}}
-                ac_quality = ac.get("AC_QUALITY", []) if isinstance(ac.get("AC_QUALITY", []), list) else [ac.get("AC_QUALITY", {})]
-                if ac_quality:
-                    criteria["Quality"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_quality]
-                ac_cost = ac.get("AC_COST", []) if isinstance(ac.get("AC_COST", []), list) else [ac.get("AC_COST", {})]
-                if ac_cost:
-                    criteria["Cost"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_cost]
-                criteria_list.append(criteria)
-            except Exception as e:
-                print(f"Error extracting criteria: {e}")
-                criteria_list.append({"Price": {"Weight": 100}})
+            if ac:
+                try:
+                    criteria = {"Price": {"Weight": ac.get("AC_PRICE", {}).get("AC_WEIGHTING", 0)}}
+                    ac_quality = ac.get("AC_QUALITY", []) if isinstance(ac.get("AC_QUALITY", []), list) else [ac.get("AC_QUALITY", {})]
+                    if ac_quality:
+                        criteria["Quality"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_quality]
+                    ac_cost = ac.get("AC_COST", []) if isinstance(ac.get("AC_COST", []), list) else [ac.get("AC_COST", {})]
+                    if ac_cost:
+                        criteria["Cost"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_cost]
+                    criteria_list.append(criteria)
+                except Exception as e:
+                    print(f"Error extracting criteria: {e}")
+                    criteria_list.append({"Price": {"Weight": 100}})
+            else:
+                criteria_list = []
         extracted_lots.append({
             "Lot Number": lot_no,
             "Title": lot_title,
