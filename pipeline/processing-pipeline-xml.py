@@ -56,18 +56,29 @@ def extract_lots(can):
         for ac in ac_list:
             if ac:
                 try:
+                    #PRICE CRITERIA
                     ac_price = ac.get("AC_PRICE", {})
                     if isinstance(ac_price, dict):
                         price_weighting = ac_price.get("AC_WEIGHTING", 0)
                     else:
                         price_weighting = 0
                     criteria = {"Price": {"Weight": price_weighting}}
-                    #ac_quality = ac.get("AC_QUALITY", []) if isinstance(ac.get("AC_QUALITY", []), list) else [ac.get("AC_QUALITY", {})]
-                    #if ac_quality:
-                    #    criteria["Quality"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_quality if q]
-                    #ac_cost = ac.get("AC_COST", []) if isinstance(ac.get("AC_COST", []), list) else [ac.get("AC_COST", {})]
-                    #if ac_cost:
-                    #    criteria["Cost"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_cost if q]
+
+                    # PRICE CRITERIA(S)
+                    ac_quality = ac.get("AC_QUALITY", None)
+                    if isinstance(ac_quality, dict):
+                        criteria["Quality"] = [{"Criterion": ac_quality.get("AC_CRITERION", "-"), "Weight": ac_quality.get("AC_WEIGHTING", 0)}]
+                    elif isinstance(ac_quality, list):
+                        criteria["Quality"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_quality]
+
+
+                    # COST CRITERIA(S)
+                    ac_cost = ac.get("AC_COST", None)
+                    if isinstance(ac_cost, dict):
+                        criteria["Cost"] = [{"Criterion": ac_cost.get("AC_CRITERION", "-"), "Weight": ac_cost.get("AC_WEIGHTING", 0)}]
+                    elif isinstance(ac_cost, list):
+                        criteria["Cost"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_cost]
+
                     criteria_list.append(criteria)
                 except Exception as e:
                     print(f"Error extracting criteria: {e}")
