@@ -35,6 +35,16 @@ def processing_scroll(df):
     #For those contracts categorized above checks again against a set of critical CPV
     return df
 
+def parse_weight(weight):
+    """Convert weight to a float, whether it's an integer, a string percentage, or a float."""
+    if isinstance(weight, str) and "%" in weight:
+        return float(weight.replace("%", "").strip())
+    else:
+        try:
+            return float(weight)
+        except ValueError:
+            return 0.0
+
 def extract_lots(can):
     lots = can.get("OBJECT_CONTRACT", {}).get("OBJECT_DESCR", [])
     extracted_lots = []
@@ -59,25 +69,25 @@ def extract_lots(can):
                     #PRICE CRITERIA
                     ac_price = ac.get("AC_PRICE", {})
                     if isinstance(ac_price, dict):
-                        price_weighting = ac_price.get("AC_WEIGHTING", 0)
+                        criteria = {"Price": {"Criterion": "Price", "Weight": parse_weight(ac_price.get("AC_WEIGHTING", 0))}}
                     else:
-                        price_weighting = 0
-                    criteria = {"Price": {"Weight": price_weighting}}
+                        criteria = {"Price": {"Criterion": "Price", "Weight": 0}}
+
 
                     # PRICE CRITERIA(S)
                     ac_quality = ac.get("AC_QUALITY", None)
                     if isinstance(ac_quality, dict):
-                        criteria["Quality"] = [{"Criterion": ac_quality.get("AC_CRITERION", "-"), "Weight": ac_quality.get("AC_WEIGHTING", 0)}]
+                        criteria["Quality"] = [{"Criterion": ac_quality.get("AC_CRITERION", "-"), "Weight": parse_weight(ac_quality.get("AC_WEIGHTING", 0))}]
                     elif isinstance(ac_quality, list):
-                        criteria["Quality"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_quality]
+                        criteria["Quality"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": parse_weight(q.get("AC_WEIGHTING", 0))} for q in ac_quality]
 
 
                     # COST CRITERIA(S)
                     ac_cost = ac.get("AC_COST", None)
                     if isinstance(ac_cost, dict):
-                        criteria["Cost"] = [{"Criterion": ac_cost.get("AC_CRITERION", "-"), "Weight": ac_cost.get("AC_WEIGHTING", 0)}]
+                        criteria["Cost"] = [{"Criterion": ac_cost.get("AC_CRITERION", "-"), "Weight": parse_weight(ac_cost.get("AC_WEIGHTING", 0))}]
                     elif isinstance(ac_cost, list):
-                        criteria["Cost"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_cost]
+                        criteria["Cost"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": parse_weight(q.get("AC_WEIGHTING", 0))} for q in ac_cost]
 
                     criteria_list.append(criteria)
                 except Exception as e:
