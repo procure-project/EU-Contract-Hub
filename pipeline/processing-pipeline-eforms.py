@@ -30,9 +30,21 @@ def processing_scroll(df):
     # VALUE FILTERING
     df['Value'] = df['Value'].where((df['Value'] > 100) & (df['Value'] < 10 ** 10), -1) #Filter high and low values
     df["Healthcare CPV"] = df["CPV"].apply(lambda x: cpv_match(HEALTHCARE_CPV, x)) #Checks a contract CPV codes against a set of healthcare CPV
-    df["Critical CPV"] = df[df["Healthcare CPV"] == True]["CPV"].apply(lambda x: cpv_match(CRITICAL_CPV, x)) #For those contracts categorized above checks again against a set of critical CPV
-    df["Critical CPV"] = df["Critical CPV"].fillna(False)
+    df["Critical Services CPV"] = df["CPV"].apply(
+        lambda x: cpv_match(CRITICAL_CPV, x) if cpv_match(HEALTHCARE_CPV, x) else False)
+    #For those contracts categorized above checks again against a set of critical CPV
     return df
+
+def parse_weight(weight):
+    """Convert weight to a float, whether it's an integer, a string percentage, or a float."""
+    if isinstance(weight, str):
+        weight = weight.replace(",", ".")
+        if "%" in weight:
+            return float(weight.replace("%", "").strip())
+    try:
+        return float(weight)
+    except ValueError:
+        return -1
 
 def extract_lots(can):
     lots = can.get("OBJECT_CONTRACT", {}).get("OBJECT_DESCR", [])
@@ -53,18 +65,38 @@ def extract_lots(can):
             ac_list = [ac_list]
 
         for ac in ac_list:
-            try:
-                criteria = {"Price": {"Weight": ac.get("AC_PRICE", {}).get("AC_WEIGHTING", 0)}}
-                ac_quality = ac.get("AC_QUALITY", []) if isinstance(ac.get("AC_QUALITY", []), list) else [ac.get("AC_QUALITY", {})]
-                if ac_quality:
-                    criteria["Quality"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_quality]
-                ac_cost = ac.get("AC_COST", []) if isinstance(ac.get("AC_COST", []), list) else [ac.get("AC_COST", {})]
-                if ac_cost:
-                    criteria["Cost"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_cost]
-                criteria_list.append(criteria)
-            except Exception as e:
-                print(f"Error extracting criteria: {e}")
-                criteria_list.append({"Price": {"Weight": 100}})
+            if ac:
+                try:
+                    #PRICE CRITERIA
+                    ac_price = ac.get("AC_PRICE", {})
+                    if isinstance(ac_price, dict):
+                        criteria = {"Price": {"Criterion": "Price", "Weight": parse_weight(ac_price.get("AC_WEIGHTING", 0))}}
+                    else:
+                        criteria = {"Price": {"Criterion": "Price", "Weight": 0}}
+
+
+                    # PRICE CRITERIA(S)
+                    ac_quality = ac.get("AC_QUALITY", None)
+                    if isinstance(ac_quality, dict):
+                        criteria["Quality"] = [{"Criterion": ac_quality.get("AC_CRITERION", "-"), "Weight": parse_weight(ac_quality.get("AC_WEIGHTING", 0))}]
+                    elif isinstance(ac_quality, list):
+                        criteria["Quality"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": parse_weight(q.get("AC_WEIGHTING", 0))} for q in ac_quality]
+
+
+                    # COST CRITERIA(S)
+                    ac_cost = ac.get("AC_COST", None)
+                    if isinstance(ac_cost, dict):
+                        criteria["Cost"] = [{"Criterion": ac_cost.get("AC_CRITERION", "-"), "Weight": parse_weight(ac_cost.get("AC_WEIGHTING", 0))}]
+                    elif isinstance(ac_cost, list):
+                        criteria["Cost"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": parse_weight(q.get("AC_WEIGHTING", 0))} for q in ac_cost]
+
+                    criteria_list.append(criteria)
+                except Exception as e:
+                    print(f"Error extracting criteria: {e}")
+                    criteria_list.append({})
+            else:
+                print("warning: no criteria")
+                criteria_list = []
         extracted_lots.append({
             "Lot Number": lot_no,
             "Title": lot_title,
@@ -213,7 +245,7 @@ while True:
         doc_id = hit["_id"]
         skip = False  # Temp variable to skip certain formats in processing phase
 
-        if "CONTRACT_AWARD_NOTICE" in hit["_source"].keys(): ######## Processing for legacy XML ####################################
+        if "cac:ProcurementProject" in hit["_source"].keys(): ######## Processing for legacy XML ####################################
             project =  hit["_source"]["cac:ProcurementProject"]
             try:
                 title = project.get("cbc:Name", "-")
@@ -228,6 +260,7 @@ while True:
                     cpv_desc = '-'
 
                 health_cpv = False
+                critical_cpv = False
 
                 locations = (project.get("cac:RealizedLocation", {}))
                 if isinstance(locations,list):
@@ -240,6 +273,9 @@ while True:
             except Exception as e:
                 print(f"An unexpected error occurred: {e}")
                 print(hit)
+        else:          ############################################## Processing for eforms ##########################################
+            skip = True #Eforms has been separated into different index and processing pipeline
+
         try: ######################################################### Query for CSV data ################################################
             inner_hit = client.get(index="ted-csv", id=doc_id)
             value = inner_hit["_source"]["VALUE_EURO_FIN_2"]
@@ -264,7 +300,7 @@ while True:
                 proc_route = "Not applicable"
         except Exception as e: ########################################## If CSV not found handler ###########################################
             print(f"An error occurred: {e}")
-            value = -1
+            value = -1 #To obtain value from xml, currency transform is needed.
             proc_route = "Unknown"
 
         title_translated = "-" # No translation for now (too slow)
@@ -272,10 +308,10 @@ while True:
 
         if skip == False:
             id_field_pairs.append((doc_id, title, title_translated, description, description_translated, cpv, cpv_desc,
-                                   health_cpv, country, value, proc_route, ca_data, lot_data, awards_data))
+                                   health_cpv, critical_cpv, country, value, proc_route, ca_data, lot_data, awards_data))
     # Processing fields Scroll-level
     df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description",
-                                               "Description (Translation)", "CPV", "CPV Description", "Healthcare CPV",
+                                               "Description (Translation)", "CPV", "CPV Description", "Healthcare CPV","Critical Services CPV",
                                                "Country", "Value", "Procurement Route", "Contracting Authority","Lots", "Awarded Contracts"])
 
     processing_scroll(df)

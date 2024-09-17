@@ -1,3 +1,5 @@
+
+PUT /procure_v3
 {
   "mappings": {
     "properties": {
@@ -22,7 +24,7 @@
       "Healthcare CPV": {
         "type": "boolean"
       },
-	"Critical Services CPV": {
+      "Critical Services CPV": {
         "type": "boolean"
       },
       "Country": {
@@ -50,7 +52,7 @@
             "type": "keyword"
           },
           "Address": {
-            "type": "object",
+            "type": "object", 
             "properties": {
               "Country": {
                 "type": "keyword"
@@ -100,8 +102,33 @@
               "Price": {
                 "type": "object",
                 "properties": {
+                  "Criterion": {
+                    "type": "text"
+                  },
                   "Weight": {
-                    "type": "integer"
+                    "type": "float"
+                  }
+                }
+              },
+              "Quality": {
+                "type": "object",
+                "properties": {
+                  "Criterion": {
+                    "type": "text"
+                  },
+                  "Weight": {
+                    "type": "float"
+                  }
+                }
+              },
+              "Cost": {
+                "type": "object",
+                "properties": {
+                  "Criterion": {
+                    "type": "text"
+                  },
+                  "Weight": {
+                    "type": "float"
                   }
                 }
               }
