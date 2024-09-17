@@ -56,7 +56,12 @@ def extract_lots(can):
         for ac in ac_list:
             if ac:
                 try:
-                    criteria = {"Price": {"Weight": ac.get("AC_PRICE", {}).get("AC_WEIGHTING", 0)}}
+                    ac_price = ac.get("AC_PRICE", {})
+                    if isinstance(ac_price, dict):
+                        price_weighting = ac_price.get("AC_WEIGHTING", 0)
+                    else:
+                        price_weighting = 0
+                    criteria = {"Price": {"Weight": price_weighting}}
                     #ac_quality = ac.get("AC_QUALITY", []) if isinstance(ac.get("AC_QUALITY", []), list) else [ac.get("AC_QUALITY", {})]
                     #if ac_quality:
                     #    criteria["Quality"] = [{"Criterion": q.get("AC_CRITERION", "-"), "Weight": q.get("AC_WEIGHTING", 0)} for q in ac_quality if q]
