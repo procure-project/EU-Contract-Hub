@@ -13,10 +13,10 @@ username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)
 
-# Create the client with SSL/TLS enabled, but hostname verification disabled.
+# Create the OpenSearch client with SSL/TLS enabled.
 client = OpenSearch(
     hosts=[{'host': HOST, 'port': PORT}],
-    http_compress=True,  # enables gzip compression for request bodies
+    http_compress=True,
     http_auth=auth,
     use_ssl=True,
     verify_certs=False,
@@ -24,30 +24,38 @@ client = OpenSearch(
     ssl_show_warn=False,
 )
 
+# Generator to yield actions for bulk update
 def csv_to_bulk_actions(file_path):
     with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
-        actions = []
         for row in reader:
-            actions.append({
-                "_op_type": "update",
+            yield {
+                "_op_type": "update",  # Update operation
                 "_index": "procure_v3_new",
-                "_id": row['Document ID'],
+                "_id": row['Document ID'],  # Document ID to update
                 "doc": {
                     "Title (Translation)": row['Title (Translation)'],
                     "Description (Translation)": row['Description (Translation)']
                 }
-            })
-            # Process in batches of 10,000
-            if len(actions) == 10000:
-                yield actions
-                actions = []
-        # Yield any remaining actions
-        if actions:
-            yield actions
+            }
 
-# Batch processing
-batch_size = 10000
-for batch in csv_to_bulk_actions(CSV_FILE_PATH):
-    response = helpers.bulk(client, batch)
-    print(f'Bulk update response: {response}')
+# Perform the bulk update
+actions = csv_to_bulk_actions(CSV_FILE_PATH)
+
+# Execute bulk operation and handle errors
+success, failed = helpers.bulk(
+    client,
+    actions,
+    raise_on_error=False,  # Do not stop on error
+    raise_on_exception=False  # Continue even if exceptions occur
+)
+
+print(f'Successful updates: {success}')
+print(f'Failed updates: {len(failed)}')
+
+# Log failed updates
+for error in failed:
+    if 'update' in error and error['update']['status'] == 404:
+        print(f"Document not found: {error['update']['_id']} - skipping.")
+    else:
+        print(f"Failed to update document: {error}")
