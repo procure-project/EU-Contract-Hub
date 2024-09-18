@@ -3,7 +3,7 @@ import csv
 import getpass
 
 # File location constant
-CSV_FILE_PATH = '../data/temp_translations_10S.csv'
+CSV_FILE_PATH = '/home/procure/data/temp_translations_10S.csv'
 
 # Opensearch client configuration
 HOST = 'localhost'
