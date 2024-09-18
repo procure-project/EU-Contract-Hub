@@ -107,7 +107,7 @@ def extract_lots(can):
 
     return extracted_lots
 
-def extract_awarded_contracts(can):
+def extract_awarded_contracts(can, companies):
     aw_contracts = can.get("AWARD_CONTRACT", {})
     if isinstance(aw_contracts, dict):  # Handle if contractors is a list or dictionary. I do not know for sure if it can be a list
         aw_contracts = [aw_contracts]
@@ -161,7 +161,7 @@ def extract_awarded_contracts(can):
     return awards
 
 
-def extract_contracting_authority(can):
+def extract_contracting_authority(can, companies):
     contracting_body = can.get("CONTRACTING_BODY", {})
     address = contracting_body.get("ADDRESS_CONTRACTING_BODY", {})
 
