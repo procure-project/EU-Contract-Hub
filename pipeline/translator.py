@@ -53,7 +53,7 @@ client = OpenSearch(
     ssl_show_warn=False,
 )
 
-index_name = "procure_v3"
+index_name = "procure"
 scroll_size = 100
 query = {
   "query": {

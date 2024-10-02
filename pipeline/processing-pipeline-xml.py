@@ -319,7 +319,7 @@ while True:
     actions = [
         {
             "_op_type": "index",
-            "_index": "procure_v3",
+            "_index": "procure",
             "_id": doc['Document ID'],
             **{f"{col_name}": doc[col_name] for col_name in df.columns if col_name != "Document ID"}
 
