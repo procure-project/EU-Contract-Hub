@@ -14,7 +14,7 @@ from tqdm import tqdm
 FOLDER = "./temp/csv/"
 HOST = 'localhost'
 PORT = 9200
-INDEX = 'ted-csv_v2'
+INDEX = 'ted-csv'
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)

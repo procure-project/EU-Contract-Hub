@@ -25,8 +25,8 @@ PORT = 9200
 username = input("Enter ProCureSpot username: ")
 password = getpass.getpass(prompt="Enter ProCureSpot password: ")
 auth = (username, password)
-INDEX_XML = 'ted-xml_v2'
-INDEX_EFORMS = 'ted-eforms_v1'
+INDEX_XML = 'ted-xml'
+INDEX_EFORMS = 'ted-eforms'
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 OS_CLIENT = OpenSearch(
     hosts=[{'host': HOST, 'port': PORT}],
