@@ -71,15 +71,12 @@ while True:
         break
     id_field_pairs = []
     for hit in hits:  # Processing and Extracting Info Document-wise
-        if not (isinstance(hit["_source"]["CONTRACT_AWARD_NOTICE"],
-                           list)):  # REMOVE CONDITION there should not be any list in final version
-            doc_id = hit["_id"]
-            title = hit["_source"]["Title"]
-            description = hit["_source"]["Description"]
-            title_translated = "-"
-            description_translated = "-"
-
-            id_field_pairs.append((doc_id, title, title_translated, description, description_translated))
+        doc_id = hit["_id"]
+        title = hit["_source"]["Title"]
+        description = hit["_source"]["Description"]
+        title_translated = "-"
+        description_translated = "-"
+        id_field_pairs.append((doc_id, title, title_translated, description, description_translated))
     df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description", "Description (Translation)"])
     try:
         df_translated  = batch_translate(df)
