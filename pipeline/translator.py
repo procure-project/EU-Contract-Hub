@@ -1,8 +1,12 @@
+import ssl
+
+import requests
 from opensearchpy import OpenSearch, helpers
 import pandas as pd
 from deep_translator import GoogleTranslator
 import getpass
-
+requests.packages.urllib3.disable_warnings()
+ssl._create_default_https_context = ssl._create_unverified_context
 translator = GoogleTranslator(source='auto', target='english')
 
 def translate_title_batch(titles):
