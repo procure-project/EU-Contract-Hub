@@ -49,6 +49,7 @@ def translate_description_batch(descriptions):
 def batch_translate(df):
     title_translations = translate_title_batch(df['Title'].tolist())
     description_translations = translate_description_batch(df['Description'].tolist())
+    print('both translated')
     df['Title (Translation)'] = title_translations
     df['Description (Translation)'] = description_translations
     return df.drop(['Title', 'Description'], axis=1)
