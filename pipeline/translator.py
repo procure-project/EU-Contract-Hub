@@ -17,7 +17,8 @@ def translate_title_batch(titles):
     translated_titles = translator.translate_batch(titles)
     end_time = datetime.now()
     print(f", End: {end_time}, Duration: {end_time - start_time}")
-    return translator.translate_batch(translated_titles)
+    translated_titles = [title if title is not None else '' for title in translated_titles]
+    return translated_titles
 def translate_description_batch(descriptions):
     all_lines = []
     line_mapping = []
@@ -31,6 +32,7 @@ def translate_description_batch(descriptions):
     start_time = datetime.now()
     print(f"Translating {len(all_lines)} lines from descriptions... Start: {start_time}", end='', flush=True)
     translated_lines = translator.translate_batch([line if line is not None else '' for line in all_lines])
+    translated_lines = [line if line is not None else '' for line in translated_lines]
     end_time = datetime.now()
     print(f", End: {end_time}, Duration: {end_time - start_time}")
 
@@ -115,4 +117,5 @@ while True:
         print(f"Processed and updated {len(df_translated)} documents.")
     except Exception as e:
         print(e)
+        break
 # Create a DataFrame to store the document IDs and field values
