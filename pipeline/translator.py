@@ -4,23 +4,38 @@ import requests
 from opensearchpy import OpenSearch, helpers
 import pandas as pd
 from deep_translator import GoogleTranslator
+from datetime import datetime
 import getpass
 requests.packages.urllib3.disable_warnings()
 ssl._create_default_https_context = ssl._create_unverified_context
 translator = GoogleTranslator(source='auto', target='english')
 
 def translate_title_batch(titles):
-    return translator.translate_batch(titles)
+    titles = [title if title is not None else '' for title in titles]
+    start_time = datetime.now()
+    print(f"Translating {len(titles)} titles... Start time: {start_time}")
+    translated_titles = translator.translate_batch(titles)
+    end_time = datetime.now()
+    print(f"Finished translating titles. End time: {end_time}")
+    print(f"Translation took: {end_time - start_time}")
+    return translator.translate_batch(translated_titles)
 def translate_description_batch(descriptions):
     all_lines = []
     line_mapping = []
     # Split descriptions into lines and keep track of line positions
     for i, description in enumerate(descriptions):
+        if description is None:
+            description = ""
         description_split = description.splitlines()
         all_lines.extend(description_split)
         line_mapping.append((i, len(description_split)))
-    # Translate all lines in batch
+    start_time = datetime.now()
+    print(f"Translating {len(all_lines)} lines from descriptions... Start time: {start_time}")
     translated_lines = translator.translate_batch(all_lines)
+    end_time = datetime.now()
+    print(f"Finished translating descriptions. End time: {end_time}")
+    print(f"Translation took: {end_time - start_time}")
+
     # Reconstruct descriptions from translated lines
     translated_descriptions = []
     line_index = 0
@@ -28,6 +43,7 @@ def translate_description_batch(descriptions):
         translated_description = "\n".join(translated_lines[line_index:line_index + num_lines])
         translated_descriptions.append(translated_description)
         line_index += num_lines
+
     return translated_descriptions
 
 
