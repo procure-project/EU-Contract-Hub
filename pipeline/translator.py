@@ -13,11 +13,10 @@ translator = GoogleTranslator(source='auto', target='english')
 def translate_title_batch(titles):
     titles = [title if title is not None else '' for title in titles]
     start_time = datetime.now()
-    print(f"Translating {len(titles)} titles... Start time: {start_time}")
+    print(f"Translating {len(titles)} titles... Start: {start_time}", end='', flush=True)
     translated_titles = translator.translate_batch(titles)
     end_time = datetime.now()
-    print(f"Finished translating titles. End time: {end_time}")
-    print(f"Translation took: {end_time - start_time}")
+    print(f", End: {end_time}, Duration: {end_time - start_time}")
     return translator.translate_batch(translated_titles)
 def translate_description_batch(descriptions):
     all_lines = []
@@ -30,11 +29,10 @@ def translate_description_batch(descriptions):
         all_lines.extend(description_split)
         line_mapping.append((i, len(description_split)))
     start_time = datetime.now()
-    print(f"Translating {len(all_lines)} lines from descriptions... Start time: {start_time}")
-    translated_lines = translator.translate_batch(all_lines)
+    print(f"Translating {len(all_lines)} lines from descriptions... Start: {start_time}", end='', flush=True)
+    translated_lines = translator.translate_batch([line if line is not None else '' for line in all_lines])
     end_time = datetime.now()
-    print(f"Finished translating descriptions. End time: {end_time}")
-    print(f"Translation took: {end_time - start_time}")
+    print(f", End: {end_time}, Duration: {end_time - start_time}")
 
     # Reconstruct descriptions from translated lines
     translated_descriptions = []
