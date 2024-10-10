@@ -71,6 +71,7 @@ client = OpenSearch(
     verify_certs=False,
     ssl_assert_hostname=True,
     ssl_show_warn=False,
+    timeout=60
 )
 
 index_name = "procure"
