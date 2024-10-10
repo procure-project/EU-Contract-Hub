@@ -11,7 +11,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 translator = GoogleTranslator(source='auto', target='english')
 
 def translate_title_batch(titles):
-    titles = [title if title is not None else '' for title in titles]
+    titles = [title if title is not None else '-' for title in titles]
     start_time = datetime.now()
     print(f"Translating {len(titles)} titles... Start: {start_time}", end='', flush=True)
     translated_titles = translator.translate_batch(titles)
@@ -116,5 +116,4 @@ while True:
         print(f"Processed and updated {len(df_translated)} documents.")
     except Exception as e:
         print(e)
-        break
 # Create a DataFrame to store the document IDs and field values
