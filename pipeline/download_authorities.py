@@ -62,7 +62,7 @@ while True:
     print("Scroll " + str(scr))
     scr = scr + 1
     dfs.append(df)
-    if len(response["hits"]["hits"]) < 10000:
+    if len(response["hits"]["hits"]) < 1000:
         break
 final_df = pd.concat(dfs, ignore_index = True)
 final_df.to_csv("ca_extraction.csv", index=False)
