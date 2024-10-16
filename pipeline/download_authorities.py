@@ -38,7 +38,7 @@ query = {
 response = client.search(
     index=index_name,
     body=query,
-    size=10000,  # Number of documents to retrieve per batch
+    size=1000,  # Number of documents to retrieve per batch
     scroll="1m"  # Keep the scroll window open for 1 minute
 )
 
