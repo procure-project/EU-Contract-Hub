@@ -1,6 +1,6 @@
 
 from opensearchpy import OpenSearch, helpers
-import polars as pl
+import pandas as pd
 import getpass
 
 # Opensearch client
@@ -54,9 +54,9 @@ while True:
             id_field_pairs.append((doc_id, Lots))
 
     #df = pl.DataFrame(id_field_pairs, columns=["Document ID","Contracting Authorities"]) # Processing fields Scroll-level
-    df = pl.DataFrame(id_field_pairs, columns=["Document ID", "Lots"])
+    df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Lots"])
     dfs.append(df)
     if len(response["hits"]["hits"]) < 1000:
         break
-final_df = pl.concat(dfs, ignore_index = True)
+final_df = pd.concat(dfs, ignore_index = True)
 final_df.to_csv("lots_extraction.csv", index=False)
