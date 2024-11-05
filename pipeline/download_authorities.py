@@ -26,8 +26,7 @@ index_name = "procure"
 # Define the query to retrieve all documents
 query = {
     "query": {
-        "term": {
-            "Healthcare CPV": True
+        "match_all": {
         }
     }
 }
