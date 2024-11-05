@@ -1,9 +1,7 @@
 
 from opensearchpy import OpenSearch, helpers
-import pandas as pd
+import polars as pl
 import getpass
-from deep_translator import GoogleTranslator
-# Initialize the OpenSearch client
 
 # Opensearch client
 HOST = 'localhost'
@@ -46,23 +44,19 @@ scroll_id = response["_scroll_id"]
 dfs=[]
 scr = 1
 while True:
-    # Continue scrolling
     response = client.scroll(scroll_id=scroll_id, scroll="1m")
     id_field_pairs = []
 
-    # Extract document IDs and corresponding field values from the current batch of results
     for hit in response["hits"]["hits"]:  # Processing and Extracting Info Document-wise
             doc_id = hit["_id"]
-            CA = hit["_source"]["Contracting Authority"]
-            id_field_pairs.append((doc_id, CA))
-    # Processing fields Scroll-level
-    df = pd.DataFrame(id_field_pairs, columns=["Document ID","Contracting Authorities"])
+            #CA = hit["_source"]["Contracting Authority"]
+            Lots = hit["_source"]["Lots"]
+            id_field_pairs.append((doc_id, Lots))
 
-
-    print("Scroll " + str(scr))
-    scr = scr + 1
+    #df = pl.DataFrame(id_field_pairs, columns=["Document ID","Contracting Authorities"]) # Processing fields Scroll-level
+    df = pl.DataFrame(id_field_pairs, columns=["Document ID", "Lots"])
     dfs.append(df)
     if len(response["hits"]["hits"]) < 1000:
         break
-final_df = pd.concat(dfs, ignore_index = True)
-final_df.to_csv("ca_extraction.csv", index=False)
+final_df = pl.concat(dfs, ignore_index = True)
+final_df.to_csv("lots_extraction.csv", index=False)
