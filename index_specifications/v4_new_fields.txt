@@ -19,6 +19,7 @@
         "Centralised Purchasing Activities and Central Purchasing Bodies" : Boolean
         "Occasional Joint Procurement": Boolean
         "Procurement Involving Contracting Authorities from Different Member States": Boolean
+	"Unknown":Boolean
 -Health Authority Class : Keyword
 -Awards
 	Conclusion Date : Date
