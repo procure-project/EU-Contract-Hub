@@ -290,7 +290,19 @@ def calculate_p_technique(dynamic_purch, eauction, on_behalf, central_body, fram
         "Procurement Involving Contracting Authorities from Different Member States": multiple_country
     }
 
-
+def calculate_ca_class(central_body,ca_type,health_cpv):
+    if central_body:
+        if ca_type == "1":
+            return 'Government Public Procurers'
+        elif ca_type == "3" or ca_type == "R":
+            return 'Regional or Local Public Purchasing Bodies'
+        else:
+            return 'Central Public Purchasing Bodies'
+    else:
+        if health_cpv:
+            return 'Healthcare Direct Procurer'
+        else:
+            return 'Non-Healthcare Direct Procurer'
 
 
 def extract_notice_data(codeddata):
@@ -399,18 +411,8 @@ while True:
 
                     proc_route = calculate_p_route(multiple_country, joint_procurement, central_body, ca_type)
                     proc_technique = calculate_p_technique(dynamic_purch, eauction, on_behalf, central_body, fram_agreement, multiple_country)
-                    if central_body:
-                        if ca_type == "1":
-                            health_ca_class = 'Government Public Procurers'
-                        elif ca_type == "3" or ca_type == "R":
-                            health_ca_class = 'Regional or Local Public Purchasing Bodies'
-                        else:
-                            health_ca_class = 'Central Public Purchasing Bodies'
-                    else:
-                        if health_cpv:
-                            health_ca_class = 'Healthcare Direct Procurer'
-                        else:
-                            health_ca_class = 'Non-Healthcare Direct Procurer'
+                    health_ca_class = calculate_ca_class(central_body,ca_type,health_cpv)
+
 
                 except Exception as e:  ########################################## If CSV not found handler ###########################################
                     print(f"An error occurred: {e}")
@@ -433,7 +435,7 @@ while True:
                 id_field_pairs.append(
                     (doc_id, title, title_translated, description, description_translated, date_dispatch,
                      cpv, cpv_desc, health_cpv, critical_cpv,
-                     country, value, c_nature, proc_route, proc_type, health_ca_class,
+                     country, value, c_nature, proc_route, proc_type, proc_technique, health_ca_class,
                      ca_data, number_of_lots, lot_data, awards_data, tags))
 
             except Exception as e: ########################################## Error extracting some field from XML ####################################
@@ -446,7 +448,7 @@ while True:
     # Processing fields Scroll-level
     df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description", "Description (Translation)", "Dispatch Date",
                                                "CPV", "CPV Description", "Healthcare CPV", "Critical Services CPV",
-                                               "Country", "Value", "Contract Nature", "Procurement Route", "Procurement Type", "Healthcare Authority Class",
+                                               "Country", "Value", "Contract Nature", "Procurement Route", "Procurement Type", "Procurement Techniques", "Healthcare Authority Class",
                                                "Contracting Authority", "Number of Lots", "Lots", "Awarded Contracts", "Tags"])
 
     processing_scroll(df)
