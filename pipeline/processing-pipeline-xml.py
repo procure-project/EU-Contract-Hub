@@ -79,10 +79,10 @@ def get_main_criterion(criteria_list):
                     highest_weight = weight
                     main_criterion = criterion_type
             else:
-            weight = criterion_dict.get("Weight", 0)
-            if weight > highest_weight:
-                highest_weight = weight
-                main_criterion = criterion_type
+                weight = criterion_dict.get("Weight", 0)
+                if weight > highest_weight:
+                    highest_weight = weight
+                    main_criterion = criterion_type
 
     return main_criterion if main_criterion else "-"
 
