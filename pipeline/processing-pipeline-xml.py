@@ -70,8 +70,9 @@ def get_main_criterion(criteria_list):
     highest_weight = -1
     main_criterion = None
 
-    for criteria in criteria_list:
-        for criterion_type, criterion_items in criteria.items():
+    for ac in criteria_list:
+        print(criteria_list)
+        for criterion_type, criterion_items in ac.items():
             for item in criterion_items:
                 weight = item.get("Weight", 0)
                 if weight > highest_weight:
