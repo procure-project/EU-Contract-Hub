@@ -8,11 +8,11 @@ PUT /procure_v4
       },
       "Title (Translation)": {
         "type": "text",
-	"fields": {
-            "keyword": {
-              	"type": "keyword",
-		}
-	}
+	      "fields": {
+          "keyword": {
+            "type": "keyword"
+		      }
+	     }
       },
       "Description": {
         "type": "text"
@@ -21,7 +21,7 @@ PUT /procure_v4
         "type": "text",
 	"fields": {
             "keyword": {
-              	"type": "keyword",
+              	"type": "keyword"
 		}
 	}
       },
@@ -75,7 +75,8 @@ PUT /procure_v4
            },
            "Procurement Involving Contracting Authorities from Different Member States": {
               "type": "boolean"
-           },
+           }
+        }
       },
       "Contract Nature": {
         "type": "keyword"
@@ -115,7 +116,7 @@ PUT /procure_v4
               },
               "Territorial Unit (NUTS3)": {
                 "type": "keyword"
-              },
+              }
             }
           },
           "Contact": {
@@ -150,7 +151,7 @@ PUT /procure_v4
             "type": "text",
 	    "fields": {
                 "keyword": {
-              	  "type": "keyword",
+              	  "type": "keyword"
 		}
 	    }
           },
@@ -161,7 +162,7 @@ PUT /procure_v4
             "type": "text",
 	    "fields": {
                 "keyword": {
-              	  "type": "keyword",
+              	  "type": "keyword"
 		}
 	    }
           },
@@ -285,10 +286,14 @@ PUT /procure_v4
                 "TED-EForms": {
                   "type": "boolean"
                 }
+              }
            },
-           "Process Date":{"type": "date"}
+           "Process Date":{
+             "type": "date"
+           }
         }
       }
     }
   }
 }
+

@@ -3,6 +3,7 @@ import re
 import concurrent.futures
 from opensearchpy import OpenSearch, helpers
 import pandas as pd
+import traceback
 #from deep_translator import GoogleTranslator
 import getpass
 from datetime import datetime
@@ -319,21 +320,16 @@ client = OpenSearch(
     ssl_assert_hostname=True,
     ssl_show_warn=False,
 )
-
-# Define your index and field
-index_name = "ted-xml"
-# Define the query to retrieve all documents
-query = {
-    "query": {
-        "match_all": {}  # Retrieve all documents
-    }
-}
+index = "procure_v4"
 scroll_size = 1000
 # Execute the initial search query to get the first batch of results
 response = client.search(
-    index=index_name,
-    body=query,
-    size=scroll_size,  # Number of documents to retrieve per batch
+    index = "ted-xml",
+    body =   {"query":   {
+                        "match_all": {}  # Retrieve all documents
+                        }
+            },
+    size = scroll_size,  # Number of documents to retrieve per batch
     scroll="10m"  # Keep the scroll window open for 1 minute
 )
 
@@ -435,6 +431,7 @@ while True:
 
             except Exception as e: ########################################## Error extracting some field from XML ####################################
                 print(f"An unexpected error occurred: {e}")
+                traceback.print_exc()
                 print(hit)
         else:          ############################################## Processing for eforms ##########################################
             continue #Eforms has been separated into different index and processing pipeline
@@ -452,7 +449,7 @@ while True:
     actions = [
         {
             "_op_type": "index",
-            "_index": "procure",
+            "_index": index,
             "_id": doc['Document ID'],
             **{f"{col_name}": doc[col_name] for col_name in df.columns if col_name != "Document ID"}
 
@@ -460,7 +457,7 @@ while True:
         for _, doc in df.iterrows()
     ]
     try:
-        success, failed = helpers.bulk(client, actions, index="procure_v3", raise_on_error=True, refresh=True)
+        success, failed = helpers.bulk(client, actions, index = index, raise_on_error=True, refresh=True)
         print(f"Successfully indexed {success} documents.")
         print(f"Failed to index {failed} documents.")
     except Exception as e:
