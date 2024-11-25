@@ -431,9 +431,10 @@ while True:
                         }
 
                 id_field_pairs.append(
-                    (doc_id, title, title_translated, description, description_translated, date_dispatch, cpv, cpv_desc,
-                     health_cpv, critical_cpv, country, value, c_nature, proc_route, proc_type, health_ca_class, ca_data, number_of_lots, lot_data,
-                     awards_data, tags))
+                    (doc_id, title, title_translated, description, description_translated, date_dispatch,
+                     cpv, cpv_desc, health_cpv, critical_cpv,
+                     country, value, c_nature, proc_route, proc_type, health_ca_class,
+                     ca_data, number_of_lots, lot_data, awards_data, tags))
 
             except Exception as e: ########################################## Error extracting some field from XML ####################################
                 print(f"An unexpected error occurred: {e}")
@@ -442,7 +443,7 @@ while True:
         else:          ############################################## Processing for eforms ##########################################
             continue #Eforms has been separated into different index and processing pipeline
 
-
+    print(id_field_pairs)
     # Processing fields Scroll-level
     df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description", "Description (Translation)", "Dispatch Date"
                                                "CPV", "CPV Description", "Healthcare CPV", "Critical Services CPV",
