@@ -419,7 +419,7 @@ while True:
                     csv_found = False
                     value = -1  # To obtain value from xml, currency transform is needed.
                     proc_route = "Unknown"
-                    proc_technique = "Unknown"
+                    proc_technique = {"Unknown":True}
                     health_ca_class = "Unknown"
 
                 title_translated = "-"  # No translation for now (too slow)

@@ -26,8 +26,7 @@ PUT /procure_v4
 	}
       },
       "Dispatch Date": {
-        "type": "date",
-        "format": "dd-MM-yyyy"
+        "type": "date"
       },
       "CPV": {
         "type": "keyword"
@@ -75,6 +74,9 @@ PUT /procure_v4
               "type": "boolean"
            },
            "Procurement Involving Contracting Authorities from Different Member States": {
+              "type": "boolean"
+           },
+	   "Unknown": {
               "type": "boolean"
            }
         }
@@ -220,8 +222,7 @@ PUT /procure_v4
             "type": "text"
           },
           "Conclusion Date": {
-            "type": "date",
-            "format": "dd-MM-yyyy"
+            "type": "date"
           },
           "Number of Tenders": {
             "type": "integer"
@@ -291,8 +292,7 @@ PUT /procure_v4
               }
            },
            "Process Date":{
-             "type": "date",
-             "format": "dd-MM-yyyy"
+             "type": "date"
            }
         }
       }
