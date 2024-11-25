@@ -26,7 +26,8 @@ PUT /procure_v4
 	}
       },
       "Dispatch Date": {
-        "type": "date"
+        "type": "date",
+        "format": "dd-MM-yyyy"
       },
       "CPV": {
         "type": "keyword"
@@ -219,7 +220,8 @@ PUT /procure_v4
             "type": "text"
           },
           "Conclusion Date": {
-            "type": "date"
+            "type": "date",
+            "format": "dd-MM-yyyy"
           },
           "Number of Tenders": {
             "type": "integer"
@@ -289,7 +291,8 @@ PUT /procure_v4
               }
            },
            "Process Date":{
-             "type": "date"
+             "type": "date",
+             "format": "dd-MM-yyyy"
            }
         }
       }
