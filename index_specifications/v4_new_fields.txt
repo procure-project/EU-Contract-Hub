@@ -1,0 +1,32 @@
+-Number of Lots : Integer
+-Tags
+	Source : 
+		TED-XML
+		TED-CSV
+		TED-EForms
+	Process Date : date
+-Lots
+	Title (Translated): text and keyword
+	Short Description (Translated): Text and Keyword
+	Main Criterion: Keyword
+-Procurement Type : Keyword
+-Contract Nature: Keyword
+-Procurement Techniques
+	"Framework Agreement": Boolean
+        "Dynamic Purchasing System" : Boolean 
+        "Electronic Auction": Boolean
+        "Electronic Catalogue": Boolean
+        "Centralised Purchasing Activities and Central Purchasing Bodies" : Boolean
+        "Occasional Joint Procurement": Boolean
+        "Procurement Involving Contracting Authorities from Different Member States": Boolean
+-Health Authority Class : Keyword
+-Awards
+	Conclusion Date : Date
+-Dispatch Date : Date
+
+-Contracting Authority
+	Address
+		Territorial Unit (NUTS3)
+-Contractors
+	Address
+		Territorial Unit (NUTS3)
