@@ -443,11 +443,10 @@ while True:
         else:          ############################################## Processing for eforms ##########################################
             continue #Eforms has been separated into different index and processing pipeline
 
-    print(id_field_pairs)
     # Processing fields Scroll-level
-    df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description", "Description (Translation)", "Dispatch Date"
+    df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description", "Description (Translation)", "Dispatch Date",
                                                "CPV", "CPV Description", "Healthcare CPV", "Critical Services CPV",
-                                               "Country", "Value", "Contract Nature", "Procurement Route", "Procurement Type", "Healthcare Authority Class"
+                                               "Country", "Value", "Contract Nature", "Procurement Route", "Procurement Type", "Healthcare Authority Class",
                                                "Contracting Authority", "Number of Lots", "Lots", "Awarded Contracts", "Tags"])
 
     processing_scroll(df)
