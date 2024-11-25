@@ -71,13 +71,11 @@ def get_main_criterion(criteria_list):
     main_criterion = None
 
     for ac in criteria_list:
-        print(criteria_list)
-        for criterion_type, criterion_items in ac.items():
-            for item in criterion_items:
-                weight = item.get("Weight", 0)
-                if weight > highest_weight:
-                    highest_weight = weight
-                    main_criterion = item.get("Criterion", "-")
+        for criterion_type, criterion_dict in ac.items():
+            weight = criterion_dict.get("Weight", 0)
+            if weight > highest_weight:
+                highest_weight = weight
+                main_criterion = criterion_dict.get("Criterion", "-")
 
     return main_criterion if main_criterion else "-"
 
