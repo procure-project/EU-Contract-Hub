@@ -22,6 +22,7 @@
 	"Unknown":Boolean
 -Health Authority Class : Keyword
 -Awards
+	Corresponding Lot : Keyword
 	Conclusion Date : Date
 -Dispatch Date : Date
 

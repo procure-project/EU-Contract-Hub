@@ -175,33 +175,19 @@ PUT /procure_v4
           "Criteria": {
             "type": "nested",
             "properties": {
-              "Price": {
-                "type": "object",
-                "properties": {
+		  "Type": {
+                    "type": "keyword"
+                  },
                   "Criterion": {
                     "type": "text"
                   },
-                  "Weight": {
-                    "type": "float"
-                  }
-                }
-              },
-              "Quality": {
-                "type": "object",
-                "properties": {
-                  "Criterion": {
-                    "type": "text"
-                  },
-                  "Weight": {
-                    "type": "float"
-                  }
-                }
-              },
-              "Cost": {
-                "type": "object",
-                "properties": {
-                  "Criterion": {
-                    "type": "text"
+                  "Criterion (Translation)": {
+                    "type": "text",
+		    "fields": {
+                      "keyword": {
+              	        "type": "keyword"
+		      }
+	    	    }
                   },
                   "Weight": {
                     "type": "float"
@@ -220,6 +206,9 @@ PUT /procure_v4
         "properties": {
           "Awarded Contract Title": {
             "type": "text"
+          },
+	  "Corresponding Lot": {
+            "type": "keyword"
           },
           "Conclusion Date": {
             "type": "date"
