@@ -76,6 +76,8 @@ def parse_weight(weight):
 
 def get_main_criterion(criteria):
     type_weights = defaultdict(float)
+    if not type_weights:
+        return "-"
     for crit in criteria:
         type_weights[crit["Type"]] += crit["Weight"]
     max_type = max(type_weights, key=type_weights.get)
