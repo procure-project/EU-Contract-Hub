@@ -17,7 +17,7 @@ CRITICAL_CPV = [18143000, #Protective Gear
 
 def import_CPVDict():
     result_dict = {}
-    with open('../../data/CPV_Dictionary.csv', 'r') as csvfile:
+    with open('CPV_Dictionary.csv', 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=';')
 
         for row in reader:
