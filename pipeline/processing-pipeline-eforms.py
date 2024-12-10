@@ -146,6 +146,7 @@ def extract_awarded_contracts(result):
                 contractors_info.append(get_organization_data(org.get("cbc:ID",-1), all_organizations))
 
         number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in lot_result.get("efac:ReceivedSubmissionsStatistics", []) if stat["efbc:StatisticsCode"] == "tenders"]
+        print(sett_contract)
         date_conclusion = sett_contract.get("cbc:IssueDate", None)
         try:
             if date_conclusion is not None:
