@@ -216,13 +216,14 @@ while True:
             country = project.get("cac:RealizedLocation", {}).get("cac:Address", {}).get("cac:Country", {}).get("cbc:IdentificationCode", "-")
             cpv = project.get("cac:MainCommodityClassification", {}).get("cbc:ItemClassificationCode", -1)
             cpv_desc = CPV_dict.get(cpv, "-")
-            add_cpv = project.get("cac:AdditionalCommodityClassification", {})
-            if isinstance(add_cpv, dict):
-                add_cpv = [add_cpv]
-            for cpv_i in add_cpv:
-                new_cpv = cpv_i["cbc:ItemClassificationCode"]
-                cpv = [cpv].append(new_cpv)
-                cpv_desc = [cpv_desc].append(CPV_dict.get(new_cpv, "-"))
+            add_cpv = project.get("cac:AdditionalCommodityClassification", None)
+            if add_cpv:
+                if isinstance(add_cpv, dict):
+                    add_cpv = [add_cpv]
+                for cpv_i in add_cpv:
+                    new_cpv = cpv_i["cbc:ItemClassificationCode"]
+                    cpv = [cpv].append(new_cpv)
+                    cpv_desc = [cpv_desc].append(CPV_dict.get(new_cpv, "-"))
             c_nature = project.get("cbc:ProcurementTypeCode", "Unknown")
             proc_type = project.get("cac:TenderingProcess", {}).get("cbc:ProcedureCode", "Unknown")
             date_dispatch = project.get("cbc:IssueDate", None)

@@ -24,7 +24,6 @@ def import_CPVDict():
         reader = csv.reader(csvfile, delimiter=';')
         next(reader) #Header
         for row in reader:
-            print(row)
             first_col = row[0]
             second_col = row[1]
             cropped_value = first_col[:8] # Verify if it's 8 digits
