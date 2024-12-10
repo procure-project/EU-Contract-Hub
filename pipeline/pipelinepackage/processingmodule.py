@@ -22,7 +22,7 @@ def import_CPVDict():
     file_path = os.path.join(module_dir, 'CPV_Dictionary.csv')
     with open(file_path, 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=';')
-
+        next(reader) #Header
         for row in reader:
             print(row)
             first_col = row[0]
