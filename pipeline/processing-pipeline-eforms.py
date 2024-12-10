@@ -138,7 +138,7 @@ def extract_awarded_contracts(result):
             tendering_party = [tpa for tpa in all_tendering_parties if tpa["cbc:ID"] == lot_tender["efac:TenderingParty"]["cbc:ID"]]
             tendering_party = tendering_party[0] if tendering_party else {}
 
-            org_list = tendering_party["efac:Tenderer"]
+            org_list = tendering_party.get("efac:Tenderer",[])
             if isinstance(org_list, dict):
                 org_list = [org_list]
             for org in org_list:
