@@ -121,7 +121,7 @@ def extract_awarded_contracts(result):
     if isinstance(all_organizations, dict):
         all_organizations = [all_organizations]
 
-    awards = []
+    awards = [] #
     for lot_result in all_lot_results:
         sett_contract = [contract for contract in all_settled_contracts if contract["cbc:ID"] == lot_result["efac:SettledContract"]["cbc:ID"]]
         sett_contract = sett_contract[0] if sett_contract else {}
