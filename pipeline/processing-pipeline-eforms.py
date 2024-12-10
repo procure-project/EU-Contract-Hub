@@ -121,11 +121,13 @@ def extract_awarded_contracts(result):
         all_organizations = [all_organizations]
 
     awards = []
+    date_conclusion = None
     for lot_result in all_lot_results:
         sett_contract = [contract for contract in all_settled_contracts if contract["cbc:ID"] == lot_result.get("efac:SettledContract",{}).get("cbc:ID")]
         if sett_contract:
             sett_contract = sett_contract[0]
             lot_tenders = sett_contract.get("efac:LotTender", {})
+            date_conclusion = sett_contract.get("cbc:IssueDate", None)
         else: #Alternative route, there may not be settled contracts in the extensions but the link is made through LotTender directly
             lot_tenders = lot_result.get("efac:LotTender",{})
 
@@ -144,10 +146,8 @@ def extract_awarded_contracts(result):
                 org_list = [org_list]
             for org in org_list:
                 contractors_info.append(get_organization_data(org.get("cbc:ID",-1), all_organizations))
-
         number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in lot_result.get("efac:ReceivedSubmissionsStatistics", []) if stat["efbc:StatisticsCode"] == "tenders"]
-        print(sett_contract)
-        date_conclusion = sett_contract.get("cbc:IssueDate", None)
+
         try:
             if date_conclusion is not None:
                 date_conclusion = datetime.strptime(date_conclusion, '%Y-%m-%d%z')
