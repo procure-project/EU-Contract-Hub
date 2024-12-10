@@ -126,7 +126,7 @@ def extract_awarded_contracts(result):
         sett_contract = [contract for contract in all_settled_contracts if contract["cbc:ID"] == lot_result["efac:SettledContract"]["cbc:ID"]]
         sett_contract = sett_contract[0] if sett_contract else {}
 
-        lot_tenders = sett_contract["efac:LotTender"]
+        lot_tenders = sett_contract.get("efac:LotTender",{})
         if isinstance(lot_tenders, dict):
             lot_tenders = [lot_tenders]
 
@@ -139,7 +139,7 @@ def extract_awarded_contracts(result):
             tendering_party = tendering_party[0] if tendering_party else {}
 
             for org in tendering_party["efac:Tenderer"]:
-                contractors_info.append(get_organization_data(org["cbc:ID"], all_organizations))
+                contractors_info.append(get_organization_data(org.get("cbc:ID",-1), all_organizations))
 
         number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in lot_result.get("efac:ReceivedSubmissionsStatistics", []) if stat["efbc:StatisticsCode"] == "tenders"]
         date_conclusion = sett_contract.get("cbc:IssueDate", None)
