@@ -33,11 +33,8 @@ def get_organization_data(id, all_organizations):
         }
     }
 
-def extract_contracting_authority(source_data):
-    cparty = source_data["cac:ProcurementProject"].get("cac:ContractingParty", {}).get("cac:Party", {})
+def extract_contracting_authority(cparty, organizations):
     cparty_id = cparty.get("cac:PartyIdentification", {}).get("cbc:ID", "-")
-    organizations = source_data["ext:UBLExtensions"]["ext:UBLExtension"]["ext:ExtensionContent"]["efext:EformsExtension"]["efac:Organizations"][
-        "efac:Organization"]
     cparty_data = get_organization_data(cparty_id, organizations)
     cparty_data["Activity"] = cparty.get("cac:ContractingActivity",{}).get("cbc:ActivityTypeCode","-")
     cparty_types = cparty.get("cac:ContractingActivity",[])
@@ -210,6 +207,9 @@ while True:
             project = hit["_source"]["cac:ProcurementProject"]
             lots = hit["_source"].get("cac:ProcurementProjectLot",{})
             result = hit["_source"].get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension").get("efac:NoticeResult",{})
+            cparty = hit["_source"].get("cac:ContractingParty", {}).get("cac:Party", {})
+            organizations = hit["_source"]["ext:UBLExtensions"]["ext:UBLExtension"]["ext:ExtensionContent"]["efext:EformsExtension"]["efac:Organizations"]["efac:Organization"]
+
             value_eforms = result.get("cbc:TotalAmount",-1)
             title = project.get("cbc:Name", "-")
             description = project.get("cbc:Description", "-")
@@ -238,8 +238,7 @@ while True:
 
 
 
-
-            ca_data = extract_contracting_authority(project)
+            ca_data = extract_contracting_authority(cparty, organizations)
             number_of_lots, lot_data = extract_lots(lots)
             awards_data = extract_awarded_contracts(result)
 
