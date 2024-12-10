@@ -116,17 +116,19 @@ def extract_awarded_contracts(result):
     if isinstance(all_tendering_parties, dict):
         all_tendering_parties = [all_tendering_parties]
 
-    print(isinstance(result.get("efac:Organizations", {}),list))
     all_organizations = result.get("efac:Organizations", {}).get("efac:Organization",[])
     if isinstance(all_organizations, dict):
         all_organizations = [all_organizations]
 
     awards = []
     for lot_result in all_lot_results:
-        sett_contract = [contract for contract in all_settled_contracts if contract["cbc:ID"] == lot_result["efac:SettledContract"]["cbc:ID"]]
-        sett_contract = sett_contract[0] if sett_contract else {}
+        sett_contract = [contract for contract in all_settled_contracts if contract["cbc:ID"] == lot_result.get("efac:SettledContract",{}).get("cbc:ID")]
+        if sett_contract:
+            sett_contract = sett_contract[0]
+            lot_tenders = sett_contract.get("efac:LotTender", {})
+        else: #Alternative route, there may not be settled contracts in the extensions but the link is made through LotTender directly
+            lot_tenders = lot_result.get("efac:LotTender",{})
 
-        lot_tenders = sett_contract.get("efac:LotTender",{})
         if isinstance(lot_tenders, dict):
             lot_tenders = [lot_tenders]
 
