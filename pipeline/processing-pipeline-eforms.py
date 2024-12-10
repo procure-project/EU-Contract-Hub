@@ -136,7 +136,6 @@ def extract_awarded_contracts(result):
         for lot_tender in lot_tenders:
             lot_tender = [lt for lt in all_lot_tenders if lt["cbc:ID"] == lot_tender["cbc:ID"]]
             lot_tender = lot_tender[0] if lot_tender else {}
-
             tendering_party = [tpa for tpa in all_tendering_parties if tpa["cbc:ID"] == lot_tender["efac:TenderingParty"]["cbc:ID"]]
             tendering_party = tendering_party[0] if tendering_party else {}
 
@@ -218,13 +217,21 @@ while True:
             project = hit["_source"]["cac:ProcurementProject"]
             lots = hit["_source"].get("cac:ProcurementProjectLot",{})
             result = hit["_source"].get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension").get("efac:NoticeResult",{})
-            cparty = hit["_source"].get("cac:ContractingParty", {}).get("cac:Party", {})
+            cparties = hit["_source"].get("cac:ContractingParty", {})
+
+
             organizations = hit["_source"]["ext:UBLExtensions"]["ext:UBLExtension"]["ext:ExtensionContent"]["efext:EformsExtension"]["efac:Organizations"]["efac:Organization"]
 
             value_eforms = result.get("cbc:TotalAmount",-1)
             title = project.get("cbc:Name", "-")
             description = project.get("cbc:Description", "-")
-            country = project.get("cac:RealizedLocation", {}).get("cac:Address", {}).get("cac:Country", {}).get("cbc:IdentificationCode", "-")
+            locations = project.get("cac:RealizedLocation", {})
+            if isinstance(locations, list):
+                country = []
+                for loc in locations:
+                    country.append(loc.get("cac:Address", {}).get("cac:Country", {}).get("cbc:IdentificationCode", "-"))
+            else:
+                country = locations.get("cac:Address", {}).get("cac:Country", {}).get("cbc:IdentificationCode", "-")
             cpv = project.get("cac:MainCommodityClassification", {}).get("cbc:ItemClassificationCode", -1)
             cpv_desc = CPV_dict.get(cpv, "-")
             add_cpv = project.get("cac:AdditionalCommodityClassification", None)
@@ -247,9 +254,12 @@ while True:
             health_cpv = False
             critical_cpv = False
 
-
-
-            ca_data = extract_contracting_authority(cparty, organizations)
+            if isinstance(cparties, list):
+                ca_data = []
+                for ca in cparties:
+                    ca_data.append(extract_contracting_authority(ca.get("cac:Party", {}), organizations))
+            else:
+                ca_data = extract_contracting_authority(cparties.get("cac:Party", {}), organizations)
             number_of_lots, lot_data = extract_lots(lots)
             awards_data = extract_awarded_contracts(result)
 
