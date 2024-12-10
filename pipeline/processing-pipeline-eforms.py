@@ -122,11 +122,13 @@ def extract_awarded_contracts(result):
 
     awards = []
     date_conclusion = None
+    aw_title = "-"
     for lot_result in all_lot_results:
         sett_contract = [contract for contract in all_settled_contracts if contract["cbc:ID"] == lot_result.get("efac:SettledContract",{}).get("cbc:ID")]
         if sett_contract:
             sett_contract = sett_contract[0]
             lot_tenders = sett_contract.get("efac:LotTender", {})
+            aw_title = sett_contract.get("cbc:Title", "-")
             date_conclusion = sett_contract.get("cbc:IssueDate", None)
         else: #Alternative route, there may not be settled contracts in the extensions but the link is made through LotTender directly
             lot_tenders = lot_result.get("efac:LotTender",{})
@@ -155,7 +157,7 @@ def extract_awarded_contracts(result):
             date_conclusion = None  # Handle parsing errors gracefully
 
         aw_info = {
-            "Awarded Contract Title": sett_contract.get("cbc:Title", "-"),
+            "Awarded Contract Title": aw_title,
             "Corresponding Lot": lot_result.get("efac:TenderLot", {}).get("cbc:ID", "-"),
             "Number of Tenders": number_of_tenders,
             "Contractors": contractors_info,
