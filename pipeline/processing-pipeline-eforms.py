@@ -116,7 +116,8 @@ def extract_awarded_contracts(result):
     if isinstance(all_tendering_parties, dict):
         all_tendering_parties = [all_tendering_parties]
 
-    all_organizations = result.get("efac:Organizations", []).get("efac:Organization",[])
+    print(isinstance(result.get("efac:Organizations", {}),list))
+    all_organizations = result.get("efac:Organizations", {}).get("efac:Organization",[])
     if isinstance(all_organizations, dict):
         all_organizations = [all_organizations]
 
