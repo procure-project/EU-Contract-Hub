@@ -14,24 +14,29 @@ def get_organization_data(id, all_organizations):
 
         if organization == {}:
             return None
+
+        else:
+            return {
+                "Name": organization.get("cac:PartyName", {}).get("cbc:Name", "-"),
+                "National ID": organization.get("cac:PartyLegalEntity", {}).get("cbc:CompanyID", -1),
+                "Address": {
+                    "Country": organization.get("cac:PostalAddress", {}).get("cac:Country", {}).get(
+                        "cbc:IdentificationCode", "-"),
+                    "Town": organization.get("cac:PostalAddress", {}).get("cbc:CityName", "-"),
+                    "Postal Code": organization.get("cac:PostalAddress", {}).get("cbc:PostalZone", "-"),
+                    "Address": organization.get("cac:PostalAddress", {}).get("cbc:StreetName", "-"),
+                    "Territorial Unit (NUTS3)": organization.get("cac:PostalAddress", {}).get(
+                        "cbc:CountrySubentityCode", "-")
+                },
+                "Contact": {
+                    "URL": organization.get("cbc:WebsiteURI", "-"),
+                    "Email": organization.get("cac:Contact", {}).get("cbc:Telephone", "-"),
+                    "Phone": organization.get("cac:Contact", {}).get("cbc:ElectronicMail", "-")
+                }
+            }
     except KeyError:
         return None
-    return {
-        "Name": organization.get("cac:PartyName",{}).get("cbc:Name","-"),
-        "National ID": organization.get("cac:PartyLegalEntity",{}).get("cbc:CompanyID",-1),
-        "Address": {
-            "Country": organization.get("cac:PostalAddress",{}).get("cac:Country",{}).get("cbc:IdentificationCode","-"),
-            "Town": organization.get("cac:PostalAddress",{}).get("cbc:CityName","-"),
-            "Postal Code": organization.get("cac:PostalAddress",{}).get("cbc:PostalZone","-"),
-            "Address": organization.get("cac:PostalAddress",{}).get("cbc:StreetName","-"),
-            "Territorial Unit (NUTS3)": organization.get("cac:PostalAddress",{}).get("cbc:CountrySubentityCode","-")
-        },
-        "Contact": {
-            "URL": organization.get("cbc:WebsiteURI","-"),
-            "Email": organization.get("cac:Contact",{}).get("cbc:Telephone","-"),
-            "Phone": organization.get("cac:Contact",{}).get("cbc:ElectronicMail","-")
-        }
-    }
+
 
 def extract_contracting_authority(cparty, organizations):
     cparty_id = cparty.get("cac:PartyIdentification", {}).get("cbc:ID", "-")
