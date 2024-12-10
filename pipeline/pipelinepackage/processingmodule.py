@@ -1,5 +1,6 @@
 import re
-
+import csv
+from collections import defaultdict
 
 HEALTHCARE_CPV = [33600000,
                33110000,
@@ -14,6 +15,21 @@ CRITICAL_CPV = [18143000, #Protective Gear
                 35113400] #Protective and safety clothing
 
 
+def import_CPVDict():
+    result_dict = {}
+    with open('../../data/CPV_Dictionary.csv', 'r') as csvfile:
+        reader = csv.reader(csvfile, delimiter=';')
+
+        for row in reader:
+            print(row)
+            first_col = row[0]
+            second_col = row[1]
+            cropped_value = first_col[:8] # Verify if it's 8 digits
+            if cropped_value.isdigit() and len(cropped_value) == 8:
+                result_dict[cropped_value] = second_col
+            else:
+                print(f"Skipping invalid entry: {first_col}")
+    return result_dict
 
 def cpv_match(categories, cpv_list):
     category_prefixes = [str(i).zfill(8).rstrip('0') for i in categories]
@@ -56,28 +72,13 @@ def parse_weight(weight):
     return -1.0  # Invalid type
 
 
-def get_main_criterion(criteria_list):
-    """
-    Function to determine the main criterion based on the highest weight in the criteria list.
-    """
-    highest_weight = -1
-    main_criterion = None
+def get_main_criterion(criteria):
+    type_weights = defaultdict(float)
+    for crit in criteria:
+        type_weights[crit["Type"]] += crit["Weight"]
+    max_type = max(type_weights, key=type_weights.get)
+    return max_type if max_type else "-"
 
-    for ac in criteria_list:
-
-        for criterion_type, criterion_dict in ac.items():
-            if isinstance(criterion_dict, list):
-                weight = sum(subcriteria_dict.get("Weight", 0) for subcriteria_dict in criterion_dict)
-                if weight > highest_weight:
-                    highest_weight = weight
-                    main_criterion = criterion_type
-            else:
-                weight = criterion_dict.get("Weight", 0)
-                if weight > highest_weight:
-                    highest_weight = weight
-                    main_criterion = criterion_type
-
-    return main_criterion if main_criterion else "-"
 
 
 
