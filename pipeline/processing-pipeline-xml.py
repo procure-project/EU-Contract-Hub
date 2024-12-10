@@ -89,7 +89,7 @@ def extract_lots(can):
             "Title (Translated)": "-", #Empty for now, translator later
             "Short Description (Translated)": "-",
             "Criteria": criteria,
-            "Main Criterion": proc.get_main_criterion(criteria_list???),
+            "Main Criterion": proc.get_main_criterion(criteria),
             "CPV Codes": lot.get("CPV_MAIN", {}).get("CPV_CODE", {}).get("@CODE", "-")
         })
 

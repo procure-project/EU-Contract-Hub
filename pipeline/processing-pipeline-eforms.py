@@ -5,10 +5,9 @@ import traceback
 import getpass
 from datetime import datetime
 
-def get_organization_data(id, extensions):
+def get_organization_data(id, all_organizations):
     try:
         organization = {}
-        all_organizations = extensions["ext:UBLExtension"]["ext:ExtensionContent"]["efext:EformsExtension"]["efac:Organizations"]["efac:Organization"]
         for org in all_organizations:
             if org["efac:Company"]["cac:PartyIdentification"]["cbc:ID"] == id:
                 organization = org["efac:Company"]
@@ -35,36 +34,44 @@ def get_organization_data(id, extensions):
     }
 
 def extract_contracting_authority(source_data):
-    cparty_id = source_data["cac:ProcurementProject"].get("cac:ContractingParty", {}).get("cac:Party", {}).get("cac:PartyIdentification", {}).get(
-        "cbc:ID", "-")
-    cparty_data = get_organization_data(cparty_id, source_data["ext:UBLExtensions"])
-    cparty_data["Activity"] = TO-DO
-    cparty_data["CA Type"] = TO-DO
+    cparty = source_data["cac:ProcurementProject"].get("cac:ContractingParty", {}).get("cac:Party", {})
+    cparty_id = cparty.get("cac:PartyIdentification", {}).get("cbc:ID", "-")
+    organizations = source_data["ext:UBLExtensions"]["ext:UBLExtension"]["ext:ExtensionContent"]["efext:EformsExtension"]["efac:Organizations"][
+        "efac:Organization"]
+    cparty_data = get_organization_data(cparty_id, organizations)
+    cparty_data["Activity"] = cparty.get("cac:ContractingActivity",{}).get("cbc:ActivityTypeCode","-")
+    cparty_types = cparty.get("cac:ContractingActivity",[])
+    if isinstance(cparty_types, dict):
+        cparty_types = [cparty_types]
+    cparty_data["CA Type"] = [type.get("cbc:PartyTypeCode","-") for type in cparty_types]
     return cparty_data
 
 
 def extract_lots(lots):
     extracted_lots = []
     if isinstance(lots, dict):
-        lots=[lots]
+        lots = [lots]
     number_of_lots = len(lots)
     for lot in lots:
-        # Extract the criteria and their weightings
+        # Extract the criteria and their weights
         lot_project = lot.get("cac:ProcurementProject", {})
         ac_list = lot_project.get("cac:TenderingTerms", {}).get("cac:AwardingTerms", {}).get("cac:AwardingCriterion", {}).get("cac:SubordinateAwardingCriterion", [])
+        if isinstance(ac_list, dict):
+            ac_list = [ac_list]
+
+        criteria_list = []
         for ac in ac_list:
             if ac:
-                criteria = []
                 try:
                     #PRICE CRITERIA
-                    criteria_type= ac.get("cbc:AwardingCriterionTypeCode", "-")
-                    criteria[criteria_name] =
-
-                    ac_price = ac.get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension")
-                    if isinstance(ac_price, dict):
-                        criteria = {"Price": {"Criterion": "Price", "Weight": proc.parse_weight(ac_price.get("AC_WEIGHTING", 0))}}
-                    else:
-                        criteria = {"Price": {"Criterion": "Price", "Weight": 0}}
+                    criteria_type = ac.get("cbc:AwardingCriterionTypeCode", "-").capitalize()
+                    criteria_weight = ac.get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension").get("efac:AwardCriterionParameter").get("efbc:ParameterNumeric",-1)
+                    try:
+                        criteria_weight = float(criteria_weight)/100
+                    except ValueError:
+                        criteria_weight = -1.0
+                    criteria = {"Type": criteria_type,
+                                "Weight": criteria_weight}
 
                     criteria_list.append(criteria)
                 except Exception as e:
@@ -85,6 +92,76 @@ def extract_lots(lots):
         })
 
     return number_of_lots, extracted_lots
+
+
+
+
+
+def extract_awarded_contracts(result):
+    all_lot_results = result.get("efac:LotResult",[])
+    if isinstance(all_lot_results, dict):
+        all_lot_results = [all_lot_results]
+
+    all_settled_contracts = result.get("efac:SettledContract",[])
+    if isinstance(all_settled_contracts, dict):
+        all_settled_contracts = [all_settled_contracts]
+
+    all_lot_tenders = result.get("efac:LotTender", [])
+    if isinstance(all_lot_tenders, dict):
+        all_lot_tenders = [all_lot_tenders]
+
+    all_tendering_parties = result.get("efac:TenderingParty", [])
+    if isinstance(all_tendering_parties, dict):
+        all_tendering_parties = [all_tendering_parties]
+
+    all_organizations = result.get("efac:Organizations", []).get("efac:Organization",[])
+    if isinstance(all_organizations, dict):
+        all_organizations = [all_organizations]
+
+    awards = []
+    for lot_result in all_lot_results:
+        sett_contract = [contract for contract in all_settled_contracts if contract["cbc:ID"] == lot_result["efac:SettledContract"]["cbc:ID"]]
+        sett_contract = sett_contract[0] if sett_contract else {}
+
+        lot_tenders = sett_contract["efac:LotTender"]
+        if isinstance(lot_tenders, dict):
+            lot_tenders = [lot_tenders]
+
+        contractors_info = []
+        for lot_tender in lot_tenders:
+            lot_tender = [lt for lt in all_lot_tenders if lt["cbc:ID"] == lot_tender["cbc:ID"]]
+            lot_tender = lot_tender[0] if lot_tender else {}
+
+            tendering_party = [tpa for tpa in all_tendering_parties if tpa["cbc:ID"] == lot_tender["efac:TenderingParty"]["cbc:ID"]]
+            tendering_party = tendering_party[0] if tendering_party else {}
+
+            for org in tendering_party["efac:Tenderer"]:
+                contractors_info.append(get_organization_data(org["cbc:ID"], all_organizations))
+
+        number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in lot_result.get("efac:ReceivedSubmissionsStatistics", []) if stat["efbc:StatisticsCode"] == "tenders"]
+        date_conclusion = sett_contract.get("cbc:IssueDate", None)
+        try:
+            if date_conclusion is not None:
+                date_conclusion = datetime.strptime(date_conclusion, '%Y-%m-%d%z')
+        except ValueError:
+            date_conclusion = None  # Handle parsing errors gracefully
+
+        aw_info = {
+            "Awarded Contract Title": sett_contract.get("cbc:Title", "-"),
+            "Corresponding Lot": lot_result.get("efac:TenderLot", {}).get("cbc:ID", "-"),
+            "Number of Tenders": number_of_tenders,
+            "Contractors": contractors_info,
+            "Conclusion Date": date_conclusion
+        }
+        awards.append(aw_info)
+    return awards
+
+
+
+
+
+
+
 
 # Initialize the OpenSearch client
 host = 'localhost'
@@ -119,6 +196,7 @@ response = client.search(
 scroll_id = response["_scroll_id"]
 
 scr = 1
+CPV_dict = proc.import_CPVDict()
 while True:
     # Continue scrolling
     response = client.scroll(scroll_id=scroll_id, scroll="1m")
@@ -130,16 +208,20 @@ while True:
 
         try:
             project = hit["_source"]["cac:ProcurementProject"]
-            lots = hit["_source"].get("cac:ProcurementProjectLots",{})
+            lots = hit["_source"].get("cac:ProcurementProjectLot",{})
+            result = hit["_source"].get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension").get("efac:NoticeResult",{})
+            value_eforms = result.get("cbc:TotalAmount",-1)
             title = project.get("cbc:Name", "-")
             description = project.get("cbc:Description", "-")
             country = project.get("cac:RealizedLocation", {}).get("cac:Address", {}).get("cac:Country", {}).get("cbc:IdentificationCode", "-")
             cpv = project.get("cac:MainCommodityClassification", {}).get("cbc:ItemClassificationCode", -1)
-            add_cpv = project.get("cac:AdditionalCommodityClassification", {}).get("cbc:ItemClassificationCode", -1)
-            if add_cpv != -1:
-                cpv = [cpv].append(add_cpv)
-            cpv_desc = TO-DO - Correspondence of code - description
-            ca_type = project.get("cac:ContractingPartyType", {}).get("cbc:PartyTypeCode", "Unknown") TO-DO - WE MUST TRANSFORM THE TYPES!
+            cpv_desc = CPV_dict.get(cpv, "-")
+            add_cpv = project.get("cac:AdditionalCommodityClassification", {})
+            if isinstance(add_cpv, dict):
+                add_cpv = [add_cpv]
+            for cpv_i in add_cpv:
+                cpv = [cpv].append(cpv_i["cbc:ItemClassificationCode"])
+                cpv_desc = [cpv_desc].append(CPV_dict.get(cpv_i, "-"))
             c_nature = project.get("cbc:ProcurementTypeCode", "Unknown")
             proc_type = project.get("cac:TenderingProcess", {}).get("cbc:ProcedureCode", "Unknown")
             date_dispatch = project.get("cbc:IssueDate", None)
@@ -154,9 +236,10 @@ while True:
 
 
 
+
             ca_data = extract_contracting_authority(project)
             number_of_lots, lot_data = extract_lots(lots)
-            awards_data = extract_awarded_contracts(can)
+            awards_data = extract_awarded_contracts(result)
 
             try:  ######################################################### Query for CSV data ################################################
                 inner_hit = client.get(index="ted-csv", id=doc_id)
@@ -170,6 +253,7 @@ while True:
                 dynamic_purch = inner_hit["_source"]["B_DYN_PURCH_SYST"]
                 eauction = inner_hit["_source"]["B_ELECTRONIC_AUCTION"]
                 on_behalf = inner_hit["_source"]["B_ON_BEHALF"]
+                ca_type = inner_hit["_source"]["CAE_TYPE"]
 
                 fram_agreement = inner_hit["_source"].get("B_FRA_AGREEMENT", False)
                 fram_estimated = inner_hit["_source"].get("FRA_ESTIMATED")
@@ -185,7 +269,7 @@ while True:
             except Exception as e:  ########################################## If CSV not found handler ###########################################
                 print(f"An error occurred: {e}")
                 csv_found = False
-                value = -1  # To obtain value from xml, currency transform is needed.
+                value = value_eforms
                 proc_route = "Unknown"
                 proc_technique = {"Unknown":True}
                 health_ca_class = "Unknown"
@@ -216,7 +300,6 @@ while True:
                                                "CPV", "CPV Description", "Healthcare CPV", "Critical Services CPV",
                                                "Country", "Value", "Contract Nature", "Procurement Route", "Procurement Type", "Procurement Techniques", "Healthcare Authority Class",
                                                "Contracting Authority", "Number of Lots", "Lots", "Awarded Contracts", "Tags"])
-
     proc.processing_scroll(df)
 
     print("Scroll " + str(scr))
