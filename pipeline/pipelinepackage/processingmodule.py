@@ -1,5 +1,6 @@
 import re
 import csv
+import os
 from collections import defaultdict
 
 HEALTHCARE_CPV = [33600000,
@@ -17,7 +18,9 @@ CRITICAL_CPV = [18143000, #Protective Gear
 
 def import_CPVDict():
     result_dict = {}
-    with open('CPV_Dictionary.csv', 'r') as csvfile:
+    module_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(module_dir, 'CPV_Dictionary.csv')
+    with open(file_path, 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=';')
 
         for row in reader:
