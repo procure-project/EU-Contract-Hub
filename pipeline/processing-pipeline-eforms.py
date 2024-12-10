@@ -220,8 +220,9 @@ while True:
             if isinstance(add_cpv, dict):
                 add_cpv = [add_cpv]
             for cpv_i in add_cpv:
-                cpv = [cpv].append(cpv_i["cbc:ItemClassificationCode"])
-                cpv_desc = [cpv_desc].append(CPV_dict.get(cpv_i, "-"))
+                new_cpv = cpv_i["cbc:ItemClassificationCode"]
+                cpv = [cpv].append(new_cpv)
+                cpv_desc = [cpv_desc].append(CPV_dict.get(new_cpv, "-"))
             c_nature = project.get("cbc:ProcurementTypeCode", "Unknown")
             proc_type = project.get("cac:TenderingProcess", {}).get("cbc:ProcedureCode", "Unknown")
             date_dispatch = project.get("cbc:IssueDate", None)
