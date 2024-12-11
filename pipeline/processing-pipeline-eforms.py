@@ -134,8 +134,10 @@ def extract_awarded_contracts(result):
     aw_title = "-"
     for lot_result in all_lot_results:
         contractors_info = []
-
-        sett_contract = [contract for contract in all_settled_contracts if contract["cbc:ID"] == lot_result.get("efac:SettledContract",{}).get("cbc:ID")]
+        contractid =  lot_result.get("efac:SettledContract",[])
+        if isinstance(contractid, list): # apparently a lot result can have multiple associated contracts, what do they mean I do not know. Documentation is completely lacking so I will ignore these results.
+            contractid = contractid[0]
+        sett_contract = [contract for contract in all_settled_contracts if contract["cbc:ID"] ==contractid.get("cbc:ID")]
         if sett_contract:
             sett_contract = sett_contract[0]
             lot_tenders = sett_contract.get("efac:LotTender", {})
