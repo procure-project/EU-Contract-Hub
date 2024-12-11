@@ -305,7 +305,10 @@ while True:
             except Exception as e:  ########################################## If CSV not found handler ###########################################
                 #print(f"An error occurred: {e}")
                 csv_found = False
-                value = value_eforms
+                try:
+                    value = float(value_eforms)
+                except ValueError:
+                    value = -1
                 proc_route = "Unknown"
                 proc_technique = {"Unknown":True}
                 health_ca_class = "Unknown"
