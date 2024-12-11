@@ -137,10 +137,12 @@ def extract_awarded_contracts(result):
         if isinstance(lot_tenders, dict):
             lot_tenders = [lot_tenders]
 
+        print("lts")
+        print(lot_tenders)
+        print("all_lts")
+        print(all_lot_tenders)
         contractors_info = []
         for lot_tender in lot_tenders:
-            print(lot_tender)
-            print(all_lot_tenders)
             lot_tender = [lt for lt in all_lot_tenders if lt["cbc:ID"] == lot_tender["cbc:ID"]]
             lot_tender = lot_tender[0] if lot_tender else {}
             tendering_party = [tpa for tpa in all_tendering_parties if tpa["cbc:ID"] == lot_tender["efac:TenderingParty"]["cbc:ID"]]
