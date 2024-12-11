@@ -42,9 +42,9 @@ def cpv_match(categories, cpv_list):
 def processing_scroll(df):
     # VALUE FILTERING
     df['Value'] = df['Value'].where((df['Value'] > 100) & (df['Value'] < 10 ** 10), -1) #Filter high and low values
-    df["Healthcare CPV"] = df["CPV"].apply(lambda x: cpv_match(HEALTHCARE_CPV, x)) #Checks a contract CPV codes against a set of healthcare CPV
+    df["Healthcare CPV"] = df["CPV"].apply(lambda x: cpv_match(HEALTHCARE_CPV, x) if x is not None else False) #Checks a contract CPV codes against a set of healthcare CPV
     df["Critical Services CPV"] = df["CPV"].apply(
-        lambda x: cpv_match(CRITICAL_CPV, x) if cpv_match(HEALTHCARE_CPV, x) else False)
+        lambda x: cpv_match(CRITICAL_CPV, x) if  x is not None and cpv_match(HEALTHCARE_CPV, x) else False)
     #For those contracts categorized above checks again against a set of critical CPV
     return df
 
