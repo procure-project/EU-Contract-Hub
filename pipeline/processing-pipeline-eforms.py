@@ -17,9 +17,11 @@ def get_organization_data(id, all_organizations):
             return None
 
         else:
-            #print(organization)
+            name = organization.get("cac:PartyName", {}) #Apparently there can be multiple names
+            if isinstance(name, list):
+                name = name[0]
             return {
-                "Name": organization.get("cac:PartyName", {}).get("cbc:Name", "-"),
+                "Name": name.get("cbc:Name", "-"),
                 "National ID": organization.get("cac:PartyLegalEntity", {}).get("cbc:CompanyID", -1),
                 "Address": {
                     "Country": organization.get("cac:PostalAddress", {}).get("cac:Country", {}).get(
@@ -151,14 +153,12 @@ def extract_awarded_contracts(result):
                     org_list = [org_list]
                 for org in org_list:
                     contractors_info.append(get_organization_data(org.get("cbc:ID",-1), all_organizations))
-        print(lot_result.get("efac:ReceivedSubmissionsStatistics", []))
-        number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in lot_result.get("efac:ReceivedSubmissionsStatistics", []) if stat["efbc:StatisticsCode"] == "tenders"]
+        statistics = lot_result.get("efac:ReceivedSubmissionsStatistics", [])
+        if isinstance(statistics, dict):
+            number_of_tenders = statistics.get("efbc:StatisticsNumeric",-1) #Apparently there can be a dict instead of a list and then there is no code, just default tender number
+        else:
+            number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in statistics if stat["efbc:StatisticsCode"] == "tenders"]
 
-        try:
-            if date_conclusion is not None:
-                date_conclusion = datetime.strptime(date_conclusion, '%Y-%m-%d%z')
-        except ValueError:
-            date_conclusion = None  # Handle parsing errors gracefully
 
         aw_info = {
             "Awarded Contract Title": aw_title,
