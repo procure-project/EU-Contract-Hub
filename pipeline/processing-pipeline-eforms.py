@@ -143,6 +143,11 @@ def extract_awarded_contracts(result):
             lot_tenders = sett_contract.get("efac:LotTender", {})
             aw_title = sett_contract.get("cbc:Title", "-")
             date_conclusion = sett_contract.get("cbc:IssueDate", None)
+            try:
+                if date_conclusion is not None:
+                    date_conclusion = datetime.strptime(date_conclusion, "%Y-%m-%d%z")
+            except ValueError:
+                date_conclusion = None  # Handle parsing errors
         else: #Alternative route, there may not be settled contracts in the extensions but the link is made through LotTender directly
             lot_tenders = lot_result.get("efac:LotTender",{})
 
