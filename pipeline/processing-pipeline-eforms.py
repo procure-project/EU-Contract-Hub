@@ -16,6 +16,7 @@ def get_organization_data(id, all_organizations):
             return None
 
         else:
+            print(organization)
             return {
                 "Name": organization.get("cac:PartyName", {}).get("cbc:Name", "-"),
                 "National ID": organization.get("cac:PartyLegalEntity", {}).get("cbc:CompanyID", -1),
@@ -148,6 +149,7 @@ def extract_awarded_contracts(result):
                 org_list = [org_list]
             for org in org_list:
                 contractors_info.append(get_organization_data(org.get("cbc:ID",-1), all_organizations))
+        print(lot_result.get("efac:ReceivedSubmissionsStatistics", []))
         number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in lot_result.get("efac:ReceivedSubmissionsStatistics", []) if stat["efbc:StatisticsCode"] == "tenders"]
 
         try:
