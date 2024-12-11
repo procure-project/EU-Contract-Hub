@@ -134,27 +134,23 @@ def extract_awarded_contracts(result):
             date_conclusion = sett_contract.get("cbc:IssueDate", None)
         else: #Alternative route, there may not be settled contracts in the extensions but the link is made through LotTender directly
             lot_tenders = lot_result.get("efac:LotTender",{})
+        if lot_tenders: #This in reality should take the tenderresultcode instead!!
+            if isinstance(lot_tenders, dict):
+                lot_tenders = [lot_tenders]
 
-        if isinstance(lot_tenders, dict):
-            lot_tenders = [lot_tenders]
+            contractors_info = []
+            for lot_tender in lot_tenders:
+                lot_tender = [lt for lt in all_lot_tenders if lt["cbc:ID"] == lot_tender["cbc:ID"]]
+                lot_tender = lot_tender[0] if lot_tender else {}
+                tendering_party = [tpa for tpa in all_tendering_parties if tpa["cbc:ID"] == lot_tender["efac:TenderingParty"]["cbc:ID"]]
+                tendering_party = tendering_party[0] if tendering_party else {}
 
-        print("lts")
-        print(lot_tenders)
-        print("all_lts")
-        print(all_lot_tenders)
-        contractors_info = []
-        for lot_tender in lot_tenders:
-            lot_tender = [lt for lt in all_lot_tenders if lt["cbc:ID"] == lot_tender["cbc:ID"]]
-            lot_tender = lot_tender[0] if lot_tender else {}
-            tendering_party = [tpa for tpa in all_tendering_parties if tpa["cbc:ID"] == lot_tender["efac:TenderingParty"]["cbc:ID"]]
-            tendering_party = tendering_party[0] if tendering_party else {}
-
-            org_list = tendering_party.get("efac:Tenderer",[])
-            if isinstance(org_list, dict):
-                org_list = [org_list]
-            for org in org_list:
-                contractors_info.append(get_organization_data(org.get("cbc:ID",-1), all_organizations))
-        #print(lot_result.get("efac:ReceivedSubmissionsStatistics", []))
+                org_list = tendering_party.get("efac:Tenderer",[])
+                if isinstance(org_list, dict):
+                    org_list = [org_list]
+                for org in org_list:
+                    contractors_info.append(get_organization_data(org.get("cbc:ID",-1), all_organizations))
+        print(lot_result.get("efac:ReceivedSubmissionsStatistics", []))
         number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in lot_result.get("efac:ReceivedSubmissionsStatistics", []) if stat["efbc:StatisticsCode"] == "tenders"]
 
         try:
