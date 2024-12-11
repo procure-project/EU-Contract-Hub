@@ -4,6 +4,7 @@ import pandas as pd
 import traceback
 import getpass
 from datetime import datetime
+import json
 
 def get_organization_data(id, all_organizations):
     try:
@@ -324,7 +325,7 @@ while True:
         except Exception as e: ########################################## Error extracting some field from XML ####################################
             print(f"An unexpected error occurred: {e}")
             traceback.print_exc()
-            #print(hit)
+            print(json.dumps(hit, indent=4))
 
     # Processing fields Scroll-level
     df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description", "Description (Translation)", "Dispatch Date",
