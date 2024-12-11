@@ -9,6 +9,8 @@ import json
 def get_organization_data(id, all_organizations):
     try:
         organization = {}
+        if isinstance(all_organizations, dict):
+            all_organizations = [all_organizations]
         for org in all_organizations:
             if org["efac:Company"]["cac:PartyIdentification"]["cbc:ID"] == id:
                 organization = org["efac:Company"]
@@ -18,11 +20,14 @@ def get_organization_data(id, all_organizations):
 
         else:
             name = organization.get("cac:PartyName", {}) #Apparently there can be multiple names
+            natid = organization.get("cac:PartyLegalEntity", {}) #And IDs
             if isinstance(name, list):
                 name = name[0]
+            if isinstance(natid, list):
+                name = natid[0]
             return {
                 "Name": name.get("cbc:Name", "-"),
-                "National ID": organization.get("cac:PartyLegalEntity", {}).get("cbc:CompanyID", -1),
+                "National ID": natid.get("cbc:CompanyID", -1),
                 "Address": {
                     "Country": organization.get("cac:PostalAddress", {}).get("cac:Country", {}).get(
                         "cbc:IdentificationCode", "-"),
