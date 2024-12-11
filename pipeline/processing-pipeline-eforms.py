@@ -171,6 +171,7 @@ def extract_awarded_contracts(result):
         else:
             stat_tenders = [stat for stat in statistics if stat["efbc:StatisticsCode"] == "tenders"]
             if stat_tenders:
+                stat_tenders = stat_tenders[-1]
                 number_of_tenders = stat_tenders.get("efbc:StatisticsNumeric",-1)
             else: #Yes, there may be a list with multiple and contradicting entries, AND unlabelled. I will get the latest entry.
                 number_of_tenders = statistics[-1].get("efbc:StatisticsNumeric",-1)
