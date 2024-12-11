@@ -169,7 +169,11 @@ def extract_awarded_contracts(result):
         if isinstance(statistics, dict):
             number_of_tenders = statistics.get("efbc:StatisticsNumeric",-1) #Apparently there can be a dict instead of a list and then there is no code, just default tender number
         else:
-            number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in statistics if stat["efbc:StatisticsCode"] == "tenders"]
+            stat_tenders = [stat for stat in statistics if stat["efbc:StatisticsCode"] == "tenders"]
+            if stat_tenders:
+                number_of_tenders = stat_tenders.get("efbc:StatisticsNumeric",-1)
+            else: #Yes, there may be a list with multiple and contradicting entries, AND unlabelled. I will get the latest entry.
+                number_of_tenders = statistics[-1].get("efbc:StatisticsNumeric",-1)
 
 
         aw_info = {
@@ -321,7 +325,7 @@ while True:
             title_translated = "-"  # No translation for now (too slow)
             description_translated = "-"
 
-            sources = {"TED-EFORMS": True}
+            sources = {"TED-EForms": True}
             if csv_found:
                 sources["TED-CSV"] = True
             tags = {"Source": sources,
