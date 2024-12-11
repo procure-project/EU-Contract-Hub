@@ -44,7 +44,7 @@ def get_organization_data(id, all_organizations):
                 }
             }
     except KeyError:
-        return None
+        return {}
 
 
 def extract_contracting_authority(cparty, organizations):
