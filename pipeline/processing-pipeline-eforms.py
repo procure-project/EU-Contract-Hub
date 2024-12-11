@@ -16,7 +16,7 @@ def get_organization_data(id, all_organizations):
             return None
 
         else:
-            print(organization)
+            #print(organization)
             return {
                 "Name": organization.get("cac:PartyName", {}).get("cbc:Name", "-"),
                 "National ID": organization.get("cac:PartyLegalEntity", {}).get("cbc:CompanyID", -1),
@@ -139,6 +139,8 @@ def extract_awarded_contracts(result):
 
         contractors_info = []
         for lot_tender in lot_tenders:
+            print(lot_tender)
+            print(all_lot_tenders)
             lot_tender = [lt for lt in all_lot_tenders if lt["cbc:ID"] == lot_tender["cbc:ID"]]
             lot_tender = lot_tender[0] if lot_tender else {}
             tendering_party = [tpa for tpa in all_tendering_parties if tpa["cbc:ID"] == lot_tender["efac:TenderingParty"]["cbc:ID"]]
@@ -149,7 +151,7 @@ def extract_awarded_contracts(result):
                 org_list = [org_list]
             for org in org_list:
                 contractors_info.append(get_organization_data(org.get("cbc:ID",-1), all_organizations))
-        print(lot_result.get("efac:ReceivedSubmissionsStatistics", []))
+        #print(lot_result.get("efac:ReceivedSubmissionsStatistics", []))
         number_of_tenders = [stat["efbc:StatisticsNumeric"] for stat in lot_result.get("efac:ReceivedSubmissionsStatistics", []) if stat["efbc:StatisticsCode"] == "tenders"]
 
         try:
@@ -254,7 +256,7 @@ while True:
                 if date_dispatch is not None:
                     date_dispatch = datetime.strptime(date_dispatch, "%Y-%m-%d%z")
             except ValueError:
-                date_dispatch = None  # Handle parsing errors gracefully
+                date_dispatch = None  # Handle parsing errors
 
             health_cpv = False
             critical_cpv = False
@@ -294,7 +296,7 @@ while True:
 
 
             except Exception as e:  ########################################## If CSV not found handler ###########################################
-                print(f"An error occurred: {e}")
+                #print(f"An error occurred: {e}")
                 csv_found = False
                 value = value_eforms
                 proc_route = "Unknown"
@@ -320,7 +322,7 @@ while True:
         except Exception as e: ########################################## Error extracting some field from XML ####################################
             print(f"An unexpected error occurred: {e}")
             traceback.print_exc()
-            print(hit)
+            #print(hit)
 
     # Processing fields Scroll-level
     df = pd.DataFrame(id_field_pairs, columns=["Document ID", "Title", "Title (Translation)", "Description", "Description (Translation)", "Dispatch Date",
