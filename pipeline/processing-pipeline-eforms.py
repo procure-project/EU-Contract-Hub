@@ -16,7 +16,7 @@ def get_organization_data(id, all_organizations):
                 organization = org["efac:Company"]
 
         if organization == {}:
-            return None
+            return {}
 
         else:
             name = organization.get("cac:PartyName", {}) #Apparently there can be multiple names
