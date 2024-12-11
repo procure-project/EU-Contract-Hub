@@ -24,7 +24,7 @@ def get_organization_data(id, all_organizations):
             if isinstance(name, list):
                 name = name[0]
             if isinstance(natid, list):
-                name = natid[0]
+                natid = natid[0]
             return {
                 "Name": name.get("cbc:Name", "-"),
                 "National ID": natid.get("cbc:CompanyID", -1),
