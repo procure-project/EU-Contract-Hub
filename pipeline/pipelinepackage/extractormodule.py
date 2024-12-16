@@ -3,6 +3,7 @@ from opensearchpy import OpenSearch, helpers
 import pandas as pd
 from tqdm import tqdm
 import json
+import getpass
 
 def get_client():
     HOST = 'localhost'
