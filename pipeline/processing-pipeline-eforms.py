@@ -281,8 +281,8 @@ while True:
             except ValueError:
                 date_dispatch = None  # Handle parsing errors
 
-            health_cpv = False
-            critical_cpv = False
+            health_cpv = proc.process_health_cpv(cpv)
+            critical_cpv = proc.process_health_cpv(cpv)
 
             if isinstance(cparties, list):
                 ca_data = []
@@ -298,6 +298,7 @@ while True:
                 csv_found = True
 
                 value = inner_hit["_source"]["VALUE_EURO_FIN_2"]
+                value = proc.process_value(value)
 
                 multiple_country = inner_hit["_source"]["B_MULTIPLE_COUNTRY"]
                 central_body = inner_hit["_source"]["B_AWARDED_BY_CENTRAL_BODY"]
@@ -323,6 +324,7 @@ while True:
                 csv_found = False
                 try:
                     value = float(value_eforms)
+                    value = proc.process_value(value)
                 except ValueError:
                     value = -1
                 proc_route = "Unknown"

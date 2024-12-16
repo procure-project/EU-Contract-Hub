@@ -39,14 +39,18 @@ def cpv_match(categories, cpv_list):
         cpv_list = [cpv_list]
     return any(any(str(cpv).zfill(8).startswith(prefix) for prefix in category_prefixes) for cpv in cpv_list)
 
-def processing_scroll(df):
-    # VALUE FILTERING
-    df['Value'] = df['Value'].where((df['Value'] > 100) & (df['Value'] < 10 ** 10), -1) #Filter high and low values
-    df["Healthcare CPV"] = df["CPV"].apply(lambda x: cpv_match(HEALTHCARE_CPV, x) if x is not None else False) #Checks a contract CPV codes against a set of healthcare CPV
-    df["Critical Services CPV"] = df["CPV"].apply(
-        lambda x: cpv_match(CRITICAL_CPV, x) if  x is not None and cpv_match(HEALTHCARE_CPV, x) else False)
-    #For those contracts categorized above checks again against a set of critical CPV
-    return df
+def process_value(value):
+    """Process the 'Value' field to filter high and low values."""
+    return value if (value > 100) and (value < 10 ** 10) else -1
+
+def process_health_cpv(cpv):
+    """Check if the CPV code matches any healthcare CPV."""
+    return cpv_match(HEALTHCARE_CPV, cpv) if cpv is not None else False
+
+def process_crit_cpv(cpv):
+    """Check if the CPV code matches any critical services CPV."""
+    return cpv_match(CRITICAL_CPV, cpv) if cpv is not None and cpv_match(HEALTHCARE_CPV, cpv) else False
+
 
 def parse_weight(weight):
     """Convert weight to a float, whether it's an integer, a string percentage, or a float."""
@@ -113,7 +117,7 @@ def calculate_p_technique(dynamic_purch, eauction, on_behalf, central_body, fram
         "Procurement Involving Contracting Authorities from Different Member States": multiple_country
     }
 
-def calculate_ca_class(central_body,ca_type,health_cpv):
+def calculate_ca_class(central_body, ca_type, health_cpv):
     if central_body:
         if ca_type == "1":
             return 'Government Public Procurers'
@@ -126,3 +130,4 @@ def calculate_ca_class(central_body,ca_type,health_cpv):
             return 'Healthcare Direct Procurer'
         else:
             return 'Non-Healthcare Direct Procurer'
+

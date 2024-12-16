@@ -1,4 +1,6 @@
 import json
+
+from pipeline.pipelinepackage.processingmodule import process_value, process_health_cpv
 from pipelinepackage import processingmodule as proc
 import concurrent.futures
 from opensearchpy import OpenSearch, helpers
@@ -194,7 +196,7 @@ scroll_size = 1000
 # Execute the initial search query to get the first batch of results
 response = client.search(
     index = "ted-xml",
-    body =   {"query":   {
+    body = {"query":   {
                         "match_all": {}  # Retrieve all documents
                         }
             },
@@ -230,8 +232,8 @@ while True:
                 cpv = int(cpv_data["@CODE"])
                 cpv_desc = str(cpv_data["#text"])
 
-            health_cpv = False
-            critical_cpv = False
+            health_cpv = proc.process_health_cpv(cpv)
+            critical_cpv = proc.process_crit_cpv(cpv)
 
 
             ca_data = extract_contracting_authority(can)
@@ -243,6 +245,7 @@ while True:
                 csv_found = True
 
                 value = inner_hit["_source"]["VALUE_EURO_FIN_2"]
+                value = process_value(value)
 
                 multiple_country = inner_hit["_source"]["B_MULTIPLE_COUNTRY"]
                 central_body = inner_hit["_source"]["B_AWARDED_BY_CENTRAL_BODY"]
