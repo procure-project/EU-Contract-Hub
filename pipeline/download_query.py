@@ -22,7 +22,7 @@ def get_user_query():
 
 index = input("Select index:")
 # Example usage
-query = get_user_query()
+query = json.loads(get_user_query())
 if query:
     data = query_os(index, query)
     data.to_csv("os_extraction.csv", index=False)
