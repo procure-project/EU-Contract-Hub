@@ -2,7 +2,6 @@
 from opensearchpy import OpenSearch, helpers
 import pandas as pd
 from tqdm import tqdm
-import json
 import getpass
 
 def get_client():
@@ -60,7 +59,4 @@ def query_os(index, query):
             # Next Scroll
             response = client.scroll(scroll_id=scroll_id, scroll="1m")
             scroll_id = response["_scroll_id"]  # Update scroll ID for next batch
-    data = pd.DataFrame(all_records)
-    data.to_csv("os_extraction.csv", index=False)
-    print("Results saved on os_extraction.csv for query:")
-    print(json.dumps(query, indent=4))
+    return pd.DataFrame(all_records)
