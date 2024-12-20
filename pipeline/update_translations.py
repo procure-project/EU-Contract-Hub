@@ -13,5 +13,6 @@ index2 = input("Select output index:")
 
 data = query_os(index1, translation_query, client)
 data.to_csv("translations_extraction.csv", index=False)
+print(data[:10])
 actions = translation_upload_bulk_actions("translations_extraction.csv", index2)
 process_bulk_batches(actions, client, batch_size=10000)

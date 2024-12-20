@@ -83,7 +83,7 @@ def process_bulk_batches(actions, client, batch_size=10000):
     total_success_count = 0
     total_failed_count = 0
 
-    for action in actions:
+    for action in tqdm(actions, desc="Processing bulk actions", unit="action"):
         batch.append(action)
         if len(batch) == batch_size:
             success, failed = helpers.bulk(
