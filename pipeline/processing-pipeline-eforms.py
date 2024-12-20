@@ -284,8 +284,8 @@ while True:
                     cpv = [cpv].append(new_cpv)
                     cpv_desc = [cpv_desc].append(CPV_dict.get(new_cpv, "-"))
             c_nature = project.get("cbc:ProcurementTypeCode", "Unknown")
-            proc_type = project.get("cac:TenderingProcess", {}).get("cbc:ProcedureCode", "Unknown")
-            date_dispatch = project.get("cbc:IssueDate", None)
+            proc_type = hit["_source"].get("cac:TenderingProcess", {}).get("cbc:ProcedureCode", "Unknown")
+            date_dispatch = hit["_source"].get("cbc:IssueDate", None)
             try:
                 if date_dispatch is not None:
                     date_dispatch = datetime.strptime(date_dispatch, "%Y-%m-%d%z")
@@ -298,9 +298,13 @@ while True:
             if isinstance(cparties, list):
                 ca_data = []
                 for ca in cparties:
-                    ca_data.append(extract_contracting_authority(ca.get("cac:Party", {}), organizations))
+                    authority = extract_contracting_authority(ca.get("cac:Party", {}), organizations)
+                    ca_data.append(authority)
+                    ca_type = authority.get("CA Type","")
             else:
-                ca_data = extract_contracting_authority(cparties.get("cac:Party", {}), organizations)
+                authority = extract_contracting_authority(cparties.get("cac:Party", {}), organizations)
+                ca_data = authority
+                ca_type = authority.get("CA Type", "")
             number_of_lots, lot_data = extract_lots(lots)
             awards_data = extract_awarded_contracts(result)
 
