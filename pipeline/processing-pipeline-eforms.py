@@ -92,6 +92,7 @@ def extract_lots(lots):
                     criteria_list.append(criteria)
                 except Exception as e:
                     print(f"Error extracting criteria: {e}")
+                    print(ac)
             else:
                 print("warning: no criteria")
                 criteria_list = []
