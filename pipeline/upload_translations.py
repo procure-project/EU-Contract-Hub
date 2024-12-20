@@ -33,6 +33,7 @@ def process_bulk_batches(actions, client, batch_size=10000):
     for action in actions:
         batch.append(action)
         if len(batch) == batch_size:
+            print(type(client))
             success, failed = helpers.bulk(
                 client,
                 batch,
