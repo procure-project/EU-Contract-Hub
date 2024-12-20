@@ -1,5 +1,5 @@
 #This module will group functions to extract csv from opensearch database.
-from opensearchpy import OpenSearch, helpers, bulk
+from opensearchpy import OpenSearch, helpers
 import pandas as pd
 from tqdm import tqdm
 import getpass
