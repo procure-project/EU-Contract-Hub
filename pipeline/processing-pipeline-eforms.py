@@ -59,7 +59,6 @@ def extract_contracting_authority(cparty, organizations):
 
 
 def extract_lots(lots):
-    print(json.dumps(lots, indent=4))
     extracted_lots = []
     if isinstance(lots, dict):
         lots = [lots]
@@ -67,13 +66,11 @@ def extract_lots(lots):
     for lot in lots:
         # Extract the criteria and their weights
         lot_project = lot.get("cac:ProcurementProject", {})
-        print(json.dumps(lot_project, indent=4))
-        ac_list = lot_project.get("cac:TenderingTerms", {}).get("cac:AwardingTerms", {}).get("cac:AwardingCriterion", {}).get("cac:SubordinateAwardingCriterion", [])
+        ac_list = lot.get("cac:TenderingTerms", {}).get("cac:AwardingTerms", {}).get("cac:AwardingCriterion", {}).get("cac:SubordinateAwardingCriterion", [])
         if isinstance(ac_list, dict):
             ac_list = [ac_list]
 
         criteria_list = []
-        print(ac_list)
         for ac in ac_list:
             if ac:
                 try:
