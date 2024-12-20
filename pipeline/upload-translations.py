@@ -1,38 +1,21 @@
 from opensearchpy import OpenSearch, helpers
 import csv
 import getpass
+from pipelinepackage.extractormodule import get_client
 
 # File location constant
 CSV_FILE_PATH = '/home/procure/data/temp_translations_10S.csv'
 
-# Opensearch client configuration
-HOST = 'localhost'
-PORT = 9200
-
-username = input("Enter ProCureSpot username: ")
-password = getpass.getpass(prompt="Enter ProCureSpot password: ")
-auth = (username, password)
-
-# Create the OpenSearch client with SSL/TLS enabled.
-client = OpenSearch(
-    hosts=[{'host': HOST, 'port': PORT}],
-    http_compress=True,
-    http_auth=auth,
-    use_ssl=True,
-    verify_certs=False,
-    ssl_assert_hostname=True,
-    ssl_show_warn=False,
-)
-
+client = get_client
 
 # Generator to yield actions for bulk update
-def csv_to_bulk_actions(file_path):
+def csv_to_bulk_actions(file_path, index):
     with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for row in reader:
             yield {
                 "_op_type": "update",  # Update operation
-                "_index": "procure_v3_new",
+                "_index": index,
                 "_id": row['Document ID'],  # Document ID to update
                 "doc": {
                     "Title (Translation)": row['Title (Translation)'],
@@ -42,7 +25,7 @@ def csv_to_bulk_actions(file_path):
 
 
 # Perform the bulk update in batches of 10,000
-def process_bulk_batches(actions, batch_size=10000):
+def process_bulk_batches(actions, client, batch_size=10000):
     batch = []
     total_success_count = 0
     total_failed_count = 0
@@ -91,5 +74,5 @@ def process_bulk_batches(actions, batch_size=10000):
 
 
 # Call the function to process updates in batches
-actions = csv_to_bulk_actions(CSV_FILE_PATH)
-process_bulk_batches(actions, batch_size=10000)
+actions = csv_to_bulk_actions(CSV_FILE_PATH, "procure")
+process_bulk_batches(actions, client, batch_size=10000)
