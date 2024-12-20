@@ -81,7 +81,7 @@ def extract_lots(lots):
                 try:
                     #PRICE CRITERIA
                     criteria_type = ac.get("cbc:AwardingCriterionTypeCode", "-").capitalize()
-                    criteria_weight = ac.get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension").get("efac:AwardCriterionParameter").get("efbc:ParameterNumeric",-1)
+                    criteria_weight = ac.get("ext:UBLExtensions", {}).get("ext:UBLExtension",{}).get("ext:ExtensionContent",{}).get("efext:EformsExtension",{}).get("efac:AwardCriterionParameter",{}).get("efbc:ParameterNumeric",-1)
                     try:
                         criteria_weight = float(criteria_weight)/100
                     except ValueError:
