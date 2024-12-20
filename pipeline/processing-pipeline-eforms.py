@@ -66,6 +66,7 @@ def extract_lots(lots):
     for lot in lots:
         # Extract the criteria and their weights
         lot_project = lot.get("cac:ProcurementProject", {})
+        print(json.dump(lot_project, indent=4))
         ac_list = lot_project.get("cac:TenderingTerms", {}).get("cac:AwardingTerms", {}).get("cac:AwardingCriterion", {}).get("cac:SubordinateAwardingCriterion", [])
         if isinstance(ac_list, dict):
             ac_list = [ac_list]
