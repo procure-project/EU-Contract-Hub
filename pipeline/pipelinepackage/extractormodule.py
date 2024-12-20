@@ -86,7 +86,7 @@ def process_bulk_batches(actions, client, batch_size=10000):
     total_failed_count = 0
 
     # Wrap actions in tqdm without the need for len()
-    pbar = tqdm(actions, desc="Uploading actions", unit="action")
+    pbar = tqdm(actions, desc="Uploading actions", unit="actions")
 
     for action in pbar:
         batch.append(action)
