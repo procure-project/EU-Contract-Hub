@@ -57,7 +57,7 @@ def query_os(index, query, client = None):
             pbar.update(len(response["hits"]["hits"]))
 
             # Stop scrolling if fewer than 10,000 hits in the current batch
-            if len(response["hits"]["hits"]) < 10000:
+            if len(response["hits"]["hits"]) < 5000:
                 break
 
             # Next Scroll
