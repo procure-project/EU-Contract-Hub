@@ -25,8 +25,9 @@ def get_client():
 
 
 
-def query_os(index, query):
-    client = get_client()
+def query_os(index, query, client = None):
+    if not client:
+        client = get_client()
     # Execute the initial search query to get the first batch of results
     response = client.search(
         index=index,
