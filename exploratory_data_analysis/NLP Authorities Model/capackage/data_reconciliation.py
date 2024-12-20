@@ -50,6 +50,9 @@ def load_sparql_data():
 
     """
 
+    # Q178706 INSTITUTION
+    # Q43229 ORGANIZATION
+
     # Set the query and request JSON results
     sparql.setQuery(query)
     sparql.setReturnFormat(JSON)

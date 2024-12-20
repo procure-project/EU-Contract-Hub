@@ -91,6 +91,7 @@ def extract_lots(lots):
             else:
                 print("warning: no criteria")
                 criteria_list = []
+        print(criteria_list)
         extracted_lots.append({
             "Lot Number": lot.get("cbc:ID", "-"),
             "Title": lot_project.get("cbc:Name", "-"),
@@ -357,7 +358,6 @@ while True:
                                                "CPV", "CPV Description", "Healthcare CPV", "Critical Services CPV",
                                                "Country", "Value", "Contract Nature", "Procurement Route", "Procurement Type", "Procurement Techniques", "Healthcare Authority Class",
                                                "Contracting Authority", "Number of Lots", "Lots", "Awarded Contracts", "Tags"])
-    proc.processing_scroll(df)
 
     print("Scroll " + str(scr))
     actions = [

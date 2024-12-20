@@ -300,7 +300,6 @@ while True:
                                                "Country", "Value", "Contract Nature", "Procurement Route", "Procurement Type", "Procurement Techniques", "Healthcare Authority Class",
                                                "Contracting Authority", "Number of Lots", "Lots", "Awarded Contracts", "Tags"])
 
-    proc.processing_scroll(df) #Processing fields at the dataframe level (from obtained fields), just before indexing.
 
     print("Scroll " + str(scr))
     actions = [
