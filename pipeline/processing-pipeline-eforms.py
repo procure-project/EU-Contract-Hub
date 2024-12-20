@@ -71,6 +71,7 @@ def extract_lots(lots):
             ac_list = [ac_list]
 
         criteria_list = []
+        print(ac_list)
         for ac in ac_list:
             if ac:
                 try:
@@ -85,6 +86,7 @@ def extract_lots(lots):
                                 "Weight": criteria_weight}
 
                     criteria_list.append(criteria)
+                    print(criteria)
                 except Exception as e:
                     print(f"Error extracting criteria: {e}")
                     criteria_list.append({})
