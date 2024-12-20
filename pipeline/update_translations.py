@@ -1,6 +1,6 @@
 from pipelinepackage.extractormodule import query_os, get_client
 import json
-from upload-translations import csv_to_bulk_actions, process_bulk_batches
+from upload_translations import csv_to_bulk_actions, process_bulk_batches
 import getpass
 from opensearchpy import OpenSearch, helpers
 
