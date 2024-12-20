@@ -6,7 +6,7 @@ from pipelinepackage.extractormodule import get_client
 # File location constant
 CSV_FILE_PATH = '/home/procure/data/temp_translations_10S.csv'
 
-client = get_client
+client = get_client()
 
 # Generator to yield actions for bulk update
 def csv_to_bulk_actions(file_path, index):
