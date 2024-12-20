@@ -3,11 +3,37 @@ from pipelinepackage.extractormodule import query_os, get_client, translation_up
 
 client = get_client()
 translation_query = """{
-        "_source": ["Title (Translation)", "Description (Translation)"],
-            "query": {
-                "match_all": {}
-            }
-        }"""
+    "_source": [
+        "Title",
+        "Title (Translation)",
+        "Description",
+        "Description (Translation)",
+        "CPV",
+        "CPV Description",
+        "Contract Nature",
+        "Procurement Route",
+        "Procurement Techniques",
+        "Procurement Type",
+        "Country",
+        "Dispatch Date",
+        "Lots",
+        "Value"
+    ],
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "range": {
+                        "CPV": {
+                            "gte": 33600000,
+                            "lte": 33698300
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}"""
 index1 = "procure"
 index2 = input("Select output index:")
 
