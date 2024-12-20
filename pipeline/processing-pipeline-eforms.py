@@ -59,6 +59,7 @@ def extract_contracting_authority(cparty, organizations):
 
 
 def extract_lots(lots):
+    print(json.dumps(lots, indent=4))
     extracted_lots = []
     if isinstance(lots, dict):
         lots = [lots]
