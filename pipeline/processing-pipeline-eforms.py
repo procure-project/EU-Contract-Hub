@@ -82,9 +82,12 @@ def extract_lots(lots):
                     #PRICE CRITERIA
                     criteria_type = ac.get("cbc:AwardingCriterionTypeCode", "-").capitalize()
                     acparam = (ac.get("ext:UBLExtensions", {}).get("ext:UBLExtension",{}).get("ext:ExtensionContent",{}).get("efext:EformsExtension",{}).get("efac:AwardCriterionParameter",[]))
-                    if isinstance(acparam, list):
-                        acparam = acparam[0]
-                    criteria_weight = acparam.get("efbc:ParameterNumeric",-1)
+                    if acparam:
+                        if isinstance(acparam, list):
+                            acparam = acparam[0]
+                        criteria_weight = acparam.get("efbc:ParameterNumeric",-1)
+                    else:
+                        criteria_weight = -1
                     try:
                         criteria_weight = float(criteria_weight)/100
                     except ValueError:
