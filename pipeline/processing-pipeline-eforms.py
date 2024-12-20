@@ -66,12 +66,17 @@ def extract_lots(lots):
     for lot in lots:
         # Extract the criteria and their weights
         lot_project = lot.get("cac:ProcurementProject", {})
-        ac_list = lot.get("cac:TenderingTerms", {}).get("cac:AwardingTerms", {}).get("cac:AwardingCriterion", {}).get("cac:SubordinateAwardingCriterion", [])
+        ac_list = lot.get("cac:TenderingTerms", {}).get("cac:AwardingTerms", {}).get("cac:AwardingCriterion", [])
         if isinstance(ac_list, dict):
             ac_list = [ac_list]
-
-        criteria_list = []
+        sac = []
         for ac in ac_list:
+            subcriteria = ac.get("cac:SubordinateAwardingCriterion", [])
+            if isinstance(subcriteria, dict):
+                subcriteria = [subcriteria]
+            sac = sac + subcriteria
+        criteria_list = []
+        for ac in sac:
             if ac:
                 try:
                     #PRICE CRITERIA
@@ -85,14 +90,11 @@ def extract_lots(lots):
                                 "Weight": criteria_weight}
 
                     criteria_list.append(criteria)
-                    print(criteria)
                 except Exception as e:
                     print(f"Error extracting criteria: {e}")
-                    criteria_list.append({})
             else:
                 print("warning: no criteria")
                 criteria_list = []
-        print(criteria_list)
         extracted_lots.append({
             "Lot Number": lot.get("cbc:ID", "-"),
             "Title": lot_project.get("cbc:Name", "-"),
