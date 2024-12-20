@@ -1,5 +1,5 @@
 #This module will group functions to extract csv from opensearch database.
-from opensearchpy import OpenSearch, helpers
+from opensearchpy import OpenSearch, helpers, bulk
 import pandas as pd
 from tqdm import tqdm
 import getpass
@@ -84,44 +84,24 @@ def process_bulk_batches(actions, client, batch_size=10000):
     total_success_count = 0
     total_failed_count = 0
 
-    # Initialize tqdm progress bar for the total number of actions
-    with tqdm(total=len(actions), desc="Uploading actions", unit="action") as pbar:
-        for action in actions:
-            batch.append(action)
-            if len(batch) == batch_size:
-                success, failed = bulk(
-                    client,
-                    batch,
-                    raise_on_error=False,  # Do not stop on error
-                    raise_on_exception=False  # Continue even if exceptions occur
-                )
-                total_success_count += success
-                total_failed_count += len(failed)
-                batch = []  # Reset batch
+    # Wrap actions in tqdm without the need for len()
+    pbar = tqdm(actions, desc="Uploading actions", unit="action")
 
-                # Update progress bar after each batch
-                pbar.update(batch_size)
-
-                # Log failed updates
-                for error in failed:
-                    if 'update' in error and error['update']['status'] == 404:
-                        print(f"Document not found: {error['update']['_id']} - skipping.")
-                    else:
-                        print(f"Failed to update document: {error}")
-
-        # Process any remaining actions in the batch
-        if batch:
+    for action in pbar:
+        batch.append(action)
+        if len(batch) == batch_size:
             success, failed = bulk(
                 client,
                 batch,
-                raise_on_error=False,
-                raise_on_exception=False
+                raise_on_error=False,  # Do not stop on error
+                raise_on_exception=False  # Continue even if exceptions occur
             )
             total_success_count += success
             total_failed_count += len(failed)
+            batch = []  # Reset batch
 
-            # Update progress bar for remaining actions
-            pbar.update(len(batch))
+            # Update progress bar after each batch
+            pbar.set_postfix(success=total_success_count, failed=total_failed_count)
 
             # Log failed updates
             for error in failed:
@@ -129,6 +109,27 @@ def process_bulk_batches(actions, client, batch_size=10000):
                     print(f"Document not found: {error['update']['_id']} - skipping.")
                 else:
                     print(f"Failed to update document: {error}")
+
+    # Process any remaining actions in the batch
+    if batch:
+        success, failed = bulk(
+            client,
+            batch,
+            raise_on_error=False,
+            raise_on_exception=False
+        )
+        total_success_count += success
+        total_failed_count += len(failed)
+
+        # Update progress bar for remaining actions
+        pbar.set_postfix(success=total_success_count, failed=total_failed_count)
+
+        # Log failed updates
+        for error in failed:
+            if 'update' in error and error['update']['status'] == 404:
+                print(f"Document not found: {error['update']['_id']} - skipping.")
+            else:
+                print(f"Failed to update document: {error}")
 
     # Print total success and failed counts
     print(f'Total successful updates: {total_success_count}')
