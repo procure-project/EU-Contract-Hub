@@ -1,0 +1,171 @@
+Index;Name;CA Type;Contact_URL;Class
+0;Steiermärkische Krankenanstaltengesellschaft m.b.H.;BODY_PUBLIC;http://www.kages.at;University Hospital
+1;OCMW Dendermonde;REGIONAL_AUTHORITY;http://www.dendermonde.be;Social Welfare Center
+2;„МБАЛ „Д-р Иван Селимински“ — Сливен“ АД;BODY_PUBLIC;www.mbal.sliven.net;Hospital
+3;Nemos Sokolov, s.r.o.;-;http://www.nemosok.cz/;Hospital
+4;Kreiskrankenhaus Demmin GmbH;-;www.kkh-demmin.de;Hospital
+5;Folketinget;-;www.ft.dk;Government
+6;Gerencia de Mutua Navarra, Mutua de Accidentes de Trabajo y Enfermedades Profesionales de la Seguridad Social 21;BODY_PUBLIC;http://www.mutuanavarra.es;Insurance
+7;Vakuutusmeklariliike Semita Oy;REGIONAL_AUTHORITY;www.semita.fi;Insurance
+8;SDIS des Yvelines;BODY_PUBLIC;http://www.sdis78.fr;Government
+9;Υπουργείο Υγείας;MINISTRY;www.moh.gov.gr;Government
+10;Međimurska županija;REGIONAL_AUTHORITY;www.medjimurska-zupanija.hr;Government
+11;Csornai Margit Kórház;-;http://www.margitkorhaz.hu;Hospital
+12;Department of Education and Skills;MINISTRY;http://www.education.ie;Government
+13;Ríkiskaup (The Central Public Procurment);BODY_PUBLIC;https://www.rikiskaup.is/;Procurement
+14;Becton Dickinson;BODY_PUBLIC;http://www.bd.com/it/;Other
+15;Šalčininkų rajono savivaldybės administracija;REGIONAL_AUTHORITY;http://www.salcininkai.lt;Government
+16;Rīgas 1. medicīnas koledža;MINISTRY;http://www.rmk1.lv;University
+17;Gemeenschappelijke regeling Veiligheidsregio Brabant-Noord, onderdeel Brandweer;BODY_PUBLIC;http://www.brandweer.nl/brabant-noord/;Firefighter
+18;Eidskog Kommune;-;http://www.eidskog.kommune.no;Government
+19;Samodzielny Publiczny Zespół Opieki Zdrowotnej Nr 1 w Rzeszowie;BODY_PUBLIC;http://www.spzoz1.rzeszow.pl;Hospital
+20;Centro Hospitalar de Lisboa Ocidental, E. P. E.;BODY_PUBLIC;http://www.chlo.min-saude.pt/;Hospital
+21;Helsingborgs stad;REGIONAL_AUTHORITY;www.helsingborg.se;Government
+22;Grm Novo mesto - center biotehnike in turizma;BODY_PUBLIC;http://www.grm-nm.si;University
+23;Mesto Šurany;REGIONAL_AUTHORITY;http://www.surany.sk;Government
+24;Derby Homes Ltd;BODY_PUBLIC;https://www.derbyhomes.org/;Housing
+25;NÖ Landeskliniken-Holding;BODY_PUBLIC;http://www.lknoe.at;Government
+26;OCMW Nazareth;REGIONAL_AGENCY;www.nazareth.be/sociaal-huis-ocmw;Housing
+27;„Многопрофилна болница за активно лечение — Троян“ ЕООД;BODY_PUBLIC;www.mbal-troyan.com;Hospital
+28;Oborová zdravotní pojišťovna zaměstnanců bank, pojišťoven a stavebnictví;-;http://www.ozp.cz/;Other
+29;St. Elisabeth Krankenhaus Lahnstein - Ihr Gesundheitszentrum - GmbH;-;www.krankenhaus-lahnstein.de;Hospital
+30;Fællesudbud Sjælland v/Greve Kommune;REGIONAL_AUTHORITY;https://permalink.mercell.com/113056864.aspx;Other
+31;Aktsiaselts Valga Haigla;BODY_PUBLIC;http://www.valgahaigla.ee;Hospital
+32;Gerencia de Atención Especializada de Medina del Campo;REGIONAL_AUTHORITY;https://contrataciondelestado.es;Government
+33;Vaasan kaupunki;REGIONAL_AGENCY;http://www.teese.fi;Other
+34;Ministère de la justice;MINISTRY;http://www.marches-publics.gouv.fr;Government
+35;Πανεπιστημιακό Γενικό Νοσοκομείο Ηρακλείου - Γενικό Νοσοκομείο «Βενιζέλειο»;BODY_PUBLIC;www.pagni.gr;University Hospital
+36;Varaždinska županija;REGIONAL_AUTHORITY;www.varazdinska-zupanija.hr;Government
+37;Szegedi Tudományegyetem;-;http://www.u-szeged.hu;University
+38;Consensa lögfræðiþjónusta ehf;REGIONAL_AUTHORITY;http://www.consensa.is;Procurement
+39;Università degli Studi di Trento;BODY_PUBLIC;http://www.unitn.it;University
+40;Lietuvos kariuomenės Dr. Jono Basanavičiaus karo medicinos tarnyba;MINISTRY;https://pirkimai.eviesiejipirkimai.lt/ctm/Company/CompanyInformation/Index/1565;Hospital
+41;Latvijas Universitātes aģentūra LU Rīgas Medicīnas koledža;-;http://www.rmkoledza.lu.lv;University
+42;Institute for lung diseases and TB;BODY_PUBLIC;https://e-nabavki.gov.mk/PublicAccess/Home.aspx#/home;Research
+43;Ministry for Transport Infrastructure and Capital Projects MPU;MINISTRY;https://www.etenders.gov.mt/epps;Government
+44;Gemeente Ermelo;REGIONAL_AUTHORITY;http://www.isnv.nl;Government
+45;Moss kommune;REGIONAL_AUTHORITY;https://www.moss.kommune.no/;Government
+46;Samodzielny Publiczny Szpital Kliniczny im. prof. A. Grucy CMKP;-;www.spskgruca.pl;Hospital
+47;Águas do Tejo Atlântico, S. A.;-;https://www.aguasdotejoatlantico.adp.pt;Other
+48;Sanatoriul Balnear şi de Recuperare Techirghiol;NATIONAL_AGENCY;http://www.sbtghiol.ro;Other
+49;Migrationsverket;NATIONAL_AGENCY;http://www.migrationsverket.se;Government
+50;Zdravstveni dom Zobozdravstveno varstvo Nova Gorica;BODY_PUBLIC;https://www.zdzv-ng.si/;Other
+51;Národný endokrinologický a diabetologický ústav n.o.;BODY_PUBLIC;http://www.nedu.sk;Hospital
+52;The Newcastle upon Tyne Hospitals NHS Foundation Trust;REGIONAL_AUTHORITY;http://www.newcastle-hospitals.org.uk/;University Hospital
+53;Vorarlberger Krankenhaus-Betriebsges. m. b. H;BODY_PUBLIC;https://www.landeskrankenhaus.at/;University Hospital
+54;Nationaal Multiple Sclerose Centrum VZW;-;www.mscenter.be;Hospital
+55;„МБАЛ — Лозенец“ ЕАД;BODY_PUBLIC;https://www.lozenetz-hospital.bg/;Hospital
+56;Alterszentren Stadt Zürich;REGIONAL_AUTHORITY;https://www.simap.ch;Nursing Home
+57;Moravskoslezský kraj;REGIONAL_AUTHORITY;http://www.msk.cz/;Government
+58;Stadt Halle (Saale), Fachbereich Recht, Team Submission;REGIONAL_AUTHORITY;www.halle.de;Government
+59;Norddjurs Kommune;REGIONAL_AUTHORITY;http://www.norddjurs.dk/;Government
+60;Eesti Haigekassa;BODY_PUBLIC;http://www.haigekassa.ee;Insurance
+61;Consejería de Sanidad Comunidad de Madrid;REGIONAL_AUTHORITY;http://www.madrid.org;Government
+62;Hankinta Taitoa (nyk. Sarastia Hankintapalvelut);-;http://www.sarastia.fi;Procurement
+63;Département de la Moselle;REGIONAL_AUTHORITY;http://www.moselle.fr;Government
+64;Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών;-;http://www.uoa.gr;University
+65;Zavod za javno zdravstvo Istarske županije;BODY_PUBLIC;www.zzjziz.hr;Government
+66;Szabolcs-Szatmár-Bereg Megyei Kórházak és Egyetemi Oktatókórház;-;http://szszbmk.hu/;Hospital
+67;Trinity College Dublin, the University of Dublin;BODY_PUBLIC;http://www.tcd.ie;University
+68;Landspitali — The National University Hospital of Iceland;BODY_PUBLIC;https://www.landspitali.is/um-landspitala/languages/landspitali-the-national-university-hospital-of-iceland/;University Hospital
+69;ASST di Lecco;BODY_PUBLIC;www.asst-lecco.it;Hospital
+70;Ersatzanschaffung CT an Landesspital Liechtenstein;BODY_PUBLIC;www.landesspital.li;Hospital
+71;Viešoji įstaiga Respublikinė Kauno ligoninė;BODY_PUBLIC;http://www.kaunoligonine.lt;University Hospital
+72;Nacionālais veselības dienests;MINISTRY;http://www.vmnvd.gov.lv;Government
+73;PHI Clinic for Gastroenterohepatology;-;https://www.e-nabavki.gov.mk;Hospital
+74;Ministry for Gozo;MINISTRY;https://www.etenders.gov.mt/epps;Government
+75;Afdeling Inkoop, Gemeente Nijmegen namens Berg en Dal, Beuningen, Druten, Heumen, Mook en Middelaar, Nijmegen en Wijchen;REGIONAL_AUTHORITY;http://www.nijmegen.nl;Procurement
+76;Kristiansund kommune;REGIONAL_AUTHORITY;https://permalink.mercell.com/113825196.aspx;Government
+77;Wojewódzki Szpital Specjalistyczny im. Najświętszej Maryi Panny;BODY_PUBLIC;www.szpitalparkitka.com.pl;Hospital
+78;Centro Hospitalar e Universitário de Coimbra, E. P. E.;BODY_PUBLIC;www.chuc.min-saude.pt;University Hospital
+79;Spitalul Municipal Săcele;-;www.spitalulmunicipalsacele.ro;Hospital
+80;Sveriges Television Aktiebolag;-;http://svt.se;Other
+81;Univerza na Primorskem Universita del Litorale;BODY_PUBLIC;https://www.upr.si/sl/;University
+82;Univerzita Pavla Jozefa Šafárika v Košiciach, Rektorát;BODY_PUBLIC;http://www.upjs.sk;University
+83;Greater Manchester Combined Authority — GMP;BODY_PUBLIC;https://www.gmp.police.uk;Government
+84;Die Republik Österreich (Bund), vertreten durch das Bundesministerium für Soziales, Gesundheit, Pflege und Konsumentenschutz, im Vergabeverfahren vertreten durch die Bundesbeschaffung GmbH;MINISTRY;https://www.sozialministerium.at/;Government
+85;Vzw Integro;-;https://www.integrozorg.eu;Nursing Home
+86;„Многопрофилна болница за активно лечение — Елин Пелин“ ЕООД;BODY_PUBLIC;www.mbal_elinpelin.com;Hospital
+87;The Cyprus Institute of Neurology and Genetics;REGIONAL_AGENCY;https://www.eprocurement.gov.cy/epps/cft/prepareViewCfTWS.do?resourceId=4884901;Research
+88;Liberecký kraj;REGIONAL_AUTHORITY;www.kraj-lbc.cz;Government
+89;Patienten-Fernüberwachungssystem;-;www.wsp.com;Other
+90;Nyt Aalborg Universitetshospital;REGIONAL_AUTHORITY;http://www.rn.dk;University Hospital
+91;Tallinna Tehnikaülikool;BODY_PUBLIC;http://www.taltech.ee;University
+92;Junta de Castilla y León, Gerencia Regional de Salud, Complejo Asistencial Universitario de Salamanca;REGIONAL_AUTHORITY;https://contrataciondelestado.es/;University Hospital
+93;Lahden kaupunki;REGIONAL_AUTHORITY;http://www.lahti.fi;Government
+94;Communauté d'agglomération du Cotentin;BODY_PUBLIC;http://lecotentin.fr;Government
+95;3η Υ.ΠΕ. Μακεδονίας - Γενικό Νοσοκομείο Καστοριάς;-;http://www.kastoriahospital.gr;Hospital
+96;Jadrolinija;BODY_PUBLIC;www.jadrolnija.hr;Other
+97;Dr. Hetés Ferenc Szakorvosi Rendelőintézet;BODY_PUBLIC;http://lentirendelo.hu/;Other
+98;Health Service Executive (HSE);BODY_PUBLIC;http://www.hse.ie;Other
+99;Reykjavik Procurement Office;REGIONAL_AUTHORITY;http://utbod.reykjavik.is/;Procurement
+100;Azienda ospedaliera SS. Antonio e Biagio e C. Arrigo di Alessandria;REGIONAL_AUTHORITY;www.ospedale.al.it;Hospital
+101;Viešoji įstaiga Raseinių pirminės sveikatos priežiūros centras;BODY_PUBLIC;https://www.raseiniupspc.lt/kontaktai.html;Hospital
+102;Direction de la santé;MINISTRY;https://sante.public.lu/fr/index.php;Government
+103;LR IeM Pilsonības un migrācijas lietu pārvalde;MINISTRY;https://www.pmlp.gov.lv/lv/;Government
+104;Ss. Cyril and Methodius University Faculty of Medicine Skopje;BODY_PUBLIC;http://www.medf.ukim.edu.mk/;University
+105;Department of Contracts;MINISTRY;https://www.etenders.gov.mt/epps;Government
+106;Gemeente Stichtse Vecht;REGIONAL_AUTHORITY;http://www.stichtsevecht.nl;Government
+107;Folkehelseinstituttet;MINISTRY;http://www.fhi.no;Government
+108;Szpital Dziecięcy Polanki im. Macieja Płażyńskiego w Gdańsku sp. z o.o.;-;www.szpitalpolanki.pl;Hospital
+109;Hospital Distrital de Santarém, E. P. E.;MINISTRY;https://www.hds.min-saude.pt/;Hospital
+110;Serviciul de Ambulanta Judetean Vaslui;BODY_PUBLIC;www.eraconsult.ro/saj/;Other
+111;Nordvästra Skånes Renhållningsaktiebolag (NSR);REGIONAL_AUTHORITY;http://www.nsr.se;Government
+112;Javni lekarniški zavod Gorenjske lekarne;BODY_PUBLIC;http://www.gorenjske-lekarne.si;Other
+113;Žilinský samosprávny kraj;REGIONAL_AUTHORITY;http://www.uvo.gov.sk/vyhladavanie-profilov/detail/8276;Government
+114;Police and Crime Commissioner for Cleveland;BODY_PUBLIC;http://www.cleveland.police.uk;Other
+115;Auftraggeber sind die Berufsfeuerwehren Österreichs (somit die Gemeinden Wien (MA68), Linz, Salzburg, Graz, Innsbruck und Klagenfurt), im Vergabeverfahren alle vertreten durch die Bundesbeschaffung GmbH;-;www.bbg.gv.at;Firefighter
+116;SOLIDARIS SANTE DE LA PROVINCE DE NAMUR - RESEAU SOLIDARIS  ASBL;-;https://enot.publicprocurement.be/enot-war/preViewNotice.do?noticeId=428073;Insurance
+117;ЦЕНТРАЛНА ЛАБОРАТОРИЯ ЗА ХИМИЧНИ ИЗПИТВАНИЯ И КОНТРОЛ;NATIONAL_AGENCY;https://bfsa.egov.bg/;Research
+118;Οργανισμός Κρατικών Υπηρεσιών Υγείας;MINISTRY;https://www.eprocurement.gov.cy/epps/cft/prepareViewCfTWS.do?resourceId=4538238;Government
+119;Městská nemocnice v Odrách, příspěvková organizace;REGIONAL_AGENCY;https://www.nemocniceodry.cz/;Hospital
+120;Stadt Pocking;REGIONAL_AUTHORITY;www.pocking.de;Government
+121;Sundhedsstyrelsen;MINISTRY;https://www.sst.dk/da/;Government
+122;"aktsiaselts ""Põlva Haigla""";BODY_PUBLIC;http://www.polvahgl.ee;Hospital
+123;Rectorado de la Universidad de La Laguna;-;https://www.ull.es/servicios/contratacion-patrimonio/#contratacion;University
+124;Pieksämäen kaupunki;REGIONAL_AUTHORITY;http://www.pieksamaki.fi;Government
+125;conseil departemental de loire-atlanti;REGIONAL_AUTHORITY;https://www.loire-atlantique.fr;Government
+126;ΓΕΝΙΚΟ ΝΟΣΟΚΟΜΕΙΟ ΚΑΤΕΡΙΝΗΣ;-;www.psynpo.gr;Hospital
+127;Ministarstvo gospodarstva i održivog razvoja - Ravnateljstvo za robne zalihe;MINISTRY;www.mingor.gov.hr;Government
+128;Csornai Margit Kórház;-;http://www.margitkorhaz.hu;Hospital
+129;Technological University of the Shannon: Midlands Midwest (TUSMM);BODY_PUBLIC;https://tus.ie;University
+130;"Fondazione ""Istituto G.Giglio di Cefalù""";-;https://www.ospedalegiglio.it/sito/index.php;Hospital
+131;"AB ""Lietuvos geležinkeliai""";-;http://www.litrail.lt;Other
+132;Liepājas valstspilsētas pašvaldība;REGIONAL_AUTHORITY;http://www.liepaja.lv/;Government
+133;Sectoral Procurement Directorate;MINISTRY;https://www.etenders.gov.mt/epps;Procurement
+134;Waterschap Rivierenland;REGIONAL_AUTHORITY;http://www.wsrl.nl;Government
+135;Oppdal Kommune;REGIONAL_AGENCY;http://www.oppdal.kommune.no;Government
+136;Zespół Opieki Zdrowotnej w Świętochłowicach sp. z o.o.;BODY_PUBLIC;http://www.zoz.net.pl;Hospital
+137;Unidade Local de Saúde do Baixo Alentejo, E. P. E.;BODY_PUBLIC;www.ulsba.pt;Hospital
+138;COMUNA BERCENI;REGIONAL_AUTHORITY;www.primariaberceni.ro;Government
+139;Habo kommun;REGIONAL_AUTHORITY;http://www.habokommun.se;Government
+140;ZDRAVSTVENI DOM DR. JANEZA ORAŽMA RIBNICA;BODY_PUBLIC;https://www.zdribnica.si/;Hospital
+141;Goldmann Systems, a.s.;-;www.goldmann.sk;Other
+142;The University of Edinburgh;BODY_PUBLIC;http://www.ed.ac.uk/schools-departments/procurement/supplying;University
+143;Veterinärmedizinische Universität Wien;BODY_PUBLIC;www.vetmeduni.ac.at;University
+144;Sint-Franciskusziekenhuis;-;www.sfz.be;Hospital
+145;МЕДИЦИНСКИ ЦЕНТЪР - АВИЦЕНА ЕООД;BODY_PUBLIC;https://www.facebook.com/mc.avicena/;Hospital
+146;Οργανισμός Ασφάλισης Υγείας;BODY_PUBLIC;https://www.eprocurement.gov.cy/epps/cft/prepareViewCfTWS.do?resourceId=5352087;Insurance
+147;Odborný léčebný ústav Jevíčko;REGIONAL_AUTHORITY;https://www.olujevicko.cz/;Hospital
+148;Justizvollzugsanstalt Chemnitz;REGIONAL_AUTHORITY;www.justiz.sachsen.de/jvac;Prison
+149;Gladsaxe Kommune;REGIONAL_AUTHORITY;www.gladsaxe.dk;Government
+150;Sihtasutus Haapsalu Neuroloogiline Rehabilitatsioonikeskus;BODY_PUBLIC;http://www.hnrk.ee;Rehab Center
+151;Alcaldía del Ayuntamiento de Illescas;REGIONAL_AUTHORITY;http://www.illescas.es;Government
+152;South-Eastern Finland University of Applied Sciences;-;http://www.xamk.fi;University
+153;chu de Nantes;BODY_PUBLIC;http://www.chu-nantes.fr;University Hospital
+154;ΓΕΝΙΚΟ ΝΟΣΟΚΟΜΕΙΟ ΑΡΤΑΣ;-;http://www.gnartas.gr;Hospital
+155;MEDICINSKA ŠKOLA VARAŽDIN;BODY_PUBLIC;http://www.medskvz.org/web/;Hospital
+156;Csurgói Egészségügyi Centrum Szolgáltató Nonprofit Korlátolt Felelősségű Társaság;REGIONAL_AUTHORITY;https://csurgo-jarobeteg.hu/elerhetoseg/elerhetoseg.htm;Hospital
+157;Kildare and Wicklow Education and Training Board;BODY_PUBLIC;http://kwetb.ie;Other
+158;Azienda Sanitaria Locale Napoli 2 Nord;-;www.aslnapoli2nord.it;Government
+159;VšĮ Mykolo Marcinkevičiaus ligoninė;REGIONAL_AUTHORITY;https://www.mmligonine.lt/;Hospital
+160;Luxembourg Institute of health;MINISTRY;https://www.lih.lu;Government
+161;PSIA “Veselības un sociālās aprūpes centrs - Sloka”;-;http://www.vsacsloka.lv;Social Welfare Center
+162;Universiteit Utrecht;REGIONAL_AUTHORITY;www.uu.nl;University
+163;Oslo kommune v/ Oslobygg KF;REGIONAL_AUTHORITY;https://www.oslo.kommune.no/etater-foretak-og-ombud/oslobygg/;Government
+164;Wojewódzki Szpital im. Św. Ojca Pio w Przemyślu.;-;https://portal.smartpzp.pl/pcmrzeszow;Hospital
+165;Município da Amadora;REGIONAL_AUTHORITY;www.cm-amadora.pt;Government
+166;Spital Orasenesc Pucioasa;-;www.spitalpucioasa.ro;Hospital
+167;Försäkringskassan;NATIONAL_AGENCY;https://www.forsakringskassan.se/;Insurance
+168;MINISTRSTVO ZA FINANCE FINANČNA UPRAVA REPUBLIKE SLOVENIJE;MINISTRY;http://www.fu.gov.si/;Government
+169;Nemocnica s poliklinikou Prievidza so sídlom v Bojniciach;-;http://www.hospital-bojnice.sk/;Hospital

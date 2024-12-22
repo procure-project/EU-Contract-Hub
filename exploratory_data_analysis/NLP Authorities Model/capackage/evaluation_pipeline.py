@@ -197,8 +197,8 @@ def get_metrics(train_test, evaluation_df):
     # Add baseline metrics
     majority_class = y_train.value_counts().idxmax()
     baseline_accuracy = accuracy_score(y_test, [majority_class] * len(y_test))
-    baseline_recall = recall_score(y_test, [majority_class] * len(y_test), pos_label=True)
-    baseline_f1 = f1_score(y_test, [majority_class] * len(y_test), pos_label=True)
+    baseline_recall = recall_score(y_test, [majority_class] * len(y_test), pos_label=True, average='macro')
+    baseline_f1 = f1_score(y_test, [majority_class] * len(y_test), pos_label=True, average='macro')
     results.append({
         'method': 'Majority Class',
         'model': 'N/A',
@@ -208,11 +208,11 @@ def get_metrics(train_test, evaluation_df):
         'f1': baseline_f1
     })
     for (method, model, parameters), group in evaluation_df.groupby(['method', 'model', 'parameters']):
-        labels = np.array(group['labels'], dtype=int)
-        predictions = np.array(group['predictions'], dtype=int)
+        labels = np.array(group['labels'])
+        predictions = np.array(group['predictions'])
         accuracy = accuracy_score(labels, predictions)
-        recall = recall_score(labels, predictions, pos_label=True)
-        f1 = f1_score(labels, predictions, pos_label=True)
+        recall = recall_score(labels, predictions, pos_label=True, average='macro')
+        f1 = f1_score(labels, predictions, pos_label=True, average='macro')
         results.append({
             'method': method,
             'model': model,
