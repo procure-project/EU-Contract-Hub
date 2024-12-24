@@ -14,35 +14,33 @@ def get_organization_data(id, all_organizations):
         for org in all_organizations:
             if org["efac:Company"]["cac:PartyIdentification"]["cbc:ID"] == id:
                 organization = org["efac:Company"]
-
-        if organization == {}:
-            return {}
-
-        else:
-            name = organization.get("cac:PartyName", {}) #Apparently there can be multiple names
-            natid = organization.get("cac:PartyLegalEntity", {}) #And IDs
-            if isinstance(name, list):
-                name = name[0]
-            if isinstance(natid, list):
-                natid = natid[0]
-            return {
-                "Name": name.get("cbc:Name", "-"),
-                "National ID": natid.get("cbc:CompanyID", -1),
-                "Address": {
-                    "Country": organization.get("cac:PostalAddress", {}).get("cac:Country", {}).get(
-                        "cbc:IdentificationCode", "-"),
-                    "Town": organization.get("cac:PostalAddress", {}).get("cbc:CityName", "-"),
-                    "Postal Code": organization.get("cac:PostalAddress", {}).get("cbc:PostalZone", "-"),
-                    "Address": organization.get("cac:PostalAddress", {}).get("cbc:StreetName", "-"),
-                    "Territorial Unit (NUTS3)": organization.get("cac:PostalAddress", {}).get(
-                        "cbc:CountrySubentityCode", "-")
-                },
-                "Contact": {
-                    "URL": organization.get("cbc:WebsiteURI", "-"),
-                    "Email": organization.get("cac:Contact", {}).get("cbc:Telephone", "-"),
-                    "Phone": organization.get("cac:Contact", {}).get("cbc:ElectronicMail", "-")
-                }
+                continue
+        print("organization found")
+        print(json.dumps(organization, indent=4))
+        name = organization.get("cac:PartyName", {}) #Apparently there can be multiple names
+        natid = organization.get("cac:PartyLegalEntity", {}) #And IDs
+        if isinstance(name, list):
+            name = name[0]
+        if isinstance(natid, list):
+            natid = natid[0]
+        return {
+            "Name": name.get("cbc:Name", "-"),
+            "National ID": natid.get("cbc:CompanyID", -1),
+            "Address": {
+                "Country": organization.get("cac:PostalAddress", {}).get("cac:Country", {}).get(
+                    "cbc:IdentificationCode", "-"),
+                "Town": organization.get("cac:PostalAddress", {}).get("cbc:CityName", "-"),
+                "Postal Code": organization.get("cac:PostalAddress", {}).get("cbc:PostalZone", "-"),
+                "Address": organization.get("cac:PostalAddress", {}).get("cbc:StreetName", "-"),
+                "Territorial Unit (NUTS3)": organization.get("cac:PostalAddress", {}).get(
+                    "cbc:CountrySubentityCode", "-")
+            },
+            "Contact": {
+                "URL": organization.get("cbc:WebsiteURI", "-"),
+                "Email": organization.get("cac:Contact", {}).get("cbc:Telephone", "-"),
+                "Phone": organization.get("cac:Contact", {}).get("cbc:ElectronicMail", "-")
             }
+        }
     except KeyError:
         return {}
 
@@ -175,7 +173,9 @@ def extract_awarded_contracts(result):
                 if isinstance(org_list, dict):
                     org_list = [org_list]
                 for org in org_list:
-                    contractors_info.append(get_organization_data(org.get("cbc:ID",-1), all_organizations))
+                    search_id = org.get("cbc:ID",-1)
+                    print(search_id)
+                    contractors_info.append(get_organization_data(search_id, all_organizations))
         statistics = lot_result.get("efac:ReceivedSubmissionsStatistics", [])
         if statistics:
             if isinstance(statistics, dict):
