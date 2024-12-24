@@ -263,7 +263,7 @@ while True:
         try:
             project = hit["_source"]["cac:ProcurementProject"]
             lots = hit["_source"].get("cac:ProcurementProjectLot",{})
-            extensions = hit["_source"].get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension").get("efac:NoticeResult",{})
+            extensions = hit["_source"].get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension")
             cparties = hit["_source"].get("cac:ContractingParty", {})
 
 
