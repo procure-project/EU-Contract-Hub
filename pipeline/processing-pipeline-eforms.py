@@ -1,3 +1,5 @@
+from textwrap import indent
+
 from pipelinepackage import processingmodule as proc
 from opensearchpy import OpenSearch, helpers
 import pandas as pd
@@ -132,7 +134,9 @@ def extract_awarded_contracts(result):
     if isinstance(all_tendering_parties, dict):
         all_tendering_parties = [all_tendering_parties]
 
-    all_organizations = result.get("efac:Organizations", {}).get("efac:Organization",[])
+    all_organizations = result.get("efac:Organizations", {})
+    print(json.dumps(all_organizations, indent = 4))
+    all_organizations = all_organizations.get("efac:Organization",[])
     if isinstance(all_organizations, dict):
         all_organizations = [all_organizations]
 
