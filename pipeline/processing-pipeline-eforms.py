@@ -15,8 +15,6 @@ def get_organization_data(id, all_organizations):
             if org["efac:Company"]["cac:PartyIdentification"]["cbc:ID"] == id:
                 organization = org["efac:Company"]
                 continue
-        print("organization found")
-        print(json.dumps(organization, indent=4))
         name = organization.get("cac:PartyName", {}) #Apparently there can be multiple names
         natid = organization.get("cac:PartyLegalEntity", {}) #And IDs
         if isinstance(name, list):
@@ -175,7 +173,11 @@ def extract_awarded_contracts(result):
                 for org in org_list:
                     search_id = org.get("cbc:ID",-1)
                     print(search_id)
-                    contractors_info.append(get_organization_data(search_id, all_organizations))
+                    print(json.dumps(all_organizations, indent = 4))
+                    new_org = get_organization_data(search_id, all_organizations)
+                    print("Org Found:")
+                    print(json.dumps(new_org, indent = 4))
+                    contractors_info.append()
         statistics = lot_result.get("efac:ReceivedSubmissionsStatistics", [])
         if statistics:
             if isinstance(statistics, dict):
