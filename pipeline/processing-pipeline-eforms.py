@@ -100,6 +100,11 @@ def extract_lots(lots):
             else:
                 print("warning: no criteria")
                 criteria_list = []
+            if criteria_list == []:
+                print("aw criterion")
+                print(ac_list)
+                print("aw subcriterion")
+                print(sac)
         extracted_lots.append({
             "Lot Number": lot.get("cbc:ID", "-"),
             "Title": lot_project.get("cbc:Name", "-"),
@@ -136,7 +141,6 @@ def extract_awarded_contracts(extensions):
         all_tendering_parties = [all_tendering_parties]
 
     all_organizations = extensions.get("efac:Organizations", {})
-    print(json.dumps(all_organizations, indent = 4))
     all_organizations = all_organizations.get("efac:Organization",[])
     if isinstance(all_organizations, dict):
         all_organizations = [all_organizations]
@@ -177,10 +181,7 @@ def extract_awarded_contracts(extensions):
                     org_list = [org_list]
                 for org in org_list:
                     search_id = org.get("cbc:ID",-1)
-                    print(search_id)
                     new_org = get_organization_data(search_id, all_organizations)
-                    print("Org Found:")
-                    print(json.dumps(new_org, indent = 4))
                     contractors_info.append(new_org)
         statistics = lot_result.get("efac:ReceivedSubmissionsStatistics", [])
         if statistics:
