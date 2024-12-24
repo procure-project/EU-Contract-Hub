@@ -177,7 +177,7 @@ def extract_awarded_contracts(result):
                     new_org = get_organization_data(search_id, all_organizations)
                     print("Org Found:")
                     print(json.dumps(new_org, indent = 4))
-                    contractors_info.append()
+                    contractors_info.append(new_org)
         statistics = lot_result.get("efac:ReceivedSubmissionsStatistics", [])
         if statistics:
             if isinstance(statistics, dict):
