@@ -117,7 +117,8 @@ def extract_lots(lots):
 
 
 
-def extract_awarded_contracts(result):
+def extract_awarded_contracts(extensions):
+    result = extensions.get("efac:NoticeResult",{})
     all_lot_results = result.get("efac:LotResult",[])
     if isinstance(all_lot_results, dict):
         all_lot_results = [all_lot_results]
@@ -134,7 +135,7 @@ def extract_awarded_contracts(result):
     if isinstance(all_tendering_parties, dict):
         all_tendering_parties = [all_tendering_parties]
 
-    all_organizations = result.get("efac:Organizations", {})
+    all_organizations = extensions.get("efac:Organizations", {})
     print(json.dumps(all_organizations, indent = 4))
     all_organizations = all_organizations.get("efac:Organization",[])
     if isinstance(all_organizations, dict):
@@ -177,7 +178,6 @@ def extract_awarded_contracts(result):
                 for org in org_list:
                     search_id = org.get("cbc:ID",-1)
                     print(search_id)
-                    print(json.dumps(all_organizations, indent = 4))
                     new_org = get_organization_data(search_id, all_organizations)
                     print("Org Found:")
                     print(json.dumps(new_org, indent = 4))
@@ -263,13 +263,13 @@ while True:
         try:
             project = hit["_source"]["cac:ProcurementProject"]
             lots = hit["_source"].get("cac:ProcurementProjectLot",{})
-            result = hit["_source"].get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension").get("efac:NoticeResult",{})
+            extensions = hit["_source"].get("ext:UBLExtensions", {}).get("ext:UBLExtension").get("ext:ExtensionContent").get("efext:EformsExtension").get("efac:NoticeResult",{})
             cparties = hit["_source"].get("cac:ContractingParty", {})
 
 
             organizations = hit["_source"]["ext:UBLExtensions"]["ext:UBLExtension"]["ext:ExtensionContent"]["efext:EformsExtension"]["efac:Organizations"]["efac:Organization"]
 
-            value_eforms = result.get("cbc:TotalAmount",-1)
+            value_eforms = extensions.get("efac:NoticeResult",{}).get("cbc:TotalAmount",-1)
             title = project.get("cbc:Name", "-")
             description = project.get("cbc:Description", "-")
             locations = project.get("cac:RealizedLocation", {})
@@ -312,7 +312,7 @@ while True:
                 ca_data = authority
                 ca_type = authority.get("CA Type", "")
             number_of_lots, lot_data = extract_lots(lots)
-            awards_data = extract_awarded_contracts(result)
+            awards_data = extract_awarded_contracts(extensions)
 
             try:  ######################################################### Query for CSV data ################################################
                 inner_hit = client.get(index="ted-csv", id=doc_id)
