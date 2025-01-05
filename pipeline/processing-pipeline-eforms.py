@@ -100,11 +100,6 @@ def extract_lots(lots):
             else:
                 print("warning: no criteria")
                 criteria_list = []
-            if criteria_list == []:
-                print("aw criterion")
-                print(ac_list)
-                print("aw subcriterion")
-                print(sac)
         extracted_lots.append({
             "Lot Number": lot.get("cbc:ID", "-"),
             "Title": lot_project.get("cbc:Name", "-"),
