@@ -6,37 +6,10 @@ import json
 def get_user_query():
     # Provide a default query template
     default_query = """{
-    "_source": [
-        "Title",
-        "Title (Translation)",
-        "Description",
-        "Description (Translation)",
-        "CPV",
-        "CPV Description",
-        "Contract Nature",
-        "Procurement Route",
-        "Procurement Techniques",
-        "Procurement Type",
-        "Country",
-        "Dispatch Date",
-        "Lots",
-        "Value"
-    ],
-    "query": {
-        "bool": {
-            "must": [
-                {
-                    "range": {
-                        "CPV": {
-                            "gte": 33600000,
-                            "lte": 33698300
-                        }
-                    }
-                }
-            ]
-        }
-    }
-}"""
+      "query": {
+        "match_all": {}
+      }
+    }"""
     # Open the default editor with the template
     user_query = click.edit(default_query)
 
