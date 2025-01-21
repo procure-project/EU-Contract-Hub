@@ -36,7 +36,7 @@ def query_os(index, query, client = None):
         index=index,
         body=query,
         size=5000,  # Number of documents to retrieve per batch
-        scroll="1m"  # Keep the scroll window open for 1 minute
+        scroll="5m"  # Keep the scroll window open for 5 minutes
     )
     scroll_id = response["_scroll_id"]
     total_hits = response["hits"]["total"]["value"]  # Total number of hits
