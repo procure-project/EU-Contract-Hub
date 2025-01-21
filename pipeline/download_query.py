@@ -13,10 +13,9 @@ def get_user_query():
     # Open the default editor with the template
     user_query = click.edit(default_query)
 
-    if user_query is None:
-        print("No query entered. Exiting.")
-        return None
-
+    if user_query is None or user_query.strip() == "":
+        print("No query entered. Using default query.")
+        return default_query
     # Validate or return the edited query
     return user_query.strip()
 
