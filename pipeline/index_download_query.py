@@ -7,6 +7,7 @@ index = input("Select index:")
 
 current_year = datetime.datetime.now().year
 
+client = get_client()
 for y in range(2017, current_year + 1):
     print('Extraction year ' + str(y))
     start_date = datetime.date(y, 1, 1)
@@ -22,7 +23,6 @@ for y in range(2017, current_year + 1):
             }
         }
     }
-    client = get_client()
     data = query_os(index, query, client)
     if len(data) > 0:
         data.to_csv(f"os_extraction_{start_date}_{end_date}.csv", index=False)
