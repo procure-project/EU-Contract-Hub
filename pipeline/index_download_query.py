@@ -3,7 +3,7 @@ import click
 import json
 import datetime
 
-index = int(input("Select index:"))
+index = input("Select index:")
 
 current_year = datetime.datetime.now().year
 
