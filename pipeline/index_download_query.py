@@ -1,4 +1,4 @@
-from pipelinepackage.extractormodule import query_os
+from pipelinepackage.extractormodule import query_os, get_client
 import click
 import json
 import datetime
@@ -22,7 +22,7 @@ for y in range(2017, current_year + 1):
             }
         }
     }
-
-    data = query_os(index, query)
+    client = get_client()
+    data = query_os(index, query, client)
     if len(data) > 0:
         data.to_csv(f"os_extraction_{start_date}_{end_date}.csv", index=False)
