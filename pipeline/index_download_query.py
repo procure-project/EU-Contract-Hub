@@ -15,7 +15,7 @@ for y in range(2017, current_year + 1):
     query = {
         "query": {
             "range": {
-                "timestamp": {
+                "Dispatch Date": {
                     "gte": start_date,
                     "lte": end_date
                 }
