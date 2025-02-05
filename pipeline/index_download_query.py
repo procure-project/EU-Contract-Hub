@@ -8,7 +8,7 @@ index = input("Select index:")
 current_year = datetime.datetime.now().year
 
 client = get_client()
-for y in range(2017, current_year + 1):
+for y in range(2021, 2021):
     print('Extraction year ' + str(y))
     start_date = datetime.date(y, 1, 1)
     end_date = datetime.date(y, 12, 31)
