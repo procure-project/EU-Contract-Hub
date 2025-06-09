@@ -8,7 +8,7 @@ import pandas as pd
 import traceback
 import getpass
 from datetime import datetime
-
+from pipelinepackage.auth import get_opensearch_auth
 
 def extract_notice_data(codeddata):
     country = codeddata.get("NOTICE_DATA", {}).get("ISO_COUNTRY", {}).get("@VALUE","-")
@@ -177,9 +177,7 @@ def extract_contracting_authority(can):
 # Initialize the OpenSearch client
 host = 'localhost'
 port = 9200
-username = input("Enter ProCureSpot username: ")
-password = getpass.getpass(prompt="Enter ProCureSpot password: ")
-auth = (username, password)
+auth = get_opensearch_auth()
 
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 client = OpenSearch(
@@ -191,7 +189,7 @@ client = OpenSearch(
     ssl_assert_hostname=True,
     ssl_show_warn=False,
 )
-index = "procure_v4"
+index = "procure_v5"
 scroll_size = 1000
 # Execute the initial search query to get the first batch of results
 response = client.search(

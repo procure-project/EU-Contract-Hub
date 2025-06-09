@@ -7,12 +7,11 @@ import getpass
 requests.packages.urllib3.disable_warnings()
 ssl._create_default_https_context = ssl._create_unverified_context
 
+from pipelinepackage.auth import get_opensearch_auth
 
 host = 'localhost'
 port = 9200
-username = input("Enter ProCureSpot username: ")
-password = getpass.getpass(prompt="Enter ProCureSpot password: ")
-auth = (username, password)
+auth = get_opensearch_auth()
 
 client = OpenSearch(
     hosts=[{'host': host, 'port': port}],

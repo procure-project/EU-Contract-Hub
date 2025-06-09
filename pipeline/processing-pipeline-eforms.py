@@ -1,5 +1,6 @@
 from textwrap import indent
 
+from pipelinepackage.auth import get_opensearch_auth
 from pipelinepackage import processingmodule as proc
 from opensearchpy import OpenSearch, helpers
 import pandas as pd
@@ -216,9 +217,7 @@ def extract_awarded_contracts(extensions):
 # Initialize the OpenSearch client
 host = 'localhost'
 port = 9200
-username = input("Enter ProCureSpot username: ")
-password = getpass.getpass(prompt="Enter ProCureSpot password: ")
-auth = (username, password)
+auth = get_opensearch_auth()
 
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 client = OpenSearch(
@@ -230,14 +229,14 @@ client = OpenSearch(
     ssl_assert_hostname=True,
     ssl_show_warn=False,
 )
-index = "procure_v4"
+index = "procure_v5"
 scroll_size = 1000
 # Execute the initial search query to get the first batch of results
 response = client.search(
     index = "ted-eforms",
     body =   {"query":   {
-                        "match_all": {}  # Retrieve all documents
-                        }
+                "match_all": {}  # Retrieve all documents
+                }
             },
     size = scroll_size,  # Number of documents to retrieve per batch
     scroll="10m"  # Keep the scroll window open for 1 minute

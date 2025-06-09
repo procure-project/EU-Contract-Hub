@@ -4,20 +4,21 @@ import numpy as np
 import os
 import math
 import warnings
-from datetime import datetime
+import datetime
+from datetime import datetime as dt
 import wget
 import zipfile
 import shutil
 import getpass
 from tqdm import tqdm
+from pipelinepackage.auth import get_opensearch_auth
 #                               ------------ CONSTANTS -----------------
 FOLDER = "./temp/csv/"
 HOST = 'localhost'
 PORT = 9200
 INDEX = 'ted-csv'
-username = input("Enter ProCureSpot username: ")
-password = getpass.getpass(prompt="Enter ProCureSpot password: ")
-auth = (username, password)
+
+auth = get_opensearch_auth()
 
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
 client = OpenSearch(
@@ -31,6 +32,15 @@ client = OpenSearch(
 )
 
 #                          ------------ FUNCTIONS -----------------
+
+def log_pipeline_status(client, year):
+    doc_id = f"csv-ingestion-{year}"
+    doc = {
+        "pipeline": "csv-ingestion",
+        "year": year,
+        "timestamp": datetime.datetime.now()
+    }
+    client.index(index="pipeline_status", id=doc_id, body=doc)
 
 # Function to download files from url into file_path
 def download_file(url, file_path):
@@ -60,14 +70,21 @@ def extract_file(file_path):
         print(f"Failed to extract {file_path}: {e}")
 
 def download_csv(save_folder):
-    start_year = 2018
-    end_year = 2023
+    start_year = 2019
+    end_year = datetime.date.today().year
     base_url = 'https://data.europa.eu/api/hub/store/data/ted-contract-award-notices-'
+    downloaded_years = []
     for year in tqdm(range(start_year, end_year + 1), desc="Downloading", unit='year'):
+        doc_id = f"csv-ingestion-{year}"
+        if client.exists(index="pipeline_status", id=doc_id):
+            print(f"Skipping {year}, already ingested.")
+            continue
         download_url = f"{base_url}{year}.zip"
         save_path = f"{save_folder}TED_AWARD_{year}.zip"
         download_file(download_url, save_path)
         extract_file(save_path)
+        downloaded_years.append(year)
+    return downloaded_years
 
 #Converter functions for reading csv
 def transform_id(id_csv): #Function to swap the ID_NOTICE_CAN field so it aligns with the one used in the xml format
@@ -96,7 +113,7 @@ def lots_converter(value):
     else:
         raise ValueError(f"Unexpected value '{value}' found in the column.")
 def date_converter(value):
-    return datetime.strptime(value, '%d/%m/%y')
+    return dt.strptime(value, '%d/%m/%y')
 
 def read_csvs(folder_path): #Reads all yearly csv and concats them. Groups by CAN ID.
     columns_can_level = ['ID_NOTICE_CAN', 'TED_NOTICE_URL', 'YEAR', 'ID_TYPE', 'DT_DISPATCH', 'XSD_VERSION', 'CANCELLED', 'CORRECTIONS', 'B_MULTIPLE_CAE', 'CAE_NAME', 'CAE_NATIONALID', 'CAE_ADDRESS', 'CAE_TOWN', 'CAE_POSTAL_CODE', 'CAE_GPA_ANNEX', 'ISO_COUNTRY_CODE', 'ISO_COUNTRY_CODE_GPA', 'B_MULTIPLE_COUNTRY', 'ISO_COUNTRY_CODE_ALL', 'CAE_TYPE', 'EU_INST_CODE', 'MAIN_ACTIVITY', 'B_ON_BEHALF', 'B_INVOLVES_JOINT_PROCUREMENT', 'B_AWARDED_BY_CENTRAL_BODY', 'TYPE_OF_CONTRACT', 'B_FRA_AGREEMENT', 'FRA_ESTIMATED', 'B_DYN_PURCH_SYST', 'CPV', 'MAIN_CPV_CODE_GPA', 'B_GPA', 'GPA_COVERAGE', 'LOTS_NUMBER', 'VALUE_EURO', 'VALUE_EURO_FIN_1', 'VALUE_EURO_FIN_2', 'TOP_TYPE', 'B_ACCELERATED', 'OUT_OF_DIRECTIVES', 'B_ELECTRONIC_AUCTION', 'NUMBER_AWARDS']
@@ -159,7 +176,7 @@ def logger(actions,failed):
     file_path ="./logs/csv-ingestion.csv"
     logs = []
     successful_ids = {action['_id'] for action in actions} - {failure['index']['_id'] for failure in failed}
-    current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    current_date = dt.now().strftime('%Y-%m-%d %H:%M:%S')
 
     # Log successful actions
     for action in actions:
@@ -192,7 +209,7 @@ def logger(actions,failed):
 
 if not os.path.exists(FOLDER):
     os.makedirs(FOLDER)
-download_csv(FOLDER)
+downloaded_years  = download_csv(FOLDER)
 df = read_csvs(FOLDER)
 lines = df.shape[0]
 columns = df.columns
@@ -223,5 +240,6 @@ for i in tqdm(range(iters), desc="Indexing", unit='100000 lines'):
     except Exception as e:
         print(f"Error during bulk indexing: {e}")
 
-
+for year in downloaded_years:
+    log_pipeline_status(client, year)
 shutil.rmtree(FOLDER)

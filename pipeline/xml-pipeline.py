@@ -12,7 +12,8 @@ from tqdm import tqdm
 import getpass
 import traceback
 from datetime import datetime as dt
-
+from pipelinepackage.auth import get_opensearch_auth
+import urllib.request
 #                               ------------ CONSTANTS -----------------
 BASE_URL = 'https://ted.europa.eu/packages/daily/'
 BASE_FOLDER = "./temp/xml/"
@@ -22,9 +23,7 @@ END_YEAR = datetime.date.today().year
 # Opensearch client
 HOST = 'localhost'
 PORT = 9200
-username = input("Enter ProCureSpot username: ")
-password = getpass.getpass(prompt="Enter ProCureSpot password: ")
-auth = (username, password)
+auth = get_opensearch_auth()
 INDEX_XML = 'ted-xml'
 INDEX_EFORMS = 'ted-eforms'
 # Create the client with SSL/TLS enabled, but hostname verification disabled.
@@ -39,6 +38,32 @@ OS_CLIENT = OpenSearch(
 )
 
 #                          ------------ FUNCTIONS -----------------
+
+def url_exists(url):
+    try:
+        req = urllib.request.Request(url, method="HEAD")
+        with urllib.request.urlopen(req) as response:
+            return response.status == 200
+    except urllib.error.HTTPError as e:
+        return False
+    except Exception as e:
+        print(f"Error while checking URL: {e}")
+        return False
+
+def log_pipeline_status(client, year, ojs=None):
+    timestamp = datetime.datetime.now()
+    doc_id = f"xml-ingestion-{year}" if ojs is None else f"xml-ingestion-{year}-{ojs}"
+
+    doc = {
+        "pipeline": "xml-ingestion",
+        "year": year,
+        "timestamp": timestamp
+    }
+
+    if ojs is not None:
+        doc["ojs"] = ojs
+    client.index(index="pipeline_status", id=doc_id, body=doc)
+
 # Extracts a .tar.gz compressed file and deletes the compressed file
 def extract_file(file_path):
     try:
@@ -216,9 +241,19 @@ def ted_xml_upload(package, package_path):
 
 
 def ted_xml_ingestion(year):
+    doc_id_year = f"xml-ingestion-{year}"
+    if OS_CLIENT.exists(index="pipeline_status", id=doc_id_year):
+        print(f"Year {year} already marked as completed. Skipping.")
+        return
+
     ojs = 1
-    # os_ojs = Get OJS in OS for given year
+
     while True:
+        doc_id_ojs = f"xml-ingestion-{year}-{ojs}"
+        if OS_CLIENT.exists(index="pipeline_status", id=doc_id_ojs):
+            print(f"OJS {year}-{ojs} already ingested. Skipping.")
+            ojs += 1
+            continue
         download_url = f"{BASE_URL}{year}{str(ojs).zfill(5)}"
         save_path = f"{BASE_FOLDER}{year}/{str(ojs)}.tar.gz"
         package = f'{year}-{ojs}'
@@ -230,12 +265,21 @@ def ted_xml_ingestion(year):
             extract_file(save_path)
             ted_xml_upload(package, save_path[:-7])
             shutil.rmtree(save_path[:-7])  # Removes package folder after upload
+            log_pipeline_status(OS_CLIENT, year, ojs)
         # else:
         # print (f"OJS: {year}{str(ojs).zfill(5) already in OpenSearch")
         except HTTPError as e:
             if e.code == 404:
                 print(f"HTTP Error 404: {package} not Found - . Exiting loop.")
-                break  # Exit the loop if HTTP Error 404 is encountered
+                # Check if next year's OJS 1 package exists online
+                next_year = year + 1
+                next_url = f"{BASE_URL}{next_year}00001"
+                if url_exists(next_url):
+                    print(f"\nNext year ({next_year}) OJS 1 exists. Marking {year} as complete.")
+                    log_pipeline_status(OS_CLIENT, year)
+                else:
+                    print(f"Next year ({next_year}) OJS 1 not yet published. Not marking {year} as complete.")
+                break
             else:
                 print(f"Failed to download {download_url}: HTTP Error {e.code}")
         except Exception as e:
