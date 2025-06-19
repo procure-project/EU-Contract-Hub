@@ -10,6 +10,20 @@ import getpass
 from datetime import datetime
 from pipelinepackage.auth import get_opensearch_auth
 
+
+def log_pipeline_status(client, doc_id):
+    composite_id = f"processing-{doc_id}"
+    doc = {
+        "pipeline":  "processing",
+        "doc_id": doc_id,
+        "timestamp": datetime.datetime.now()
+    }
+    client.index(index="pipeline_status", id=composite_id, body=doc)
+
+def is_doc_processed(client, doc_id):
+    composite_id = f"processing-{doc_id}"
+    return client.exists(index="pipeline_status", id=composite_id)
+
 def extract_notice_data(codeddata):
     country = codeddata.get("NOTICE_DATA", {}).get("ISO_COUNTRY", {}).get("@VALUE","-")
     codifdata = codeddata.get("CODIF_DATA", {})
@@ -213,6 +227,8 @@ while True:
     # Extract document IDs and corresponding field values from the current batch of results
     for hit in response["hits"]["hits"]:  # Processing and Extracting Info Document-wise
         doc_id = hit["_id"]
+        if is_doc_processed(client, doc_id):
+            continue  # Skip already processed by this pipeline
         country, ca_type, c_nature, proc_type, date_dispatch = extract_notice_data(hit["_source"]["CODED_DATA_SECTION"])
 
         can = hit["_source"]["CONTRACT_AWARD_NOTICE"]
@@ -235,6 +251,13 @@ while True:
 
 
             ca_data = extract_contracting_authority(can)
+            if ca_data and isinstance(ca_data, list):
+                ca_name = ca_data[0].get("Name", "-")
+                ca_country = ca_data[0].get("Address", {}).get("Country", "-")
+            else:
+                ca_name = "-"
+                ca_country = "-"
+
             number_of_lots, lot_data = extract_lots(can)
             awards_data = extract_awarded_contracts(can)
 
@@ -260,7 +283,7 @@ while True:
 
                 proc_route = proc.calculate_p_route(multiple_country, joint_procurement, central_body, ca_type)
                 proc_technique = proc.calculate_p_technique(dynamic_purch, eauction, on_behalf, central_body, fram_agreement, multiple_country)
-                health_ca_class = proc.calculate_ca_class(central_body,ca_type,health_cpv)
+                health_ca_class = proc.calculate_ca_class(ca_name, ca_country, central_body, ca_type, health_cpv)
 
 
             except Exception as e:  ########################################## If CSV not found handler ###########################################
@@ -314,9 +337,13 @@ while True:
         success, failed = helpers.bulk(client, actions, index = index, raise_on_error=True, refresh=True)
         print(f"Successfully indexed {success} documents.")
         print(f"Failed to index {failed} documents.")
+        for doc_id in df["Document ID"]:
+            log_pipeline_status(client, doc_id)
     except Exception as e:
         print(f"Error during bulk indexing: {e}")
     # Check if there are more results to fetch
     scr = scr + 1
     if len(response["hits"]["hits"]) < scroll_size:
         break
+
+

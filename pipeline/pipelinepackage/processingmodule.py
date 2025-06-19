@@ -2,6 +2,10 @@ import re
 import csv
 import os
 from collections import defaultdict
+import json
+
+with open('data/ca_keywords.json', 'r', encoding='utf-8') as f:
+    ca_keywords = json.load(f)
 
 HEALTHCARE_CPV = [33600000,
                33110000,
@@ -117,7 +121,23 @@ def calculate_p_technique(dynamic_purch, eauction, on_behalf, central_body, fram
         "Procurement Involving Contracting Authorities from Different Member States": multiple_country
     }
 
-def calculate_ca_class(central_body, ca_type, health_cpv):
+def rule_classify(name, keywords):
+    """
+    Receives a list of regex patterns (keywords) and matches a single name against it.
+    Returns 1 if any keyword matches, else 0.
+    """
+    if keywords:
+        patterns = r"(" + r"|".join(keywords) + r")"
+        combined_pattern = re.compile(patterns, re.IGNORECASE)
+        # Convert to string and handle NaN/None values
+        if name is None or (hasattr(name, 'isna') and name.isna()):
+            return False
+        name_str = str(name)
+        return True if combined_pattern.search(name_str) else False
+    else:
+        return False
+    
+def calculate_ca_class(name, country, central_body, ca_type, health_cpv):
     if central_body:
         if ca_type == "1":
             return 'Government Public Procurers'
@@ -127,7 +147,16 @@ def calculate_ca_class(central_body, ca_type, health_cpv):
             return 'Central Public Purchasing Bodies'
     else:
         if health_cpv:
-            return 'Healthcare Direct Procurer'
+            hospital_keywords = ca_keywords['whitelist_hospital'].get(country, [])
+            if(name, hospital_keywords):
+                university_hospital_keywords = ca_keywords['whitelist_university_hospital'].get(country, [])
+                if(name, university_hospital_keywords):
+                    return 'University Hospital'
+                else:
+                    return 'Hospital'
+            else:
+                return 'Other Healthcare Direct Procurer'
         else:
             return 'Non-Healthcare Direct Procurer'
+
 

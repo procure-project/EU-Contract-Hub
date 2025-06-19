@@ -1,0 +1,351 @@
+{
+    "mappings": {
+      "properties": {
+        "Awarded Contracts": {
+          "type": "nested",
+          "properties": {
+            "Awarded Contract Title": {
+              "type": "text"
+            },
+            "Conclusion Date": {
+              "type": "date"
+            },
+            "Contractors": {
+              "type": "nested",
+              "properties": {
+                "Address": {
+                  "properties": {
+                    "Address": {
+                      "type": "text"
+                    },
+                    "Country": {
+                      "type": "keyword"
+                    },
+                    "Postal Code": {
+                      "type": "keyword"
+                    },
+                    "Territorial Unit (NUTS3)": {
+                      "type": "keyword"
+                    },
+                    "Town": {
+                      "type": "text"
+                    }
+                  }
+                },
+                "Contact": {
+                  "properties": {
+                    "Email": {
+                      "type": "keyword"
+                    },
+                    "Phone": {
+                      "type": "keyword"
+                    },
+                    "URL": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "Name": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "National ID": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "Corresponding Lot": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "Number of Tenders": {
+              "type": "integer"
+            }
+          }
+        },
+        "CPV": {
+          "type": "keyword"
+        },
+        "CPV Description": {
+          "type": "text"
+        },
+        "Contract Nature": {
+          "type": "keyword"
+        },
+        "Contracting Authority": {
+          "type": "nested",
+          "properties": {
+            "Activity": {
+              "type": "keyword"
+            },
+            "Address": {
+              "properties": {
+                "Address": {
+                  "type": "text"
+                },
+                "Country": {
+                  "type": "keyword"
+                },
+                "Postal Code": {
+                  "type": "keyword"
+                },
+                "Territorial Unit (NUTS3)": {
+                  "type": "keyword"
+                },
+                "Town": {
+                  "type": "text"
+                }
+              }
+            },
+            "CA Type": {
+              "type": "keyword"
+            },
+            "Contact": {
+              "properties": {
+                "Email": {
+                  "type": "keyword"
+                },
+                "Phone": {
+                  "type": "keyword"
+                },
+                "URL": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "Name": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "National ID": {
+              "type": "keyword"
+            }
+          }
+        },
+        "Country": {
+          "type": "keyword"
+        },
+        "Critical Services CPV": {
+          "type": "boolean"
+        },
+        "Description": {
+          "type": "text"
+        },
+        "Description (Translation)": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "Dispatch Date": {
+          "type": "date"
+        },
+        "Health Authority Class": {
+          "type": "keyword"
+        },
+        "Healthcare CPV": {
+          "type": "boolean"
+        },
+        "Lots": {
+          "type": "nested",
+          "properties": {
+            "CPV Codes": {
+              "type": "keyword"
+            },
+            "Criteria": {
+              "type": "nested",
+              "properties": {
+                "Cost": {
+                  "properties": {
+                    "Criterion": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "Criterion (Translation)": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "Weight": {
+                      "type": "float"
+                    }
+                  }
+                },
+                "Price": {
+                  "properties": {
+                    "Criterion": {
+                      "type": "text"
+                    },
+                    "Weight": {
+                      "type": "float"
+                    }
+                  }
+                },
+                "Quality": {
+                  "properties": {
+                    "Criterion": {
+                      "type": "text"
+                    },
+                    "Criterion (Translation)": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    },
+                    "Weight": {
+                      "type": "float"
+                    }
+                  }
+                },
+                "Type": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "Weight": {
+                  "type": "float"
+                }
+              }
+            },
+            "Lot Number": {
+              "type": "keyword"
+            },
+            "Main Criterion": {
+              "type": "keyword"
+            },
+            "Short Description": {
+              "type": "text"
+            },
+            "Short Description (Translation)": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "Title": {
+              "type": "text"
+            },
+            "Title (Translation)": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "Number of Lots": {
+          "type": "integer"
+        },
+        "Procurement Route": {
+          "type": "keyword"
+        },
+        "Procurement Techniques": {
+          "properties": {
+            "Centralised Purchasing Activities and Central Purchasing Bodies": {
+              "type": "boolean"
+            },
+            "Centralized Purchasing Activities and Central Purchasing Bodies": {
+              "type": "boolean"
+            },
+            "Dynamic Purchasing System": {
+              "type": "boolean"
+            },
+            "Dynamic Purchasing Systems": {
+              "type": "boolean"
+            },
+            "Electronic Auction": {
+              "type": "boolean"
+            },
+            "Electronic Catalogue": {
+              "type": "boolean"
+            },
+            "Framework Agreement": {
+              "type": "boolean"
+            },
+            "Occasional Joint Procurement": {
+              "type": "boolean"
+            },
+            "Procurement Involving Contracting Authorities from Different Member States": {
+              "type": "boolean"
+            },
+            "Unknown": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Procurement Type": {
+          "type": "keyword"
+        },
+        "Tags": {
+          "properties": {
+            "Process Date": {
+              "type": "date"
+            },
+            "Source": {
+              "properties": {
+                "TED-CSV": {
+                  "type": "boolean"
+                },
+                "TED-EFORMS": {
+                  "type": "boolean"
+                },
+                "TED-EForms": {
+                  "type": "boolean"
+                },
+                "TED-XML": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "Title": {
+          "type": "text"
+        },
+        "Title (Translation)": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "Value": {
+          "type": "float"
+        }
+      }
+    }
+  }
