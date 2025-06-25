@@ -1,4 +1,4 @@
-from opensearchpy import OpenSearch
+from opensearchpy import OpenSearch, helpers
 import pandas as pd
 import shutil
 import xmltodict
@@ -175,14 +175,14 @@ def format_dict(notice):
     return is_eforms, notice_id, notice_clean
 
 
-# Indexes a document with given id to an opensearch client
+# Single-doc helper kept but refresh disabled (unused in bulk path)
 def index_doc_opensearch(doc_id, doc, index):
     try:
-        response = OS_CLIENT.index(
+        OS_CLIENT.index(
             index=index,
             body=doc,
             id=doc_id,
-            refresh=True
+            refresh=False
         )
     except Exception as e:
         print(f"Error during indexing: {e}")
@@ -198,6 +198,8 @@ def generate_log(package,doc_id,index,status,error):
 
 def ted_xml_upload(package, package_path):
     logs = []
+    BULK_CHUNK = 500  # contracts per bulk request
+    actions = []  # accumulate bulk actions
     for root, _, files in os.walk(package_path):
         xml_files = [xml_file for xml_file in files if xml_file.endswith(".xml")]
         if xml_files:
@@ -216,6 +218,19 @@ def ted_xml_upload(package, package_path):
                             if is_eforms:
                                 index = INDEX_EFORMS
                             index_doc_opensearch(doc_id, xml_processed, index)
+                            actions.append({
+                                "_op_type": "index",
+                                "_index": index,
+                                "_id": doc_id,
+                                "_source": xml_processed
+                            })
+                            # When chunk full, send bulk request
+                            if len(actions) >= BULK_CHUNK:
+                                try:
+                                    helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
+                                    actions.clear()
+                                except Exception as bulk_err:
+                                    print(f"Error during bulk indexing: {bulk_err}")
                             logs.append(generate_log(package, doc_id, index, 'success', None))
                             pbar.update(1)
                         except KeyError as keyerror:
@@ -234,6 +249,12 @@ def ted_xml_upload(package, package_path):
                             traceback.print_exc()
                             print(json.dumps(xml_dict, indent=4))
                             break
+    # flush remaining actions after package processed
+    if actions:
+        try:
+            helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
+        except Exception as bulk_err:
+            print(f"Error during final bulk indexing: {bulk_err}")
     logs_df = pd.concat(logs, ignore_index=True)
     file_exists = os.path.exists(LOGS_PATH)
     logs_df.to_csv(LOGS_PATH, mode='a', header=not file_exists, index=False)
