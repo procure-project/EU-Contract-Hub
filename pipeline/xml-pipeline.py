@@ -206,7 +206,7 @@ def generate_log(package,doc_id,index,status,error):
 
 def ted_xml_upload(package, package_path):
     logs = []
-    BULK_CHUNK = 500  # contracts per bulk request
+    BULK_CHUNK = 250  # contracts per bulk request
     actions = []  # accumulate bulk actions
     for root, _, files in os.walk(package_path):
         xml_files = [xml_file for xml_file in files if xml_file.endswith(".xml")]
@@ -238,11 +238,11 @@ def ted_xml_upload(package, package_path):
                                     try:
                                         helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
                                         actions.clear()
-                                        sleep(0.1)
+                                        sleep(1)
                                         break
                                     except Exception as bulk_err:
                                         print(f"Error during bulk indexing (attempt {attempt+1}): {bulk_err}")
-                                        sleep(0.2 * (2 ** attempt))  # exponential backoff
+                                        sleep(2 * (2 ** attempt))  # exponential backoff
                             logs.append(generate_log(package, doc_id, index, 'success', None))
                             pbar.update(1)
                         except KeyError as keyerror:
@@ -266,11 +266,11 @@ def ted_xml_upload(package, package_path):
         for attempt in range(5):
             try:
                 helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
-                sleep(0.1)
+                sleep(1)
                 break
             except Exception as bulk_err:
                 print(f"Error during final bulk indexing (attempt {attempt+1}): {bulk_err}")
-                sleep(0.2 * (2 ** attempt))  # exponential backoff
+                sleep(2 * (2 ** attempt))  # exponential backoff
     logs_df = pd.concat(logs, ignore_index=True)
     file_exists = os.path.exists(LOGS_PATH)
     logs_df.to_csv(LOGS_PATH, mode='a', header=not file_exists, index=False)
