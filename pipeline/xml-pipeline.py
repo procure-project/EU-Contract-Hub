@@ -14,6 +14,9 @@ import traceback
 from datetime import datetime as dt
 from pipelinepackage.auth import get_opensearch_auth
 import urllib.request
+from time import sleep
+from opensearchpy import RequestsHttpConnection
+from urllib3.util import Retry
 #                               ------------ CONSTANTS -----------------
 BASE_URL = 'https://ted.europa.eu/packages/daily/'
 BASE_FOLDER = "./temp/xml/"
@@ -26,7 +29,8 @@ PORT = 9200
 auth = get_opensearch_auth()
 INDEX_XML = 'ted-xml'
 INDEX_EFORMS = 'ted-eforms'
-# Create the client with SSL/TLS enabled, but hostname verification disabled.
+from time import sleep
+
 OS_CLIENT = OpenSearch(
     hosts=[{'host': HOST, 'port': PORT}],
     http_compress=True,  # enables gzip compression for request bodies
@@ -35,6 +39,10 @@ OS_CLIENT = OpenSearch(
     verify_certs=False,
     ssl_assert_hostname=True,
     ssl_show_warn=False,
+    retry_on_timeout=True,
+    max_retries=5,
+    timeout=60,
+    connection_class=RequestsHttpConnection
 )
 
 #                          ------------ FUNCTIONS -----------------
@@ -226,11 +234,15 @@ def ted_xml_upload(package, package_path):
                             })
                             # When chunk full, send bulk request
                             if len(actions) >= BULK_CHUNK:
-                                try:
-                                    helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
-                                    actions.clear()
-                                except Exception as bulk_err:
-                                    print(f"Error during bulk indexing: {bulk_err}")
+                                for attempt in range(5):
+                                    try:
+                                        helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
+                                        actions.clear()
+                                        sleep(0.1)
+                                        break
+                                    except Exception as bulk_err:
+                                        print(f"Error during bulk indexing (attempt {attempt+1}): {bulk_err}")
+                                        sleep(0.2 * (2 ** attempt))  # exponential backoff
                             logs.append(generate_log(package, doc_id, index, 'success', None))
                             pbar.update(1)
                         except KeyError as keyerror:
@@ -251,10 +263,14 @@ def ted_xml_upload(package, package_path):
                             break
     # flush remaining actions after package processed
     if actions:
-        try:
-            helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
-        except Exception as bulk_err:
-            print(f"Error during final bulk indexing: {bulk_err}")
+        for attempt in range(5):
+            try:
+                helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
+                sleep(0.1)
+                break
+            except Exception as bulk_err:
+                print(f"Error during final bulk indexing (attempt {attempt+1}): {bulk_err}")
+                sleep(0.2 * (2 ** attempt))  # exponential backoff
     logs_df = pd.concat(logs, ignore_index=True)
     file_exists = os.path.exists(LOGS_PATH)
     logs_df.to_csv(LOGS_PATH, mode='a', header=not file_exists, index=False)
