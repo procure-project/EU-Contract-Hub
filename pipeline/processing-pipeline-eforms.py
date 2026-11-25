@@ -15,7 +15,7 @@ def log_pipeline_status(client, doc_id):
     doc = {
         "pipeline":  "processing",
         "doc_id": doc_id,
-        "timestamp": datetime.datetime.now()
+        "timestamp": datetime.now()
     }
     client.index(index="pipeline_status", id=composite_id, body=doc)
 
@@ -261,8 +261,6 @@ scroll_id = response["_scroll_id"]
 scr = 1
 CPV_dict = proc.import_CPVDict()
 while True:
-    # Continue scrolling
-    response = client.scroll(scroll_id=scroll_id, scroll="1m")
     id_field_pairs = []
 
     # Extract document IDs and corresponding field values from the current batch of results
@@ -309,7 +307,7 @@ while True:
                 date_dispatch = None  # Handle parsing errors
 
             health_cpv = proc.process_health_cpv(cpv)
-            critical_cpv = proc.process_health_cpv(cpv)
+            critical_cpv = proc.process_crit_cpv(cpv)
 
             if isinstance(cparties, list):
                 ca_data = []
@@ -422,3 +420,4 @@ while True:
     scr = scr + 1
     if len(response["hits"]["hits"]) < scroll_size:
         break
+    response = client.scroll(scroll_id=scroll_id, scroll="10m")

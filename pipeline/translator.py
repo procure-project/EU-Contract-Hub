@@ -7,6 +7,7 @@ import getpass
 requests.packages.urllib3.disable_warnings()
 ssl._create_default_https_context = ssl._create_unverified_context
 import datetime
+import os
 from pipelinepackage.auth import get_opensearch_auth
 from math import ceil
 
@@ -67,7 +68,7 @@ client = OpenSearch(
     timeout=60
 )
 
-index_name = "procure"
+index_name = os.getenv("OPENSEARCH_INDEX", "procure_v5")
 batch_size = 100
 
 all_ids = list(get_all_candidate_ids(client, index_name))

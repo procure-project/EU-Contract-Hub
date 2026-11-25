@@ -1,6 +1,5 @@
 import json
 
-from pipeline.pipelinepackage.processingmodule import process_value, process_health_cpv
 from pipelinepackage import processingmodule as proc
 import concurrent.futures
 from opensearchpy import OpenSearch, helpers
@@ -16,7 +15,7 @@ def log_pipeline_status(client, doc_id):
     doc = {
         "pipeline":  "processing",
         "doc_id": doc_id,
-        "timestamp": datetime.datetime.now()
+        "timestamp": datetime.now()
     }
     client.index(index="pipeline_status", id=composite_id, body=doc)
 
@@ -220,8 +219,6 @@ scroll_id = response["_scroll_id"]
 
 scr = 1
 while True:
-    # Continue scrolling
-    response = client.scroll(scroll_id=scroll_id, scroll="1m")
     id_field_pairs = []
 
     # Extract document IDs and corresponding field values from the current batch of results
@@ -266,7 +263,7 @@ while True:
                 csv_found = True
 
                 value = inner_hit["_source"]["VALUE_EURO_FIN_2"]
-                value = process_value(value)
+                value = proc.process_value(value)
 
                 multiple_country = inner_hit["_source"]["B_MULTIPLE_COUNTRY"]
                 central_body = inner_hit["_source"]["B_AWARDED_BY_CENTRAL_BODY"]
@@ -345,5 +342,6 @@ while True:
     scr = scr + 1
     if len(response["hits"]["hits"]) < scroll_size:
         break
+    response = client.scroll(scroll_id=scroll_id, scroll="10m")
 
 

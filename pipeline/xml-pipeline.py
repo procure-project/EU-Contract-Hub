@@ -204,7 +204,21 @@ def generate_log(package,doc_id,index,status,error):
                         'date': dt.now().strftime('%Y-%m-%d %H:%M:%S')
                     }])
 
+def bulk_with_retry(actions, chunk_size):
+    for attempt in range(5):
+        try:
+            helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=chunk_size)
+            sleep(1)
+            return
+        except Exception as bulk_err:
+            print(f"Error during bulk indexing (attempt {attempt+1}): {bulk_err}")
+            sleep(2 * (2 ** attempt))  # exponential backoff
+    raise RuntimeError(f"Bulk indexing failed after 5 attempts ({len(actions)} docs)")
+
+
 def ted_xml_upload(package, package_path):
+    """Uploads every Contract Award Notice in a package. Raises if any notice
+    fails, so the caller does not mark the package as ingested."""
     logs = []
     BULK_CHUNK = 250  # contracts per bulk request
     actions = []  # accumulate bulk actions
@@ -225,7 +239,6 @@ def ted_xml_upload(package, package_path):
                             is_eforms, doc_id, xml_processed = format_dict(xml_dict)
                             if is_eforms:
                                 index = INDEX_EFORMS
-                            index_doc_opensearch(doc_id, xml_processed, index)
                             actions.append({
                                 "_op_type": "index",
                                 "_index": index,
@@ -234,15 +247,8 @@ def ted_xml_upload(package, package_path):
                             })
                             # When chunk full, send bulk request
                             if len(actions) >= BULK_CHUNK:
-                                for attempt in range(5):
-                                    try:
-                                        helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
-                                        actions.clear()
-                                        sleep(1)
-                                        break
-                                    except Exception as bulk_err:
-                                        print(f"Error during bulk indexing (attempt {attempt+1}): {bulk_err}")
-                                        sleep(2 * (2 ** attempt))  # exponential backoff
+                                bulk_with_retry(actions, BULK_CHUNK)
+                                actions.clear()
                             logs.append(generate_log(package, doc_id, index, 'success', None))
                             pbar.update(1)
                         except KeyError as keyerror:
@@ -250,7 +256,7 @@ def ted_xml_upload(package, package_path):
                                 print(f"exception{keyerror}")
                                 logs.append(generate_log(package, xml_path, index, 'failed',
                                                          'Key Error:' + str(keyerror)))
-                                break
+                                pbar.update(1)
                             else:
                                 pbar.update(1)
                                 logs.append(generate_log(package, xml_path, index, 'discarded', 'Not CAN'))
@@ -259,21 +265,18 @@ def ted_xml_upload(package, package_path):
                             logs.append(generate_log(package, xml_path, None, 'failed', 'Error:' + str(e)))
                             print(e)
                             traceback.print_exc()
-                            print(json.dumps(xml_dict, indent=4))
-                            break
+                            pbar.update(1)
     # flush remaining actions after package processed
     if actions:
-        for attempt in range(5):
-            try:
-                helpers.bulk(OS_CLIENT, actions, refresh=False, chunk_size=BULK_CHUNK)
-                sleep(1)
-                break
-            except Exception as bulk_err:
-                print(f"Error during final bulk indexing (attempt {attempt+1}): {bulk_err}")
-                sleep(2 * (2 ** attempt))  # exponential backoff
-    logs_df = pd.concat(logs, ignore_index=True)
-    file_exists = os.path.exists(LOGS_PATH)
-    logs_df.to_csv(LOGS_PATH, mode='a', header=not file_exists, index=False)
+        bulk_with_retry(actions, BULK_CHUNK)
+    if logs:
+        logs_df = pd.concat(logs, ignore_index=True)
+        os.makedirs(os.path.dirname(LOGS_PATH), exist_ok=True)
+        file_exists = os.path.exists(LOGS_PATH)
+        logs_df.to_csv(LOGS_PATH, mode='a', header=not file_exists, index=False)
+    failed = sum(int((l['status'] == 'failed').any()) for l in logs)
+    if failed:
+        raise RuntimeError(f"{failed} notice(s) failed in package {package}; not marking it as ingested")
 
 
 

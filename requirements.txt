@@ -1,0 +1,11 @@
+opensearch-py
+pandas
+numpy
+python-dotenv
+xmltodict
+wget
+tqdm
+click
+requests
+urllib3
+deep-translator

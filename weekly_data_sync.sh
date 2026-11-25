@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # ──────────────────────────────────────────────────────────────
-#  weekly_data_sync.sh   (run from cron or systemd-timer, once/day)
+#  weekly_data_sync.sh   (run from cron or systemd-timer)
+#  e.g. crontab:  0 3 * * 1  /path/to/EU-Contract-Hub/weekly_data_sync.sh
 # ──────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -11,7 +12,7 @@ cd "$WORKDIR"
 
 # ---------- Single-instance lock mechanism ----------
 # This prevents multiple copies of this script from running simultaneously
-LOCK="/tmp/euchub_daily.lock"
+LOCK="/tmp/euchub_weekly.lock"
 exec 9>"$LOCK"                    # Open file descriptor 9 for writing to lock file
 flock -n 9 || {                   # Try to get exclusive lock (non-blocking with -n)
     echo "Daily job already running, exit."
@@ -54,7 +55,7 @@ start_screen () {
 }
 
 # Just run both translators in parallel
-start_screen "translator-contract" "..."
-start_screen "translator-lot" "..."
+start_screen "translator-contract" "cd '$WORKDIR' && python3 pipeline/translator.py >>'$LOGDIR/translator_$TS.log' 2>&1"
+start_screen "translator-lot" "cd '$WORKDIR' && python3 pipeline/translator-lot.py >>'$LOGDIR/translator_lot_$TS.log' 2>&1"
 
 echo "=== DAILY JOB finished $(date) ===" | tee -a "$LOGDIR/daily_$TS.log"
