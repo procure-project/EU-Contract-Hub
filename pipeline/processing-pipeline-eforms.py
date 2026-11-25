@@ -52,8 +52,8 @@ def get_organization_data(id, all_organizations):
             },
             "Contact": {
                 "URL": organization.get("cbc:WebsiteURI", "-"),
-                "Email": organization.get("cac:Contact", {}).get("cbc:Telephone", "-"),
-                "Phone": organization.get("cac:Contact", {}).get("cbc:ElectronicMail", "-")
+                "Email": organization.get("cac:Contact", {}).get("cbc:ElectronicMail", "-"),
+                "Phone": organization.get("cac:Contact", {}).get("cbc:Telephone", "-")
             }
         }
     except KeyError:
@@ -293,10 +293,13 @@ while True:
             if add_cpv:
                 if isinstance(add_cpv, dict):
                     add_cpv = [add_cpv]
+                # list.append() returns None, so the old `cpv = [cpv].append(...)` wiped the CPV
+                # of every notice with additional codes. Main code stays first.
+                cpv, cpv_desc = [cpv], [cpv_desc]
                 for cpv_i in add_cpv:
-                    new_cpv = cpv_i["cbc:ItemClassificationCode"]
-                    cpv = [cpv].append(new_cpv)
-                    cpv_desc = [cpv_desc].append(CPV_dict.get(new_cpv, "-"))
+                    new_cpv = cpv_i.get("cbc:ItemClassificationCode", -1)
+                    cpv.append(new_cpv)
+                    cpv_desc.append(CPV_dict.get(new_cpv, "-"))
             c_nature = project.get("cbc:ProcurementTypeCode", "Unknown")
             proc_type = hit["_source"].get("cac:TenderingProcess", {}).get("cbc:ProcedureCode", "Unknown")
             date_dispatch = hit["_source"].get("cbc:IssueDate", None)
