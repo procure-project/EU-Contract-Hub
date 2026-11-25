@@ -1,2 +1,12 @@
 .idea
 **/hospital_extraction.csv
+
+# OS / editor junk
+.DS_Store
+~$*
+
+# Secrets and runtime output
+.env
+logs/
+temp/
+__pycache__/

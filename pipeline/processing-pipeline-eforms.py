@@ -15,7 +15,7 @@ def log_pipeline_status(client, doc_id):
     doc = {
         "pipeline":  "processing",
         "doc_id": doc_id,
-        "timestamp": datetime.datetime.now()
+        "timestamp": datetime.now()
     }
     client.index(index="pipeline_status", id=composite_id, body=doc)
 
@@ -52,8 +52,8 @@ def get_organization_data(id, all_organizations):
             },
             "Contact": {
                 "URL": organization.get("cbc:WebsiteURI", "-"),
-                "Email": organization.get("cac:Contact", {}).get("cbc:Telephone", "-"),
-                "Phone": organization.get("cac:Contact", {}).get("cbc:ElectronicMail", "-")
+                "Email": organization.get("cac:Contact", {}).get("cbc:ElectronicMail", "-"),
+                "Phone": organization.get("cac:Contact", {}).get("cbc:Telephone", "-")
             }
         }
     except KeyError:
@@ -261,8 +261,6 @@ scroll_id = response["_scroll_id"]
 scr = 1
 CPV_dict = proc.import_CPVDict()
 while True:
-    # Continue scrolling
-    response = client.scroll(scroll_id=scroll_id, scroll="1m")
     id_field_pairs = []
 
     # Extract document IDs and corresponding field values from the current batch of results
@@ -295,10 +293,13 @@ while True:
             if add_cpv:
                 if isinstance(add_cpv, dict):
                     add_cpv = [add_cpv]
+                # list.append() returns None, so the old `cpv = [cpv].append(...)` wiped the CPV
+                # of every notice with additional codes. Main code stays first.
+                cpv, cpv_desc = [cpv], [cpv_desc]
                 for cpv_i in add_cpv:
-                    new_cpv = cpv_i["cbc:ItemClassificationCode"]
-                    cpv = [cpv].append(new_cpv)
-                    cpv_desc = [cpv_desc].append(CPV_dict.get(new_cpv, "-"))
+                    new_cpv = cpv_i.get("cbc:ItemClassificationCode", -1)
+                    cpv.append(new_cpv)
+                    cpv_desc.append(CPV_dict.get(new_cpv, "-"))
             c_nature = project.get("cbc:ProcurementTypeCode", "Unknown")
             proc_type = hit["_source"].get("cac:TenderingProcess", {}).get("cbc:ProcedureCode", "Unknown")
             date_dispatch = hit["_source"].get("cbc:IssueDate", None)
@@ -309,7 +310,7 @@ while True:
                 date_dispatch = None  # Handle parsing errors
 
             health_cpv = proc.process_health_cpv(cpv)
-            critical_cpv = proc.process_health_cpv(cpv)
+            critical_cpv = proc.process_crit_cpv(cpv)
 
             if isinstance(cparties, list):
                 ca_data = []
@@ -422,3 +423,4 @@ while True:
     scr = scr + 1
     if len(response["hits"]["hits"]) < scroll_size:
         break
+    response = client.scroll(scroll_id=scroll_id, scroll="10m")

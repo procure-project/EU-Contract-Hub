@@ -39,9 +39,12 @@ def import_CPVDict():
 
 def cpv_match(categories, cpv_list):
     category_prefixes = [str(i).zfill(8).rstrip('0') for i in categories]
-    if isinstance(cpv_list, int):# If cpv_list is a single integer, convert it to a list
+    # A single code may arrive as int or str ("33600000", or "33600000-1" with check digit).
+    # Strings used to be iterated character by character, so they never matched.
+    if not isinstance(cpv_list, (list, tuple, set)):
         cpv_list = [cpv_list]
-    return any(any(str(cpv).zfill(8).startswith(prefix) for prefix in category_prefixes) for cpv in cpv_list)
+    codes = [str(cpv).split("-")[0].strip().zfill(8) for cpv in cpv_list if cpv not in (None, -1, "-", "")]
+    return any(any(code.startswith(prefix) for prefix in category_prefixes) for code in codes)
 
 def process_value(value):
     """Process the 'Value' field to filter high and low values."""
